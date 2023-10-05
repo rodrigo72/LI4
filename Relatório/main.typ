@@ -3,10 +3,10 @@
 
 #show: project
 
-#cover(title: "Título", authors: (
-  (name: "Aluno 1", number: "a100001"), 
-  (name: "Aluno 2", number: "a100002"), 
-  (name: "Aluno 3", number: "a100003")), 
+#cover(title: "Music Memorabilia Online Auction", authors: (
+  (name: "Rodrigo Monteiro", number: "a100706"), 
+  (name: "Miguel Gramoso", number: "a100835"), 
+  (name: "Luís Figueiredo", number: "a100549")), 
   "Setembro, 2023")
 
 #set page(numbering: "i", number-align: center)
@@ -75,51 +75,66 @@
 == Estrutura do Relatório
 <\<Após a leitura da introdução de um relatório é "simpático" apresentar uma breve descrição daquilo que se vai encontrar nos demais capítulos do relatório.>>
 
-= Sugestões para Escrita do Relatório
+= Definição do Sistema
 
-== Sugestões Gerais
+== Contextualização
 
-<\<O presente documento deverá servir de base para a escrita do relatório do trabalho realizado.>>
+Alexandre Sousa, um empreendedor calculoso, começou a sua carreira como um contabilista certificado, e com o passar do tempo ficou reconhecido na sua área de trabalho. Possui uma postura calma; no entanto, o seu entusiasmo por vezes interrompe essa serenidade, o que resulta num carisma supreendente. Estas características, juntamente com a sua capacidade de liderança, levou-o a formar uma empresa que, posteriormente, obteve bastante sucesso a nível internacional.
 
-<\<O tipo de letra a utilizar deverá ser Arial.. Porém recomenda-se em situações de escrita de excertos de programas a utilização do tipo de letra Courier New.>>
+Décadas mais tarde, em 2018, Alexandre vendeu a sua parte da empresa, e deixou o cargo de diretor. Assim, com 51 anos de idade, decidiu afastar-se da vida profissional. Apesar disso, continuou a direcionar a sua atenção para o surgimento de novas empresas e modelos de negócio da indústria. Afinal, sempre almejou aprender e empenhar-se nas áreas que mais admirava. 
 
-<\< Alguns estilos documento: Heading1, Heading2, Heading3, Normal e Footnote Text; foram especialmente modificados para os relatórios da presente disciplina.>>
+Em 2021, encontrou um domínio que instigou particularmente o seu interesse: leilões. Levado por essa vontade, estudou teoria de leilões, começando com os livros e artigos de Paul Klemperer, até chegar, por fim, ao estudo e análise do desenvolvimento e design de leilões. Então, depois de dois anos, decidiu começar uma nova empresa, desta vez de leilões online. Determinou, que a área de negócio seria “music memorabilia & vinyls”, inspirada no seu hobby de colecionar vinis exclusivos, e na sua afeição à música. 
 
-<\<Os formatos e estilos de letra não devem estar constantemente a ser modificados ao longo do relatório. Tal situação dará origem a um relatório com um formato e apresentação muito heterogénea e com um aspecto pouco consistente.>>
+Agora, em 2023, Alexandre reúne uma equipa: um gestor e um administrador de leilões, um especialista em vinis, um especialista em marketing, fotógrafos, assistentes e catalogadores. Para além disso, para o desenvolvimento do sistema, contrata uma empresa de desenvolvimento de software.
 
-== Termos Estrangeiros
-<\<Os termos estrangeiros utilizados deverão ser apresentados num formato diferente do resto do texto, por exemplo: Data Warehouse (em itálico) ou "Data Warehouses" (entre aspas), devendo ser evitados sempre que se conheça uma tradução correcta para português. Para validação desses termos existem vários dicionários no mercado que poderão ser úteis.>>
 
-== Tabelas e Figuras
-<\<Caso seja necessário introduzir figuras ou tabelas no corpo do documento, estas devem seguir os formatos que se apresentam de seguida. Qualquer figura ou tabela deverá ter uma legenda associada, devendo esta estar correctamente apresentada no índice respectivo no início do relatório.>>
 
-#figure(
-  caption: "Ilustração de inserção de uma figura e legenda.",
-  kind: image,
-  image("images/example.png", width: 70%)
-)
+== Fundamentação
 
-\
+== Objetivos
 
-#figure(
-  caption: "Ilustração de inserção de uma tabela e sua legenda.",
-  kind: table,
-  table(
-    columns: 5 * (1fr,), 
-    stroke: (dash: "densely-dotted", thickness: 0.75pt), 
-    fill: (x, y) => if y == 0 { gray.lighten(50%) },
-    [*Column 1*], [*Column 2*], [*Column 3*], [*Column 4*], [*Column 5*],
-    [Column 1], [Column 2], [Column 3], [Column 4], [Column 5],
-    [Column 1], [Column 2], [Column 3], [Column 4], [Column 5],
-    [Column 1], [Column 2], [Column 3], [Column 4], [Column 5],
-  )
-)
+== Viabilidade
+
+== Equipa de trabalho
+
+== Plano de execução do trabalho
+
+= Definição de Requisitos
+
+== Apresentação da estratégia e método
+
+== Descrição geral dos requisitos levantados
+
+== Validação dos requisitos
+
+= Especificação e Modelação do Software
+
+== Apresentação geral da especificação
+
+== Aspetos estruturais
+
+== Aspetos comportamentais
+
+= Conceção do Sistema de Dados
+
+== Apresentação geral das estrutura do sistema de dados
+
+== Descrição detalhada dos vários elementos de dados e seus relacionamentos
+
+= Esboço das Interfaces do Sistema
+
+== Estrutura geral das interfaces do sistema
+
+== Caracterização das interfaces
+
 
 = Conclusões e Trabalho Futuro
 
 <\<Elaborar uma apreciação crítica sobre o trabalho realizado, apontando os seus pontos fortes e fracos. Adicionalmente, caso se aplique, enunciar eventuais tarefas a realizar futuramente ou novas opções para estender o trabalho realizado.>>
 
-#heading(numbering: none)[Referências]
+// #heading(numbering: none)[Referências]
+#bibliography("refs.bib", title: "Referências")
+
 <\<Apresentar a lista de referências bibliográficas referidas ao longo do relatório; recomenda-se a utilização do formato Harvard - http://libweb.anglia.ac.uk/referencing/harvard.htm>>
 
 <\<O Typst tem suporte nativo a listagem de referências. 
