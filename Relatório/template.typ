@@ -36,3 +36,10 @@
 }
 
 #let attachment = figure.with(kind: "attachment", numbering: "1", supplement: [Anexo])
+
+#let theorem(body, numbered: true) = figure(
+  body,
+  kind: "theorem",
+  supplement: [Theorem],
+  numbering: if numbered { "1" },
+)
