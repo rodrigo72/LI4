@@ -79,7 +79,7 @@
 
 == Contextualização
 
-Alexandre Sousa, um empreendedor calculoso, começou a sua carreira como um contabilista certificado, e com o passar do tempo ficou reconhecido na sua área de trabalho. Possui uma postura calma; no entanto, o seu entusiasmo por vezes interrompe essa serenidade, o que resulta num carisma surpreendente. Estas características, juntamente com a sua capacidade de liderança, levou-o a formar uma empresa que, posteriormente, obteve bastante sucesso a nível internacional.
+Alexandre Sousa, um empreendedor calculoso, começou a sua carreira como um contabilista certificado, e com o passar do tempo ficou reconhecido na sua área de trabalho. Possui uma postura calma; no entanto, o seu entusiasmo por vezes interrompe essa serenidade. Estas características, juntamente com a sua capacidade de liderança, levou-o a formar uma empresa que, posteriormente, obteve bastante sucesso a nível internacional.
 
 Décadas mais tarde, em 2018, vendeu a sua parte da empresa, e deixou o cargo de diretor. Assim, com 51 anos de idade, decidiu afastar-se da vida profissional. Apesar disso, continuou a direcionar a sua atenção para o surgimento de novas empresas e modelos de negócio da indústria. Afinal, almeja sempre aprender e empenhar-se nas áreas que mais admira. 
 
@@ -118,7 +118,11 @@ Por fim, como a maioria dos clientes prefere métodos justos e honestos, será a
 
 / Ascending clock auction: _In the model most commonly used by auction theorists, the price rises continuously while bidders gradually quit the auction. Bidders observe when their competitors quit, and once someone quits they are not let back in. There is no possibility for one bidder to preempt the process by making a large “jump bid”_ @paul_auction_theory_book.
 
-Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a partir de um preço inicial, e os participantes podem escolher sair. Esta ideia, apesar de tradicional, adequa-se ao ambiente digital pois o processo é muito mais simples do que, por exemplo, o de um "ascending-bid auction" normal, possuindo ainda assim características de um "general model" #footnote("Também existem outros tipos básicos de leilões como o \"descending-bid\", \"first-price sealed-bid\", e \"second-price sealed-bid\". Em teoria, mas tendo mais em consideração um \"private-value model\", o \"descending-bid\" é basicamente um \"first-price sealed-bid\" em termos de \"outcome\", sendo por vezes chamado de \"open first-price auction\". Da mesma forma, o \"ascending-bid\" (versão japonesa) é semelhante a um \"second-price auction\", como se prova com o teorema da \"revenue equivalence\"."). Também serão utilizados alguns aspetos da "second-price sealed-bid", de uma forma semelhante ao leilão "Anglo-Dutch", que consegue capturar as vantagens do "sealed-bid auction" @auction_design_article.
+Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a partir de um preço inicial, e os participantes podem escolher sair. Esta ideia, apesar de tradicional, adequa-se ao ambiente digital pois o processo é muito mais simples do que, por exemplo, o de um "ascending-bid auction" normal, possuindo ainda assim características de um "general model" #footnote("Também existem outros tipos básicos de leilões como o \"descending-bid\", \"first-price sealed-bid\", e \"second-price sealed-bid\". Em teoria, mas tendo mais em consideração um \"private-value model\", o \"descending-bid\" é semelhante a um \"first-price sealed-bid\", sendo por vezes chamado de \"open first-price auction\". Da mesma forma, o \"ascending-bid\" (versão japonesa) é semelhante a um \"second-price auction\", tal como enuncia o \"revenue equivalence theorem\"."). Também serão utilizados alguns aspetos da "second-price sealed-bid", de uma forma semelhante ao leilão "Anglo-Dutch", que consegue capturar as vantagens do "sealed-bid auction" @auction_design_article.
+
+== Recursos a utilizar
+
+
 
 == Equipa de trabalho
 
@@ -126,7 +130,11 @@ Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a parti
 
 == Plano de execução do trabalho
 
-
+#figure(
+  caption: "Diagrama de Gantt - Plano de execução",
+  kind: image,
+  image("images/plano_de_execuçao.jpg", width: 100%)
+)
 
 = Definição de Requisitos
 
