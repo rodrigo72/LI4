@@ -99,12 +99,12 @@ Estando já familiarizado com o mercado de leilões relacionados a música, trad
 
 Portanto, definiu um conjunto de objetivos, alinhados com a sua ética de trabalho, que pretende atingir com a sua nova empresa.\ \
 - Estabelecer um valor baixo para a comissão do comprador (“buyer's premium”) e para a comissão de venda (“sales commission”), i.e., entre 15% e 20% @auction_houses_comparison_table.
-- Fazer um sistema honesto e seguro através de diversos  mecanismos: utilização de um tipo de leilão que siga esse princípios; manutenção de uma base de dados acerca dos produtos vendidos, ou à venda no mercado, atualizada por assistentes e até por alguns utilizadores selecionados; verificação da autenticidade dos vendedores e dos compradores, e verificação da sua identidade; método de avaliação de vendedores e compradores no sistema.
+- Fazer um sistema honesto e seguro através de diversos  mecanismos: utilização de um tipo de leilão que siga esses princípios; manutenção de uma base de dados acerca dos produtos vendidos, ou à venda no mercado, atualizada por assistentes e até por alguns utilizadores selecionados; verificação da autenticidade dos vendedores e dos compradores, e verificação da sua identidade; método de avaliação de vendedores e compradores no sistema.
 - Obter uma comunidade distribuída geograficamente.
 - Desencorajar comportamentos colusivos, e predatórios @auction_design_article.
 - Preservar e valorizar a história musical dos artigos.
 - Vender artigos assinados ou com dedicatórias, vinis de edições exclusivas, antigas ou limitadas, itens pessoais, adereços, roupas ou instrumentos utilizados pelos artistas em vídeos ou concertos, prémios musicais, entre outros.
-- Obter um sistema capaz de suportar a interação com um grande número de clientes em simultâneo, sem latência ou outros problemas técnicos.
+- Obter um sistema capaz de suportar interação com um grande número de clientes em simultâneo, sem latência ou outros problemas técnicos.
 - Obter um sistema que permita a gestão dos eventos por parte de administradores e assistentes.
 
 
