@@ -86,7 +86,7 @@ Décadas mais tarde, em 2018, vendeu a sua parte da empresa, e deixou o cargo de
 Em 2021, encontrou um domínio que instigou particularmente o seu interesse: leilões. Levado por essa vontade, estudou teoria de leilões, começando com os livros e artigos de Paul Klemperer, até chegar, por fim, ao estudo e análise do desenvolvimento e design de leilões. 
 Passado um ano, decidiu começar uma nova empresa, desta vez de leilões online. Determinou, também, que a área de negócio seria “music memorabilia & vinyls”, inspirada pelo seu hobby de colecionar vinis exclusivos, e pela sua afeição à música. 
 
-Agora, em 2023, Alexandre reúne uma equipa: um gestor e um administrador de leilões, um especialista em vinis, um especialista em marketing, fotógrafos, assistentes e catalogadores. Para além disso, para o desenvolvimento do sistema, contrata uma empresa de desenvolvimento de software.
+Agora, em 2023, Alexandre reúne uma equipa: um gestor, um administrador de leilões, um especialista em vinis, um especialista em marketing, fotógrafos, assistentes e catalogadores. Para além disso, para o desenvolvimento do sistema, contrata uma empresa de desenvolvimento de software.
 
 
 == Fundamentação
@@ -126,6 +126,17 @@ Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a parti
 
 == Equipa de trabalho
 
+- *Pessoal Interno:*
+  - Um gestor
+  - Um administrador de leilões
+  - Um especialista em vinis
+  - Um especialista em marketing
+  - Fotógrafos
+  - Assistentes
+  - Catalogadores
+
+- *Pessoal Externo:*
+  - Empresa de desenvolvimento de software
 
 
 == Plano de execução do trabalho
