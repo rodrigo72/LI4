@@ -3,10 +3,14 @@
 
 #show: project
 
-#cover(title: "Music Memorabilia Online Auction", authors: (
+#set list(marker: [--])
+
+// Music Memorabilia Online Auction
+#cover(title: "[Nome original aqui, sla UMusic Auction]", authors: (
   (name: "Rodrigo Monteiro", number: "a100706"), 
   (name: "Miguel Gramoso", number: "a100835"), 
-  (name: "Luís Figueiredo", number: "a100549")), 
+  (name: "Luís Figueiredo", number: "a100549"), 
+  (name: "Diogo Abreu", number: "a100646")),
   "Setembro, 2023")
 
 #set page(numbering: "i", number-align: center)
@@ -17,9 +21,9 @@
 
 \
 
-*Área de Aplicação*: <\<Identificação da Área de trabalho. Por exemplo: Desenho e arquitectura de Sistemas de Bases de Dados.>>
+*Área de Aplicação*: Desenvolvimento de uma aplicação para um leilão online.
 
-*Palavras-Chave*: <\<Conjunto de palavras-chave que permitirão referenciar domínios de conhecimento, tecnologias, estratégias, etc., directa ou indirectamente referidos no relatório. Por exemplo: Bases de Dados Relacionais, Gestão de Índices, JAVA, Protocolos de Comunicação.>>
+*Palavras-Chave*: Leilões Online, Music Memorabilia, SQL, C\#, Engenharia de Software, Bases de Dados.
 
 #show outline: it => {
     show heading: set text(size: 18pt)
@@ -86,7 +90,7 @@ Décadas mais tarde, em 2018, vendeu a sua parte da empresa, e deixou o cargo de
 Em 2021, encontrou um domínio que instigou particularmente o seu interesse: leilões. Levado por essa vontade, estudou teoria de leilões, começando com os livros e artigos de Paul Klemperer, até chegar, por fim, ao estudo e análise do desenvolvimento e design de leilões. 
 Passado um ano, decidiu começar uma nova empresa, desta vez de leilões online. Determinou, também, que a área de negócio seria “music memorabilia & vinyls”, inspirada pelo seu hobby de colecionar vinis exclusivos, e pela sua afeição à música. 
 
-Agora, em 2023, Alexandre reúne uma equipa: um gestor, um administrador de leilões, um especialista em vinis, um especialista em marketing, fotógrafos, assistentes e catalogadores. Para além disso, para o desenvolvimento do sistema, contrata uma empresa de desenvolvimento de software.
+Agora, em 2023, Alexandre reúne uma equipa: um gestor, um administrador de leilões, um especialista em vinis, entre outros. Para além disso, para o desenvolvimento do sistema, contrata uma empresa de desenvolvimento de software.
 
 
 == Fundamentação
@@ -98,7 +102,7 @@ Estando já familiarizado com o mercado de leilões relacionados a música, trad
 == Objetivos
 
 Portanto, definiu um conjunto de objetivos, alinhados com a sua ética de trabalho, que pretende atingir com a sua nova empresa.\ \
-- Estabelecer um valor baixo para a comissão do comprador (“buyer's premium”) e para a comissão de venda (“sales commission”), i.e., entre 15% e 20% @auction_houses_comparison_table.
+- Estabelecer um valor baixo para a comissão do comprador (“buyer's premium”) e para a comissão de venda (“sales commission”) @auction_houses_comparison_table.
 - Fazer um sistema honesto e seguro através de diversos  mecanismos: utilização de um tipo de leilão que siga esses princípios; manutenção de uma base de dados acerca dos produtos vendidos, ou à venda no mercado, atualizada por assistentes e até por alguns utilizadores selecionados; verificação da autenticidade dos vendedores e dos compradores, e verificação da sua identidade; método de avaliação de vendedores e compradores no sistema.
 - Obter uma comunidade distribuída geograficamente.
 - Desencorajar comportamentos colusivos, e predatórios @auction_design_article.
@@ -120,9 +124,24 @@ Por fim, como a maioria dos clientes prefere métodos justos e honestos, será a
 
 Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a partir de um preço inicial, e os participantes podem escolher sair. Esta ideia, apesar de tradicional, adequa-se ao ambiente digital pois o processo é muito mais simples do que, por exemplo, o de um "ascending-bid auction" normal, possuindo ainda assim características de um "general model" #footnote[Também existem outros tipos básicos de leilões como o \"descending-bid\", \"first-price sealed-bid\", e \"second-price sealed-bid\". Em teoria, mas tendo mais em consideração um \"private-value model\", o \"descending-bid\" é semelhante a um \"first-price sealed-bid\", sendo por vezes chamado de \"open first-price auction\". Da mesma forma, o \"ascending-bid\" (o leilão japonês) é semelhante a um \"second-price auction\", tal como enuncia o \"revenue equivalence theorem\". @wiki_revenue_equivalence]. Também serão utilizados alguns aspetos da "second-price sealed-bid", de uma forma semelhante ao leilão "Anglo-Dutch", que consegue capturar as vantagens do "sealed-bid auction" @auction_design_article.
 
+#pagebreak()
+
 == Recursos a utilizar
 
+// pah, podemos ir adicionando coisas aqui ao longo tempo
+=== Ferramentas
 
+- Microsoft Visual Studio e Microsoft Visual Studio Code
+- Microsoft .NET C\#
+- Microsoft SQL Server
+- UML
+- Typst
+
+=== Recursos Humanos
+
+- Levantadores de Requisitos 
+- Utilizadores
+- Patrocinadores
 
 == Equipa de trabalho
 
@@ -136,22 +155,56 @@ Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a parti
   - Catalogadores
 
 - *Pessoal Externo:*
-  - Empresa de desenvolvimento de software
+  - Equipa de desenvolvimento do sistema:
+    - Rodrigo Monteiro, Luís Figueiredo, Diogo Abreu e Miguel Gramoso.
+
+- *Outros*:
+  - Pessoas selecionadas para testar do sistema.
 
 
 == Plano de execução do trabalho
+
+Antes de ser iniciada a execução do projeto, foi definido um plano de execução da fase inicial, através de um diagrama de Gantt (@diagrama_gantt), e cujas tarefas estão distribuídas ao longo do tempo e por diferentes grupos de tarefas.
+
+É possível verificar que foi alocada uma quantidade de tempo significativa para a pesquisa e estudo acerca do tema, visto que achamos que pode influenciar a qualidade do trabalho futuro.
+Por fim, definimos que algumas tarefas têm dependências, i.e., têm uma sequência fixa, e que algumas podem ser executadas em paralelo, de modo a aumentar a eficiência do grupo de trabalho face às restrições de tempo.
+As restantes tarefas são relativas à implementação e desenvolvimento do sistema e serão planeadas no fim da fase inicial.
+
+Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tarefas, foram planeadas diversas reuniões, e foi desenvolvido um _Discord Bot_ de gestão de tarefas (@discord_bot).
 
 #figure(
   caption: "Diagrama de Gantt - Plano de execução",
   kind: image,
   image("images/plano_de_execuçao.jpg", width: 100%)
-)
+) <diagrama_gantt>
+
+#figure(
+  caption: "Task-Manager Bot",
+  kind: image,
+  image("images/discord_bot.png", width: 35%)
+) <discord_bot>
 
 = Definição de Requisitos
 
 == Apresentação da estratégia e método
 
+// estive a pesquisar sobre isto, n fiz nada tho
+
 == Descrição geral dos requisitos levantados
+
+=== Registo do utilizador
+
+#set enum(indent: 10pt)
+
+Requisitos do utilizador:
+  + 
+  + 
+
+Requisitos do sistema:
+  + 
+  + 
+
+#set enum(indent: 0pt)
 
 == Validação dos requisitos
 
