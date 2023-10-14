@@ -129,23 +129,25 @@ Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a parti
 == Recursos a utilizar
 
 // pah, podemos ir adicionando coisas aqui ao longo tempo
-=== Ferramentas
+// fundamentar isto com (por exemplo) : usamos Visual Paradigm porque UML etc etc
+// o mesmo para os outros
+*Ferramentas*
 
-- Microsoft Visual Studio e Microsoft Visual Studio Code
-- Microsoft .NET C\#
-- Microsoft SQL Server
-- UML
-- Typst
+  - Microsoft Visual Studio e Microsoft Visual Studio Code
+  - Microsoft .NET C\#
+  - Microsoft SQL Server
+  - Visual Paradigm
+  - Typst
 
-=== Recursos Humanos
+*Recursos Humanos*
 
-- Levantadores de Requisitos 
-- Utilizadores
-- Patrocinadores
+  - Levantadores de Requisitos 
+  - Utilizadores
+  - Patrocinadores
 
 == Equipa de trabalho
 
-- *Pessoal Interno:*
+*Pessoal Interno*
   - Um gestor
   - Um administrador de leilões
   - Um especialista em vinis
@@ -154,11 +156,11 @@ Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a parti
   - Assistentes
   - Catalogadores
 
-- *Pessoal Externo:*
+*Pessoal Externo*
   - Equipa de desenvolvimento do sistema:
     - Rodrigo Monteiro, Luís Figueiredo, Diogo Abreu e Miguel Gramoso.
 
-- *Outros*:
+*Outros*
   - Pessoas selecionadas para testar do sistema.
 
 
@@ -192,17 +194,111 @@ Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tar
 
 == Descrição geral dos requisitos levantados
 
-=== Registo do utilizador
-
 #set enum(indent: 10pt)
 
+=== Registo de um utilizador
+
 Requisitos do utilizador:
-  + 
-  + 
+  + O utilizador só pode participar nos leilões se estiver registado.
+  + O utilizador cria uma conta na plataforma.
 
 Requisitos do sistema:
-  + 
-  + 
+  + O sistema pede o nome completo, email e palavra-passe.
+  + Opcionalmente, o cliente pode escolher definir um método de pagamento, uma morada de envio, e uma autenticação de dois fatores introduzindo o número de telemóvel.
+  + Não é permitida a existência de utilizadores com o mesmo email.
+  + As informações são guardadas na base de dados.
+  + É enviado um email para verificação da conta.
+
+=== Adicionar um método de pagamento
+
+Requisitos do utilizador:
+  + O utilizador escolhe introduzir os seus dados de pagamento.
+
+Requisitos do sistema:
+  + O utilizador fornece o nome associado ao cartão, o número do cartão, a data de validade, e o CVV/CVC.
+  + Pode introduzir morada de faturação ou escolher que esta seja a mesma da morada de envio.
+  + Também pode definir ACH como método de pagamento.
+
+=== Adicionar uma morada
+
+Requisitos do utilizador:
+  + O utilizador escolhe introduzir uma morada (de faturação ou de envio).
+
+Requisitos do sistema:
+  + O utilizador fornece a morada, país, estado/província/distrito, cidade e código-postal.
+
+=== Autenticação
+
+Requisitos do utilizador:
+  + O utilizador pode aceder à sua conta e pode participar nos leilões depois de estar autenticado.
+
+Requisitos do sistema:
+  + O sistema pede o email e a palavra-passe do utilizador.
+  + O email tem de estar registado, caso contrário a autenticação é rejeitada.
+  + Caso esteja registado, e a palavra-passe encriptada corresponda à fornecida, a autenticação é feita com sucesso.
+
+=== Terminar sessão
+
+Requisitos do utilizador:
+  + O utilizador escolhe terminar a sessão, tendo uma sessão iniciada.
+
+Requisitos do sistema:
+  + O sistema termina a sessão em curso.
+  + Para entrar na conta, terá de ser feita uma autenticação novamente.
+
+=== Editar conta
+
+Requisitos do utilizador:
+  + O utilizador acede ao seu perfil para editar os seus dados.
+
+Requisitos do sistema:
+  + O email e a palavra-passe só podem ser editados se for efetuada uma nova autenticação (introdução da palavra-passe).
+  + Podem ser adicionadas até 5 moradas de faturação e de envio, ou editadas.
+  + Pode ser adicionado ou removido um método de pagamento.
+  + As alterações são guardadas, após o utilizador submeter as alterações.
+
+=== Pesquisa
+
+Requisitos do utilizador:
+  + Pesquisa um item, artista, vendedor, leilão, lote, etc.
+  + O utilizador pode adicionar filtros e opções de ordenação dos resultados.
+  + O utilizador pode mudar página de resultados caso exista mais do que uma.
+
+Requisitos do sistema:
+  + O sistema apresenta esta funcionalidade de pesquisa sempre que possível.
+  + O sistema recebe uma _string_ de pesquisa com keywords do utilizador, e, opcionalmente, determinados filtros (por exemplo, categoria, estado, etc.) e opções de sorting (por exemplo, preço, popularidade, relevância, _latest_, etc.).
+  + _Semantic search_ e _natural language processing_ poderão ser utilizados.
+  + Retorna os resultados correspondentes (com paginação, se necessário).
+
+=== Consulta de um item
+
+Requisitos do utilizador:
+  + O utilizador escolhe a visualização específica de um item.
+  + Pode consultar o perfil do vendedor que vende o item.
+  + Pode escolher visualizar todos os itens do leilão a que o item pertence, se existirem.
+  + Pode adicionar ou remover o item da sua lista de favoritos. 
+
+Requisitos do sistema:
+  + O sistema apresenta as imagens disponíveis, o nome, a descrição, o valor estimado, o preço inicial, as percentagens da comissão do comprador e do vendedor, a data do leilão, e o vendedor. 
+
+=== Consulta de um leilão
+
+Requisitos do utilizador:
+  + O utilizador escolhe visualizar os detalhes de um leilão.
+
+Requisitos do sistema:
+  + Fornece o nome/ tema do leilão, detalhes, a data e uma listagem do(s) lote(s).
+  + Fornece opções de filtragem e ordenação dos lotes.
+
+=== Consulta da lista de favoritos
+
+Requisitos do utilizador:
+  + O utilizador pode escolher verificar a sua lista de favoritos de leilões, itens, ou de vendedores.
+
+Requisitos do sistema:
+  + O sistema mostra a lista de favoritos do utilizador com base na data de adição e com paginação, se necessário.
+
+
 
 #set enum(indent: 0pt)
 
