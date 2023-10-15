@@ -3,8 +3,6 @@
 
 #show: project
 
-#set list(marker: [--])
-
 // Music Memorabilia Online Auction
 #cover(title: "[Nome original aqui, sla UMusic Auction]", authors: (
   (name: "Rodrigo Monteiro", number: "a100706"), 
@@ -63,6 +61,8 @@
 #set page(numbering: "1", number-align: center)
 #counter(page).update(1)
 
+#set list(marker: [--])
+
 = Introdução
 <<\Este primeiro capítulo deverá ter obrigatoriamente as subsecções abaixo apresentadas.>>
 
@@ -103,7 +103,7 @@ Estando já familiarizado com o mercado de leilões relacionados a música, trad
 
 Portanto, definiu um conjunto de objetivos, alinhados com a sua ética de trabalho, que pretende atingir com a sua nova empresa.\ \
 - Estabelecer um valor baixo para a comissão do comprador (“buyer's premium”) e para a comissão de venda (“sales commission”) @auction_houses_comparison_table.
-- Fazer um sistema honesto e seguro através de diversos  mecanismos: utilização de um tipo de leilão que siga esses princípios; manutenção de uma base de dados acerca dos produtos vendidos, ou à venda no mercado, atualizada por assistentes e até por alguns utilizadores selecionados; verificação da autenticidade dos vendedores e dos compradores, e verificação da sua identidade; método de avaliação de vendedores e compradores no sistema.
+- Fazer um sistema honesto e seguro através de diversos  mecanismos: utilização de um tipo de leilão que siga esses princípios; manutenção de uma base de dados acerca dos produtos vendidos, ou à venda no mercado, atualizada por assistentes e até por alguns utilizadores selecionados; verificação da autenticidade dos vendedores e dos compradores, e verificação da sua identidade.
 - Obter uma comunidade distribuída geograficamente.
 - Desencorajar comportamentos colusivos, e predatórios @auction_design_article.
 - Preservar e valorizar a história musical dos artigos.
@@ -201,12 +201,13 @@ Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tar
 Requisitos do utilizador:
   + O utilizador só pode participar nos leilões se estiver registado.
   + O utilizador cria uma conta na plataforma.
+  + Para que um utilizador seja administrador, tal terá de ser assinalado manualmente por outros administradores ou por responsáveis pelo sistema/ base de dados do sistema.
 
 Requisitos do sistema:
   + O sistema pede o nome completo, email e palavra-passe.
   + Opcionalmente, o cliente pode escolher definir um método de pagamento, uma morada de envio, e uma autenticação de dois fatores introduzindo o número de telemóvel.
   + Não é permitida a existência de utilizadores com o mesmo email.
-  + As informações são guardadas na base de dados.
+  + As informações são guardadas.
   + É enviado um email para verificação da conta.
 
 === Adicionar um método de pagamento
@@ -260,13 +261,13 @@ Requisitos do sistema:
 === Pesquisa
 
 Requisitos do utilizador:
-  + Pesquisa um item, artista, vendedor, leilão, lote, etc.
+  + Pesquisa de um item, artista, leilão, lote, etc.
   + O utilizador pode adicionar filtros e opções de ordenação dos resultados.
-  + O utilizador pode mudar página de resultados caso exista mais do que uma.
+  + O utilizador pode mudar a página de resultados caso exista mais do que uma.
 
 Requisitos do sistema:
   + O sistema apresenta esta funcionalidade de pesquisa sempre que possível.
-  + O sistema recebe uma _string_ de pesquisa com keywords do utilizador, e, opcionalmente, determinados filtros (por exemplo, categoria, estado, etc.) e opções de sorting (por exemplo, preço, popularidade, relevância, _latest_, etc.).
+  + O sistema recebe uma _string_ de pesquisa com _keywords_, e, opcionalmente, determinados filtros (por exemplo, categoria, estado, etc.) e opções de sorting (por exemplo, preço, popularidade, relevância, _latest_, etc.).
   + _Semantic search_ e _natural language processing_ poderão ser utilizados.
   + Retorna os resultados correspondentes (com paginação, se necessário).
 
@@ -274,31 +275,155 @@ Requisitos do sistema:
 
 Requisitos do utilizador:
   + O utilizador escolhe a visualização específica de um item.
-  + Pode consultar o perfil do vendedor que vende o item.
   + Pode escolher visualizar todos os itens do leilão a que o item pertence, se existirem.
   + Pode adicionar ou remover o item da sua lista de favoritos. 
 
 Requisitos do sistema:
-  + O sistema apresenta as imagens disponíveis, o nome, a descrição, o valor estimado, o preço inicial, as percentagens da comissão do comprador e do vendedor, a data do leilão, e o vendedor. 
+  + O sistema apresenta as imagens disponíveis, o nome, a descrição, o valor estimado, o preço inicial, as percentagens da comissão do comprador e a data do leilão.
 
 === Consulta de um leilão
 
 Requisitos do utilizador:
   + O utilizador escolhe visualizar os detalhes de um leilão.
+  + Pode escolher ser notificado quando este começar.
+  + Pode adicionar o leilão aos favoritos.
 
 Requisitos do sistema:
-  + Fornece o nome/ tema do leilão, detalhes, a data e uma listagem do(s) lote(s).
+  + Fornece o nome/ tema do leilão, descrição, a data e uma listagem do(s) lote(s).
   + Fornece opções de filtragem e ordenação dos lotes.
 
 === Consulta da lista de favoritos
 
 Requisitos do utilizador:
-  + O utilizador pode escolher verificar a sua lista de favoritos de leilões, itens, ou de vendedores.
+  + O utilizador pode escolher verificar a sua lista de leilões, itens, ou de categorias favoritas.
 
 Requisitos do sistema:
   + O sistema mostra a lista de favoritos do utilizador com base na data de adição e com paginação, se necessário.
 
+=== Consulta de notificações
 
+Requisitos do utilizador:
+  + O utilizador escolhe visualizar as suas notificações/ alertas/ avisos.
+  + Pode selecionar um filtro: Todas as mensagens/ Mensagens Lidas/ Mensagens não lidas.
+  + Seleciona uma ou mais notificações e marca como lida ou não lida.
+
+Requisitos do sistema:
+  + Sistema mostra uma listagem das notificações
+
+=== Consulta das categorias
+
+Requisitos do utilizador:
+  + O utilizador escolhe visualizar as categorias de itens disponíveis.
+  + Pode adicionar uma categoria aos favoritos.
+  + Pode escolher visualizar os itens associados a essa categoria.
+
+Requisitos do sistema:
+  + O sistema apresenta uma lista das categorias, cada uma representada pelo seu nome e por uma imagem.
+
+=== Consulta dos itens ganhos
+
+Requisitos do utilizador:
+  + O utilizador escolhe visualizar os itens que ganhou.
+  + Pode selecionar e visualizar um item em específico.
+
+Requisitos do sistema:
+  + O sistema apresenta uma lista dos itens.
+
+=== Submeter um item 
+
+Requisitos do utilizador:
+  + O utilizador escolhe submeter um item seu para ser leiloado com ajuda da empresa.
+
+Requisitos do sistema:
+  + O sistema pede: uma descrição detalhada (material, dono original, quem fez o item, quando foi feito, condição do item, se tem assinaturas, etc.), uma seleção de como é que o item foi obtido (comprado, herdado, encontrado, oferecido), uma seleção das categorias a que pertence (presentes no sistema), informações adicionais, documentos adicionais (em PDF), e imagens do item.
+  + A informação submetida é guardada e fica numa fila de espera para verificação e aprovação por parte de especialistas.
+
+=== Consultar lista de itens submetidos
+
+Requisitos do utilizador:
+  + O utilizador escolhe visualizar a lista dos próprios itens, podendo filtrar os resultados por "Todos os itens"/ "Vendidos"/ "Em leilão"/ "Sem leilão"/ "Em verificação".
+  + Um utilizador não pode entrar no leilão relativo ao seu item.
+
+Requisitos do sistema:
+  + O sistema apresenta a lista de itens de acordo com os filtros e com paginação, se necessário.
+
+=== Entrar num leilão
+
+Requisitos do utilizador:
+  + Quando a data de início é atingida, o leilão começa e é feita uma fila de espera para os utilizadores escolherem entrar no leilão. 
+
+Requisitos do sistema:
+  + O sistema regista que o utilizador irá participar no leilão e é adicionado à lista visível para outros utilizadores.
+  + O número de utilizadores a participar no leilão é incrementado -- este número é visível para todos os utilizadores.
+
+=== Funcionamento/ Sair do leilão
+
+Requisitos do utilizador:
+  + Durante o intervalo de tempo definido, os utilizadores escolhem ou não sair do leilão. Caso queiram continuar, passam para a próxima ronda, caso não queiram, têm de inserir um valor que esteja no intervalo atual (por exemplo, caso queiram sair numa ronda em que o valor seja 300 e o valor de incremento 50, têm de escolher um valor entre 250 e 299), uma _sealed-bid_ final. Caso um utilizador não escolha, sairá do leilão automaticamente com uma _sealed-bid_ de valor mínimo.
+  + Se restar apenas uma pessoa numa ronda, essa pessoa ganha e paga o segundo valor mais alto das _sealed-bids_ da ronda anterior.
+  + Se todas as pessoas restantes saírem numa ronda, ganha a que tiver o maior valor na sua _sealed-bid_ final, e paga o segundo valor mais alto. O desempate é feito com base no tempo de submissão da _sealed-bid_ final.
+
+Requisitos do sistema:
+  + O sitema utiliza um ascending-clock que a cada determinado intervalo de tempo (por exemplo, 3 minutos), incrementa um determinado valor.
+  + O sistema disponibiliza a lista de utilizadores a participar, e o seu número total, em tempo real.
+  + O sistema fornece uma opção de sair do leilão.
+  + O sistema regista as entradas e saídas do leilão, tal como os valores submetidos na saída e o respetivo _timestamp_.
+  + Todos os acontecimentos do leilão são guardados num _log_ automaticamente pelo sistema.
+
+=== Página de gestão do sistema
+
+Requisitos do utilizador:
+  + O utilizador tem de ser administrador para ter acesso a estas funcionalidades de gestão do sistema.
+
+Requisitos do sistema:
+  + O sistema disponibiliza opções de gestão de leilões, de itens e de utilizadores.
+
+=== Página de gestão de leilões
+
+Requisitos do utilizador:
+  + O administrador escolhe visualizar a página de gestão de leilões a partir da página de gestão do sistema principal.
+
+Requisitos do sistema:
+  + O sistema fornece uma opção de criação de um novo leilão.
+  + O sistema fornece uma lista dos leilões, os quais podem ser editados ou removidos.
+  + O sistema fornece uma lista de leilões a decorrer.
+
+=== Criação de um leilão
+
+Requisitos do utilizador:
+  + O administrador escolhe criar um leilão na página de gestão de leilões.
+
+Requisitos do sistema:
+  + O sistema pede o nome/ tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", duração da fila de espera, intervalo de tempo do _ascending clock_, e valor do incremento.
+  + O sistema apresenta um conjunto de itens que não pertençam a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
+
+=== Página de gestão de itens 
+
+Requisitos do utilizador:
+  + O administrador pode escolher visualizar a lista de itens submetidos por verificar, e de itens aprovados com e sem leilões.
+  + Pode criar, editar (por exemplo, associando-o a um leilão) ou remover um item.
+
+Requisitos do sistema:
+  + O sistema disponibiliza a lista de itens por verificar e verificados.
+
+// Falta decidir o que fazer em relação ao que acontece após a aprovação de um item; ele é enviado para a empresa? como é que ocorre o envio, quando é que pode ser considerado um item pronto a ser leiloado, etc.
+
+=== Aprovação de um item
+
+Requisitos do utilizador:
+  + 
+
+Requisitos do sistema:
+  + 
+
+=== Página de gestão de utilizadores
+
+Requisitos do utilizador:
+  + O administrador escolhe gerir os utilizadores do sistema.
+
+Requisitos do sistema:
+  + O sistema fornece uma lista de todos os utilizadores (com paginação, se necessário), e uma opção de pesquisa e de filtragem de resultados.
+  + O sistema permite notificar, editar, banir e remover utilizadores.
 
 #set enum(indent: 0pt)
 

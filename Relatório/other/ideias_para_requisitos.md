@@ -3,29 +3,42 @@ autenticação na aplicação DONE
 terminar sessão DONE
 editar conta DONE
 pesquisar item / por artista	DONE
+notificações DONE
 consulta de um item DONE
+consulta das categorias DONE
 adicionar item à lista de favoritos DONE
-adicionar categoria à lista de favoritos
-adicionar vendedor à lista de favoritos
-avaliar um vendedor
-consulta do perfil do vendedor
-adicionar eventos à lista de favoritos
-remoção dos favoritos
-consultar lista de itens favoritos
-consultar lista de vendedores favoritos
-consultar lista de categorias favoritas
-avaliar um vendedor depois de uma compra
-lista de itens ganhos
-lista de itens vendidos
-lista de itens por vender (agendados e não agendados)
-notificações
-utilizador: submeter item
-utilizador: pedido de remoção do leilão
+adicionar categoria à lista de favoritos DONE
+adicionar vendedor à lista de favoritos DONE
+avaliar um vendedor -- DEIXOU DE EXISTIR (VENDEDORES SAO ABSTRAIDOS PELA EMPRESA)
+consulta do perfil do vendedor -- DEIXOU DE EXISTIR
+remoção dos favoritos DONE
+consultar lista de itens favoritos DONE
+consultar lista de vendedores favoritos DONE
+consultar lista de categorias favoritas DONE
+avaliar um vendedor depois de uma compra -- DEIXOU DE EXISTIR
+lista de itens ganhos DONE
+lista de itens vendidos DONE
+lista de itens por vender (agendados e não agendados) DONE
+utilizador: submeter item DONE
+utilizador: pedido de remoção do leilão (?)
 administrador: iniciar ou parar leilão/ eventos
 administrador: adicionar e agendar item, editar, apagar
 administrador: enviar notificações para outros utilizadores
 colocar uma licitação 
 registo como administrador
+entrar no leilao DONE
+sair do leilao DONE
+
+pagina de gestao de leilões
+    - registo como administrador DONE
+    - opçao de o leilao começar automaticamente DONE
+    - criação de um leilão DONE
+    - opção de começar manualmente DONE
+    - lista de submissoes de items
+    - aprovar ou nao um item
+    - adicionar item a leilao DONE
+    - remover item do leilao DONE
+    - envio de notificaçoes para utilizadores
 
 ---
 
