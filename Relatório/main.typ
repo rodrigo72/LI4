@@ -194,14 +194,15 @@ Iniciámos o processo de definição de requisitos com uma análise aprofundada 
 
 Para além disso, realizamos reuniões regulares com a equipa, incluindo Alexandre Sousa, para agregar perspectivas valiosas no levantamento de requisitos, procurando manter uma aprovação contínua.
 
-Por fim, a estratégia também incluiu entrevistas, inquéritos e questionários direcionados a potenciais utilizadores da plataforma. Esta abordagem proporcionou uma compreensão abrangente das expectativas tanto dos utilizadores compradores quanto dos vendedores, permitindo ajustes iterativos nos requisitos.
-
+Por fim, a estratégia também incluiu entrevistas, inquéritos e questionários direcionados a potenciais utilizadores da plataforma. Esta abordagem proporcionou uma compreensão abrangente das expectativas dos utilizadores, permitindo ajustes iterativos nos requisitos.
 
 == Descrição geral dos requisitos levantados
 
+=== Requisitos Funcionais
+
 #set enum(indent: 10pt)
 
-=== Registo de um utilizador
+==== Registo de um utilizador
 
 Requisitos do utilizador:
   + O utilizador só pode participar nos leilões se estiver registado.
@@ -215,7 +216,7 @@ Requisitos do sistema:
   + As informações são guardadas.
   + É enviado um email para verificação da conta.
 
-=== Adicionar um método de pagamento
+==== Adicionar um método de pagamento
 
 Requisitos do utilizador:
   + O utilizador escolhe introduzir os seus dados de pagamento.
@@ -225,7 +226,7 @@ Requisitos do sistema:
   + Pode introduzir morada de faturação ou escolher que esta seja a mesma da morada de envio.
   + Também pode definir ACH como método de pagamento.
 
-=== Adicionar uma morada
+==== Adicionar uma morada
 
 Requisitos do utilizador:
   + O utilizador escolhe introduzir uma morada (de faturação ou de envio).
@@ -233,7 +234,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O utilizador fornece a morada, país, estado/província/distrito, cidade e código-postal.
 
-=== Autenticação
+==== Autenticação
 
 Requisitos do utilizador:
   + O utilizador pode aceder à sua conta e pode participar nos leilões depois de estar autenticado.
@@ -243,7 +244,7 @@ Requisitos do sistema:
   + O email tem de estar registado, caso contrário a autenticação é rejeitada.
   + Caso esteja registado, e a palavra-passe encriptada corresponda à fornecida, a autenticação é feita com sucesso.
 
-=== Terminar sessão
+==== Terminar sessão
 
 Requisitos do utilizador:
   + O utilizador escolhe terminar a sessão, tendo uma sessão iniciada.
@@ -252,7 +253,7 @@ Requisitos do sistema:
   + O sistema termina a sessão em curso.
   + Para entrar na conta, terá de ser feita uma autenticação novamente.
 
-=== Editar conta
+==== Editar conta
 
 Requisitos do utilizador:
   + O utilizador acede ao seu perfil para editar os seus dados.
@@ -263,7 +264,7 @@ Requisitos do sistema:
   + Pode ser adicionado ou removido um método de pagamento.
   + As alterações são guardadas, após o utilizador submeter as alterações.
 
-=== Pesquisa
+==== Pesquisa
 
 Requisitos do utilizador:
   + Pesquisa de um item, artista, leilão, lote, etc.
@@ -276,7 +277,7 @@ Requisitos do sistema:
   + _Semantic search_ e _natural language processing_ poderão ser utilizados.
   + Retorna os resultados correspondentes (com paginação, se necessário).
 
-=== Consulta de um item
+==== Consulta de um item
 
 Requisitos do utilizador:
   + O utilizador escolhe a visualização específica de um item.
@@ -286,7 +287,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O sistema apresenta as imagens disponíveis, o nome, a descrição, o valor estimado, o preço inicial, as percentagens da comissão do comprador e a data do leilão.
 
-=== Consulta de um leilão
+==== Consulta de um leilão
 
 Requisitos do utilizador:
   + O utilizador escolhe visualizar os detalhes de um leilão.
@@ -297,7 +298,7 @@ Requisitos do sistema:
   + Fornece o nome/ tema do leilão, descrição, a data e uma listagem do(s) lote(s).
   + Fornece opções de filtragem e ordenação dos lotes.
 
-=== Consulta da lista de favoritos
+==== Consulta da lista de favoritos
 
 Requisitos do utilizador:
   + O utilizador pode escolher verificar a sua lista de leilões, itens, ou de categorias favoritas.
@@ -305,7 +306,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O sistema mostra a lista de favoritos do utilizador com base na data de adição e com paginação, se necessário.
 
-=== Consulta de notificações
+==== Consulta de notificações
 
 Requisitos do utilizador:
   + O utilizador escolhe visualizar as suas notificações/ alertas/ avisos.
@@ -315,7 +316,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + Sistema mostra uma listagem das notificações
 
-=== Consulta das categorias
+==== Consulta das categorias
 
 Requisitos do utilizador:
   + O utilizador escolhe visualizar as categorias de itens disponíveis.
@@ -325,7 +326,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O sistema apresenta uma lista das categorias, cada uma representada pelo seu nome e por uma imagem.
 
-=== Consulta dos itens ganhos
+==== Consulta dos itens ganhos
 
 Requisitos do utilizador:
   + O utilizador escolhe visualizar os itens que ganhou.
@@ -334,7 +335,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O sistema apresenta uma lista dos itens.
 
-=== Submeter um item 
+==== Submeter um item 
 
 Requisitos do utilizador:
   + O utilizador escolhe submeter um item seu para ser leiloado com ajuda da empresa.
@@ -343,7 +344,7 @@ Requisitos do sistema:
   + O sistema pede: uma descrição detalhada (material, dono original, quem fez o item, quando foi feito, condição do item, se tem assinaturas, etc.), uma seleção de como é que o item foi obtido (comprado, herdado, encontrado, oferecido), uma seleção das categorias a que pertence (presentes no sistema), informações adicionais, documentos adicionais (em PDF), e imagens do item.
   + A informação submetida é guardada e fica numa fila de espera para verificação e aprovação por parte de especialistas.
 
-=== Consultar lista de itens submetidos
+==== Consultar lista de itens submetidos
 
 Requisitos do utilizador:
   + O utilizador escolhe visualizar a lista dos próprios itens, podendo filtrar os resultados por "Todos os itens"/ "Vendidos"/ "Em leilão"/ "Sem leilão"/ "Em verificação".
@@ -352,7 +353,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O sistema apresenta a lista de itens de acordo com os filtros e com paginação, se necessário.
 
-=== Entrar num leilão
+==== Entrar num leilão
 
 Requisitos do utilizador:
   + Quando a data de início é atingida, o leilão começa e é feita uma fila de espera para os utilizadores escolherem entrar no leilão. 
@@ -361,7 +362,7 @@ Requisitos do sistema:
   + O sistema regista que o utilizador irá participar no leilão e é adicionado à lista visível para outros utilizadores.
   + O número de utilizadores a participar no leilão é incrementado -- este número é visível para todos os utilizadores.
 
-=== Funcionamento/ Sair do leilão
+==== Funcionamento/ Sair do leilão
 
 Requisitos do utilizador:
   + Durante o intervalo de tempo definido, os utilizadores escolhem ou não sair do leilão. Caso queiram continuar, passam para a próxima ronda, caso não queiram, têm de inserir um valor que esteja no intervalo atual (por exemplo, caso queiram sair numa ronda em que o valor seja 300 e o valor de incremento 50, têm de escolher um valor entre 250 e 299), uma _sealed-bid_ final. Caso um utilizador não escolha, sairá do leilão automaticamente com uma _sealed-bid_ de valor mínimo.
@@ -375,7 +376,7 @@ Requisitos do sistema:
   + O sistema regista as entradas e saídas do leilão, tal como os valores submetidos na saída e o respetivo _timestamp_.
   + Todos os acontecimentos do leilão são guardados num _log_ automaticamente pelo sistema.
 
-=== Página de gestão do sistema
+==== Página de gestão do sistema
 
 Requisitos do utilizador:
   + O utilizador tem de ser administrador para ter acesso a estas funcionalidades de gestão do sistema.
@@ -383,7 +384,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O sistema disponibiliza opções de gestão de leilões, de itens e de utilizadores.
 
-=== Página de gestão de leilões
+==== Página de gestão de leilões
 
 Requisitos do utilizador:
   + O administrador escolhe visualizar a página de gestão de leilões a partir da página de gestão do sistema principal.
@@ -393,7 +394,7 @@ Requisitos do sistema:
   + O sistema fornece uma lista dos leilões, os quais podem ser editados ou removidos.
   + O sistema fornece uma lista de leilões a decorrer.
 
-=== Criação de um leilão
+==== Criação de um leilão
 
 Requisitos do utilizador:
   + O administrador escolhe criar um leilão na página de gestão de leilões.
@@ -402,7 +403,7 @@ Requisitos do sistema:
   + O sistema pede o nome/ tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", duração da fila de espera, intervalo de tempo do _ascending clock_, e valor do incremento.
   + O sistema apresenta um conjunto de itens que não pertençam a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
 
-=== Página de gestão de itens 
+==== Página de gestão de itens 
 
 Requisitos do utilizador:
   + O administrador pode escolher visualizar a lista de itens submetidos por verificar, e de itens aprovados com e sem leilões.
@@ -413,7 +414,7 @@ Requisitos do sistema:
 
 // Falta decidir o que fazer em relação ao que acontece após a aprovação de um item; ele é enviado para a empresa? como é que ocorre o envio, quando é que pode ser considerado um item pronto a ser leiloado, etc.
 
-=== Aprovação de um item
+==== Aprovação de um item
 
 Requisitos do utilizador:
   + 
@@ -421,7 +422,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + 
 
-=== Página de gestão de utilizadores
+==== Página de gestão de utilizadores
 
 Requisitos do utilizador:
   + O administrador escolhe gerir os utilizadores do sistema.
@@ -430,9 +431,17 @@ Requisitos do sistema:
   + O sistema fornece uma lista de todos os utilizadores (com paginação, se necessário), e uma opção de pesquisa e de filtragem de resultados.
   + O sistema permite notificar, editar, banir e remover utilizadores.
 
+=== Requisitos não funcionais
+
+  + O sistema, e, portanto, o servidor, deverá estar operacional 24 horas por 7 dias da semana, i.e., sempre em funcionamento.
+  + O sistema deverá possuir documentação adequada acerca do seu funcionamento e implementação.
+
 #set enum(indent: 0pt)
 
 == Validação dos requisitos
+
+Após a execução dos métodos de levantamento estabelecidos, procedemos à organização e análise detalhada de todos os requisitos identificados. Este processo teve como objetivo eliminar quaisquer erros, inconsistências, redundâncias ou ambiguidades presentes no documento final, garantindo assim a sua integridade e completude. \
+Na reunião subsequente, todos os membros participaram ativamente na discussão detalhada, validando e aprovando coletivamente os requisitos em conformidade com as expectativas do projeto.
 
 = Especificação e Modelação do Software
 
