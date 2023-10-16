@@ -190,7 +190,12 @@ Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tar
 
 == Apresentação da estratégia e método
 
-// estive a pesquisar sobre isto, n fiz nada tho
+Iniciámos o processo de definição de requisitos com uma análise aprofundada do mercado de leilões e colecionismo na área de "music memorabilia" e vinis. A pesquisa abrangeu desde as melhores práticas em plataformas semelhantes #footnote[Por exemplo, https://www.omegaauctions.co.uk, https://www.liveauctioneers.com, https://www.artsy.net/auctions, etc.] até às expectativas dos colecionadores e vendedores neste domínio específico.
+
+Para além disso, realizamos reuniões regulares com a equipa, incluindo Alexandre Sousa, para agregar perspectivas valiosas no levantamento de requisitos, procurando manter uma aprovação contínua.
+
+Por fim, a estratégia também incluiu entrevistas, inquéritos e questionários direcionados a potenciais utilizadores da plataforma. Esta abordagem proporcionou uma compreensão abrangente das expectativas tanto dos utilizadores compradores quanto dos vendedores, permitindo ajustes iterativos nos requisitos.
+
 
 == Descrição geral dos requisitos levantados
 
