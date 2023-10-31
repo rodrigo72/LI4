@@ -122,7 +122,7 @@ Por fim, como a maioria dos clientes prefere métodos justos e honestos, será a
 
 / Ascending clock auction: _In the model most commonly used by auction theorists, the price rises continuously while bidders gradually quit the auction. Bidders observe when their competitors quit, and once someone quits they are not let back in. There is no possibility for one bidder to preempt the process by making a large “jump bid”_ @paul_auction_theory_book.
 
-Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a partir de um preço inicial, e os participantes podem escolher sair. Esta ideia, apesar de tradicional, adequa-se ao ambiente digital pois o processo é muito mais simples do que, por exemplo, o de um "ascending-bid auction" normal, possuindo ainda assim características de um "general model" #footnote[Também existem outros tipos básicos de leilões como o \"descending-bid\", \"first-price sealed-bid\", e \"second-price sealed-bid\". Em teoria, mas tendo mais em consideração um \"private-value model\", o \"descending-bid\" é semelhante a um \"first-price sealed-bid\", sendo por vezes chamado de \"open first-price auction\". Da mesma forma, o \"ascending-bid\" (o leilão japonês) é semelhante a um \"second-price auction\", tal como enuncia o \"revenue equivalence theorem\". @wiki_revenue_equivalence]. Também serão utilizados alguns aspetos da "second-price sealed-bid", de uma forma semelhante ao leilão "Anglo-Dutch", que consegue capturar as vantagens do "sealed-bid auction" @auction_design_article.
+Ou seja, o preço aumenta continuamente, possivelmente por intervalos de tempo predeterminados, a partir de um preço inicial, e os participantes podem escolher sair. Esta ideia, apesar de tradicional, adequa-se ao ambiente digital pois o processo é muito mais simples do que, por exemplo, o de um "ascending-bid auction" normal, possuindo ainda assim características de um "general model" #footnote[Também existem outros tipos básicos de leilões como o \"descending-bid\", \"first-price sealed-bid\", e \"second-price sealed-bid\". Em teoria, mas tendo mais em consideração um \"private-value model\", o \"descending-bid\" é semelhante a um \"first-price sealed-bid\", sendo por vezes chamado de \"open first-price auction\". Da mesma forma, o \"ascending-bid\" (o leilão japonês) é semelhante a um \"second-price auction\", tal como enuncia o \"revenue equivalence theorem\". @wiki_revenue_equivalence]. Também serão utilizados alguns aspetos da "second-price sealed-bid", de uma forma semelhante ao leilão "Anglo-Dutch", que consegue capturar as vantagens do "sealed-bid auction" @auction_design_article.
 
 #pagebreak()
 
@@ -141,7 +141,7 @@ Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a parti
 
 *Recursos Humanos*
 
-  - Levantadores de Requisitos 
+  - Levantadores de requisitos 
   - Utilizadores
   - Patrocinadores
 
@@ -168,11 +168,11 @@ Ou seja, o preço aumenta continuamente, talvez por intervalos de tempo, a parti
 
 Antes de ser iniciada a execução do projeto, foi definido um plano de execução da fase inicial, através de um diagrama de Gantt (@diagrama_gantt), e cujas tarefas estão distribuídas ao longo do tempo e por diferentes grupos de tarefas.
 
-É possível verificar que foi alocada uma quantidade de tempo significativa para a pesquisa e estudo acerca do tema, visto que achamos que pode influenciar a qualidade do trabalho futuro.
-Por fim, definimos que algumas tarefas têm dependências, i.e., têm uma sequência fixa, e que algumas podem ser executadas em paralelo, de modo a aumentar a eficiência do grupo de trabalho face às restrições de tempo.
+É possível verificar que foi alocada uma quantidade de tempo significativa para a pesquisa e estudo acerca do tema, visto que achamos que influencia a qualidade do trabalho futuro.
+Por fim, definimos que algumas tarefas têm dependências, i.e., têm uma sequência fixa, e que algumas podem ser executadas em paralelo, de modo a que se aumente a eficiência do grupo de trabalho face às restrições de tempo.
 As restantes tarefas são relativas à implementação e desenvolvimento do sistema e serão planeadas no fim da fase inicial.
 
-Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tarefas, foram planeadas diversas reuniões, e foi desenvolvido um _Discord Bot_ de gestão de tarefas (@discord_bot).
+Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tarefas, foram planeadas diversas reuniões, e foi desenvolvido um _bot_ de gestão de tarefas (@discord_bot).
 
 #figure(
   caption: "Diagrama de Gantt - Plano de execução",
@@ -192,7 +192,7 @@ Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tar
 
 Iniciámos o processo de definição de requisitos com uma análise aprofundada do mercado de leilões e colecionismo na área de "music memorabilia" e vinis. A pesquisa abrangeu desde as melhores práticas em plataformas semelhantes #footnote[Por exemplo, https://www.omegaauctions.co.uk, https://www.liveauctioneers.com, https://www.artsy.net/auctions, etc.] até às expectativas dos colecionadores e vendedores neste domínio específico.
 
-Para além disso, realizamos reuniões regulares com a equipa, incluindo Alexandre Sousa, para agregar perspectivas valiosas no levantamento de requisitos, procurando manter uma aprovação contínua.
+Para além disso, realizamos reuniões regulares com a equipa, incluindo Alexandre Sousa, para agregar perspectivas significativas no levantamento de requisitos, procurando manter uma aprovação contínua.
 
 Por fim, a estratégia também incluiu entrevistas, inquéritos e questionários direcionados a potenciais utilizadores da plataforma. Esta abordagem proporcionou uma compreensão abrangente das expectativas dos utilizadores, permitindo ajustes iterativos nos requisitos.
 
@@ -206,12 +206,12 @@ Por fim, a estratégia também incluiu entrevistas, inquéritos e questionários
 
 Requisitos do utilizador:
   + O utilizador só pode participar nos leilões se estiver registado.
-  + O utilizador cria uma conta na plataforma.
+  + O utilizador escolhe criar uma conta na plataforma.
   + Para que um utilizador seja administrador, tal terá de ser assinalado manualmente por outros administradores ou por responsáveis pelo sistema/ base de dados do sistema.
 
 Requisitos do sistema:
   + O sistema pede o nome completo, email e palavra-passe.
-  + Opcionalmente, o cliente pode escolher definir um método de pagamento, uma morada de envio, e uma autenticação de dois fatores introduzindo o número de telemóvel.
+  + Opcionalmente, o cliente pode escolher definir um método de pagamento, uma morada de envio, e uma autenticação de dois fatores introduzindo o número de telemóvel. (Requisito 2.)
   + Não é permitida a existência de utilizadores com o mesmo email.
   + As informações são guardadas.
   + É enviado um email para verificação da conta.
@@ -223,13 +223,15 @@ Requisitos do utilizador:
 
 Requisitos do sistema:
   + O utilizador fornece o nome associado ao cartão, o número do cartão, a data de validade, e o CVV/CVC.
-  + Pode introduzir morada de faturação ou escolher que esta seja a mesma da morada de envio.
+  + Pode introduzir uma morada de faturação ou escolher que esta seja a mesma da morada de envio.
   + Também pode definir ACH como método de pagamento.
+  + O sistema valida o método de pagamento.
+  + Caso o método de pagamento não seja válido, o utilizador é informado e os dados não são aceites.
 
 ==== Adicionar uma morada
 
 Requisitos do utilizador:
-  + O utilizador escolhe introduzir uma morada (de faturação ou de envio).
+  + O utilizador escolhe introduzir uma morada de faturação ou de envio.
 
 Requisitos do sistema:
   + O utilizador fornece a morada, país, estado/província/distrito, cidade e código-postal.
@@ -267,22 +269,20 @@ Requisitos do sistema:
 ==== Pesquisa
 
 Requisitos do utilizador:
-  + Pesquisa de um item, artista, leilão, lote, etc.
+  + Pesquisa de um lote, artista, ou leilão.
   + O utilizador pode adicionar filtros e opções de ordenação dos resultados.
   + O utilizador pode mudar a página de resultados caso exista mais do que uma.
 
 Requisitos do sistema:
-  + O sistema apresenta esta funcionalidade de pesquisa sempre que possível.
   + O sistema recebe uma _string_ de pesquisa com _keywords_, e, opcionalmente, determinados filtros (por exemplo, categoria, estado, etc.) e opções de sorting (por exemplo, preço, popularidade, relevância, _latest_, etc.).
-  + _Semantic search_ e _natural language processing_ poderão ser utilizados.
   + Retorna os resultados correspondentes (com paginação, se necessário).
 
-==== Consulta de um item
+==== Consulta de um lote
 
 Requisitos do utilizador:
-  + O utilizador escolhe a visualização específica de um item.
-  + Pode escolher visualizar todos os itens do leilão a que o item pertence, se existirem.
-  + Pode adicionar ou remover o item da sua lista de favoritos. 
+  + O utilizador escolhe a visualização específica de um lote.
+  + Pode escolher visualizar todos os itens do leilão a que o lote pertence.
+  + Pode adicionar ou remover o lote da sua lista de favoritos. 
 
 Requisitos do sistema:
   + O sistema apresenta as imagens disponíveis, o nome, a descrição, o valor estimado, o preço inicial, as percentagens da comissão do comprador e a data do leilão.
@@ -309,8 +309,8 @@ Requisitos do sistema:
 ==== Consulta de notificações
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar as suas notificações/ alertas/ avisos.
-  + Pode selecionar um filtro: Todas as mensagens/ Mensagens Lidas/ Mensagens não lidas.
+  + O utilizador escolhe visualizar as suas notificações (alertas/ avisos).
+  + Pode selecionar um filtro: "Todas as mensagens"/ "Mensagens Lidas"/ "Mensagens não lidas".
   + Seleciona uma ou mais notificações e marca como lida ou não lida.
 
 Requisitos do sistema:
@@ -330,25 +330,30 @@ Requisitos do sistema:
 
 Requisitos do utilizador:
   + O utilizador escolhe visualizar os itens que ganhou.
-  + Pode selecionar e visualizar um item em específico.
+  + Pode selecionar e visualizar um lote em específico.
 
 Requisitos do sistema:
   + O sistema apresenta uma lista dos itens.
 
-==== Submeter um item 
+==== Submeter um item (ou conjunto de itens)
 
 Requisitos do utilizador:
   + O utilizador escolhe submeter um item seu para ser leiloado com ajuda da empresa.
 
 Requisitos do sistema:
-  + O sistema pede: uma descrição detalhada (material, dono original, quem fez o item, quando foi feito, condição do item, se tem assinaturas, etc.), uma seleção de como é que o item foi obtido (comprado, herdado, encontrado, oferecido), uma seleção das categorias a que pertence (presentes no sistema), informações adicionais, documentos adicionais (em PDF), e imagens do item.
+  + O sistema pede: 
+    - uma descrição detalhada: material, dono original, quem fez o item, quando foi feito, condição do item, assinaturas;
+    - uma seleção de como é que o item foi obtido: comprado, herdado, encontrado, ou oferecido;
+    - uma seleção das categorias a que pertence (presentes no sistema);
+    - informações e documentos adicionais;
+    - e imagens do item.
   + A informação submetida é guardada e fica numa fila de espera para verificação e aprovação por parte de especialistas.
 
 ==== Consultar lista de itens submetidos
 
 Requisitos do utilizador:
   + O utilizador escolhe visualizar a lista dos próprios itens, podendo filtrar os resultados por "Todos os itens"/ "Vendidos"/ "Em leilão"/ "Sem leilão"/ "Em verificação".
-  + Um utilizador não pode entrar no leilão relativo ao seu item.
+  + Um utilizador não pode entrar no leilão relativo ao seu lote.
 
 Requisitos do sistema:
   + O sistema apresenta a lista de itens de acordo com os filtros e com paginação, se necessário.
@@ -359,18 +364,21 @@ Requisitos do utilizador:
   + Quando a data de início é atingida, o leilão começa e é feita uma fila de espera para os utilizadores escolherem entrar no leilão. 
 
 Requisitos do sistema:
-  + O sistema regista que o utilizador irá participar no leilão e é adicionado à lista visível para outros utilizadores.
-  + O número de utilizadores a participar no leilão é incrementado -- este número é visível para todos os utilizadores.
+  + O sistema regista que o utilizador irá participar no leilão e é adicionado a uma lista visível para outros utilizadores.
+  + O número de utilizadores a participar no leilão é incrementado -- este número também é visível para todos os utilizadores.
 
 ==== Funcionamento/ Sair do leilão
 
 Requisitos do utilizador:
-  + Durante o intervalo de tempo definido, os utilizadores escolhem ou não sair do leilão. Caso queiram continuar, passam para a próxima ronda, caso não queiram, têm de inserir um valor que esteja no intervalo atual (por exemplo, caso queiram sair numa ronda em que o valor seja 300 e o valor de incremento 50, têm de escolher um valor entre 250 e 299), uma _sealed-bid_ final. Caso um utilizador não escolha, sairá do leilão automaticamente com uma _sealed-bid_ de valor mínimo.
-  + Se restar apenas uma pessoa numa ronda, essa pessoa ganha e paga o segundo valor mais alto das _sealed-bids_ da ronda anterior.
-  + Se todas as pessoas restantes saírem numa ronda, ganha a que tiver o maior valor na sua _sealed-bid_ final, e paga o segundo valor mais alto. O desempate é feito com base no tempo de submissão da _sealed-bid_ final.
+  + Durante o intervalo de tempo definido, o utilizador escolhe ou não sair do leilão. 
 
 Requisitos do sistema:
-  + O sitema utiliza um ascending-clock que a cada determinado intervalo de tempo (por exemplo, 3 minutos), incrementa um determinado valor.
+  + Caso o utilizador queira continuar no leilão, passa para a próxima ronda.
+  + Caso o utilizador não queira continuar no leilão, insere um valor que esteja no intervalo atual (por exemplo, caso queiram sair numa ronda em que o valor seja 300 e o valor de incremento 50, têm de escolher um valor entre 250 e 299), i.e., uma _sealed-bid_ final. 
+  + Caso um utilizador não escolha, sairá do leilão automaticamente com uma _sealed-bid_ de valor mínimo.
+  + Se restar apenas uma pessoa numa ronda, essa pessoa ganha e paga o segundo valor mais alto das _sealed-bids_ da ronda anterior.
+  + Se todas as pessoas restantes saírem numa ronda, ganha a que tiver o maior valor na sua _sealed-bid_ final, e paga o segundo valor mais alto. Neste caso, o desempate é feito com base no tempo de submissão da _sealed-bid_ final.
+  + O sistema utiliza um ascending-clock que a cada determinado intervalo de tempo (por exemplo, 3 minutos), incrementa um determinado valor.
   + O sistema disponibiliza a lista de utilizadores a participar, e o seu número total, em tempo real.
   + O sistema fornece uma opção de sair do leilão.
   + O sistema regista as entradas e saídas do leilão, tal como os valores submetidos na saída e o respetivo _timestamp_.
@@ -382,7 +390,7 @@ Requisitos do utilizador:
   + O utilizador tem de ser administrador para ter acesso a estas funcionalidades de gestão do sistema.
 
 Requisitos do sistema:
-  + O sistema disponibiliza opções de gestão de leilões, de itens e de utilizadores.
+  + O sistema disponibiliza opções de gestão de leilões, de itens e de utilizadores. (Requisitos 18, 21, 23.)
 
 ==== Página de gestão de leilões
 
@@ -400,27 +408,43 @@ Requisitos do utilizador:
   + O administrador escolhe criar um leilão na página de gestão de leilões.
 
 Requisitos do sistema:
-  + O sistema pede o nome/ tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", duração da fila de espera, intervalo de tempo do _ascending clock_, e valor do incremento.
-  + O sistema apresenta um conjunto de itens que não pertençam a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
+  + O sistema pede o nome e o tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", a duração da fila de espera, intervalo de tempo do _ascending clock_, e valor do incremento.
+  + O sistema apresenta um conjunto de itens que não pertencem a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
 
 ==== Página de gestão de itens 
 
 Requisitos do utilizador:
   + O administrador pode escolher visualizar a lista de itens submetidos por verificar, e de itens aprovados com e sem leilões.
-  + Pode criar, editar (por exemplo, associando-o a um leilão) ou remover um item.
+  + Pode criar, editar (por exemplo, associando-o a um leilão) ou remover um lote.
 
 Requisitos do sistema:
   + O sistema disponibiliza a lista de itens por verificar e verificados.
+  + O sistema permite adicionar ou remover itens/lotes verificados de um leilão.
+  + O sistema permite a verificação e aprovação de um item.
 
 // Falta decidir o que fazer em relação ao que acontece após a aprovação de um item; ele é enviado para a empresa? como é que ocorre o envio, quando é que pode ser considerado um item pronto a ser leiloado, etc.
 
-==== Aprovação de um item
+// resolvi por enquanto
+
+==== Aprovação de um lote
 
 Requisitos do utilizador:
-  + 
+  + O administrador seleciona um lote.
+  + O administrador pode aprovar ou não aprovar.
 
 Requisitos do sistema:
-  + 
+  + O sistema envia uma notificação ao utilizador a informar se o lote foi aprovado ou não.
+  + Caso tenha sido aprovado, são enviadas informações acerca do envio do seu lote.
+  + O lote passa a estar com estado de "espera" até chegar ao armazém da empresa.
+
+
+=== Chegada do item (ou conjunto de itens)
+
+Requisitos do utilizador:
+  + Funcionário ou administrador indicam que um lote já pode ser leiloado, estando presente no armazém e catalogado.
+
+Requisitos do sistema:
+  + O sistema muda o estado do lote de "em espera" para "disponível".
 
 ==== Página de gestão de utilizadores
 
@@ -433,7 +457,7 @@ Requisitos do sistema:
 
 === Requisitos não funcionais
 
-  + O sistema, e, portanto, o servidor, deverá estar operacional 24 horas por 7 dias da semana, i.e., sempre em funcionamento.
+  + O sistema, e, portanto, o servidor, deverá estar operacional 24 horas por 7 dias da semana, ou seja, sempre em funcionamento.
   + O sistema deverá possuir documentação adequada acerca do seu funcionamento e implementação.
 
 #set enum(indent: 0pt)
