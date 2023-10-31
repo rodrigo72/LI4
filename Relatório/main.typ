@@ -281,7 +281,7 @@ Requisitos do sistema:
 
 Requisitos do utilizador:
   + O utilizador escolhe a visualização específica de um lote.
-  + Pode escolher visualizar todos os itens do leilão a que o lote pertence.
+  + Pode escolher visualizar todos os lotes do leilão a que o lote pertence.
   + Pode adicionar ou remover o lote da sua lista de favoritos. 
 
 Requisitos do sistema:
@@ -301,7 +301,7 @@ Requisitos do sistema:
 ==== Consulta da lista de favoritos
 
 Requisitos do utilizador:
-  + O utilizador pode escolher verificar a sua lista de leilões, itens, ou de categorias favoritas.
+  + O utilizador pode escolher verificar a sua lista de leilões, lotes, ou de categorias favoritas.
 
 Requisitos do sistema:
   + O sistema mostra a lista de favoritos do utilizador com base na data de adição e com paginação, se necessário.
@@ -319,21 +319,21 @@ Requisitos do sistema:
 ==== Consulta das categorias
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar as categorias de itens disponíveis.
+  + O utilizador escolhe visualizar as categorias disponíveis.
   + Pode adicionar uma categoria aos favoritos.
-  + Pode escolher visualizar os itens associados a essa categoria.
+  + Pode escolher visualizar os lotes associados a essa categoria.
 
 Requisitos do sistema:
   + O sistema apresenta uma lista das categorias, cada uma representada pelo seu nome e por uma imagem.
 
-==== Consulta dos itens ganhos
+==== Consulta dos lotes ganhos
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar os itens que ganhou.
+  + O utilizador escolhe visualizar os lotes que ganhou.
   + Pode selecionar e visualizar um lote em específico.
 
 Requisitos do sistema:
-  + O sistema apresenta uma lista dos itens.
+  + O sistema apresenta uma lista dos lotes.
 
 ==== Submeter um item (ou conjunto de itens)
 
@@ -349,14 +349,14 @@ Requisitos do sistema:
     - e imagens do item.
   + A informação submetida é guardada e fica numa fila de espera para verificação e aprovação por parte de especialistas.
 
-==== Consultar lista de itens submetidos
+==== Consultar lista de lotes submetidos
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar a lista dos próprios itens, podendo filtrar os resultados por "Todos os itens"/ "Vendidos"/ "Em leilão"/ "Sem leilão"/ "Em verificação".
+  + O utilizador escolhe visualizar a lista dos próprios lotes, podendo filtrar os resultados por "Todos os lotes"/ "Vendidos"/ "Em leilão"/ "Sem leilão"/ "Em verificação"/ "Em espera".
   + Um utilizador não pode entrar no leilão relativo ao seu lote.
 
 Requisitos do sistema:
-  + O sistema apresenta a lista de itens de acordo com os filtros e com paginação, se necessário.
+  + O sistema apresenta a lista de lotes de acordo com os filtros e com paginação, se necessário.
 
 ==== Entrar num leilão
 
@@ -390,7 +390,7 @@ Requisitos do utilizador:
   + O utilizador tem de ser administrador para ter acesso a estas funcionalidades de gestão do sistema.
 
 Requisitos do sistema:
-  + O sistema disponibiliza opções de gestão de leilões, de itens e de utilizadores. (Requisitos 18, 21, 23.)
+  + O sistema disponibiliza opções de gestão de leilões, de lotes e de utilizadores. (Requisitos 18, 21, 23.)
 
 ==== Página de gestão de leilões
 
@@ -409,17 +409,17 @@ Requisitos do utilizador:
 
 Requisitos do sistema:
   + O sistema pede o nome e o tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", a duração da fila de espera, intervalo de tempo do _ascending clock_, e valor do incremento.
-  + O sistema apresenta um conjunto de itens que não pertencem a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
+  + O sistema apresenta um conjunto de lotes que não pertencem a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
 
-==== Página de gestão de itens 
+==== Página de gestão de lotes 
 
 Requisitos do utilizador:
-  + O administrador pode escolher visualizar a lista de itens submetidos por verificar, e de itens aprovados com e sem leilões.
+  + O administrador pode escolher visualizar a lista de lotes submetidos por verificar, e de lotes aprovados com e sem leilões.
   + Pode criar, editar (por exemplo, associando-o a um leilão) ou remover um lote.
 
 Requisitos do sistema:
-  + O sistema disponibiliza a lista de itens por verificar e verificados.
-  + O sistema permite adicionar ou remover itens/lotes verificados de um leilão.
+  + O sistema disponibiliza a lista de lotes por verificar e verificados.
+  + O sistema permite adicionar ou remover lotes verificados de um leilão.
   + O sistema permite a verificação e aprovação de um item.
 
 // Falta decidir o que fazer em relação ao que acontece após a aprovação de um item; ele é enviado para a empresa? como é que ocorre o envio, quando é que pode ser considerado um item pronto a ser leiloado, etc.
@@ -438,7 +438,7 @@ Requisitos do sistema:
   + O lote passa a estar com estado de "espera" até chegar ao armazém da empresa.
 
 
-=== Chegada do item (ou conjunto de itens)
+=== Chegada de um item (ou conjunto de itens)
 
 Requisitos do utilizador:
   + Funcionário ou administrador indicam que um lote já pode ser leiloado, estando presente no armazém e catalogado.
