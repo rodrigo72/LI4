@@ -211,7 +211,7 @@ Requisitos do utilizador:
 
 Requisitos do sistema:
   + O sistema pede o nome completo, email e palavra-passe.
-  + Opcionalmente, o cliente pode escolher definir um método de pagamento, uma morada de envio, e uma autenticação de dois fatores introduzindo o número de telemóvel. (Requisito 2.)
+  + Opcionalmente, o cliente pode escolher definir um método de pagamento, uma morada de envio, e uma autenticação de dois fatores introduzindo o número de telemóvel. (Requisitos 2 e 3.)
   + Não é permitida a existência de utilizadores com o mesmo email.
   + As informações são guardadas.
   + É enviado um email para verificação da conta.
@@ -471,7 +471,27 @@ Na reunião subsequente, todos os membros participaram ativamente na discussão 
 
 == Apresentação geral da especificação
 
+Esta secção pretende formar uma visão abrangente do sistema, detalhando tanto os aspetos estruturais como os aspetos comportamentais. Para isso, é utilizado  um modelo de domínio, um diagrama de casos de uso, os respetivos casos de uso estruturados, e diagramas de atividade.
+Verificar-se-á que o sistema tem três elementos fundamentais: o utilizador, o leilão e o lote.
+
 == Aspetos estruturais
+
+=== Modelo de domínio
+
+\
+#figure(
+  caption: "Modelo de domínio",
+  kind: image,
+  image("images/modelo_de_dominio.png", width: 80%)
+)
+
+Este modelo descreve o problema, não uma solução, sendo o seu objetivo explicitar o contexto em que o sistema irá agir, a estrutura essencial do problema tendo em conta os requisitos recolhidos e organizados.
+Assim, é descrito que os utilizadores possuem um registo, o qual é identificado por um email único. A este registo pode estar associado um ou mais métodos de pagamento, e uma ou mais moradas de faturação e de envio. Um registo pode ter permissões comuns ou de administrador, e possui uma lista de notificações (acerca de leilões, de atualizações dos estados das submissões, de lotes ganhos, etc.) e uma lista de favoritos (leilões, categorias, artistas, e lotes).
+
+Um utilizador pode submeter um ou mais itens, que será considerado um lote, e quando é verificado e aprovado, pode ser enviado para um armazém da empresa e depois devidamente catalogado, passando a estar disponível para pertencer a um leilão.
+Um lote, tal como já foi descrito antes com mais detalhe, está associado a uma ou mais categorias e artistas, possui os valores das comissões de comprador e de vendedor, um número identificador, um preço inicial, um valor de incremento intervalar, e um estado (vendido, em leilão, disponível, em espera, e em verificação).
+
+Por fim, o leilão tem uma data de início, e uma fila de espera com uma determinada duração de tempo (inicial, e depois para cada lote). Como é um _ascending clock auction_, possui um relógio que incrementa o valor do lote de acordo com um intervalo de tempo predeterminado. Num leilão podem ser leiloados um ou mais lotes. Quando um utilizador quer sair do leilão de um lote, faz uma _sealed bid_ final.
 
 == Aspetos comportamentais
 
