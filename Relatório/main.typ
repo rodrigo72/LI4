@@ -408,7 +408,7 @@ Requisitos do utilizador:
   + O administrador escolhe criar um leilão na página de gestão de leilões.
 
 Requisitos do sistema:
-  + O sistema pede o nome e o tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", a duração da fila de espera, intervalo de tempo do _ascending clock_, e valor do incremento.
+  + O sistema pede o nome e o tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", a duração da fila de espera, e o intervalo de tempo do _ascending clock_.
   + O sistema apresenta um conjunto de lotes que não pertencem a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
 
 ==== Página de gestão de lotes 
