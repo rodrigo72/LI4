@@ -12,7 +12,8 @@ adicionar vendedor à lista de favoritos DONE
 avaliar um vendedor -- DEIXOU DE EXISTIR (VENDEDORES SAO ABSTRAIDOS PELA EMPRESA)
 consulta do perfil do vendedor -- DEIXOU DE EXISTIR
 remoção dos favoritos DONE
-consultar lista de itens favoritos DONE
+consult
+ar lista de itens favoritos DONE
 consultar lista de vendedores favoritos DONE
 consultar lista de categorias favoritas DONE
 avaliar um vendedor depois de uma compra -- DEIXOU DE EXISTIR
@@ -76,3 +77,43 @@ tanto vendedores como compradores pagam por transporte, com exceção de casos e
 lista de produtos favoritos
 schedule global/ individual
 vendedor não pode licitar num produto próprio
+
+
+-- Divisão dos casos de uso por categorias
+
+- Conta do utilizador
+
+Criar conta
+Login
+Redefinir palavra passe
+Adicionar novo método de pagamento
+Adicionar nova morada
+
+- Consultas
+
+Pesquisar
+Consulta de um lote
+Consulta de um leilão
+Consulta das listas de favoritos
+Consulta das notificações
+Consulta das categorias
+Consulta de uma categoria
+Consulta dos lotes ganhos
+Consulta dos lotes submetidos
+Remoção de um item da lista de favoritos
+
+
+- Funcionamento dos lotes
+
+Submeter lote
+Aprovar submissão
+Criar um lote
+Editar um lote
+
+- Funcionamento dos leilões
+Entrar num leilão
+Sair de um leilão
+Ganhar um lote
+Criar um leilão
+Editar um leilão
+Remover um leilão

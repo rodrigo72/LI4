@@ -479,7 +479,7 @@ Verificar-se-á que o sistema tem três elementos fundamentais: o utilizador, o 
 #figure(
   caption: "Modelo de domínio",
   kind: image,
-  image("images/modelo_de_dominio.png", width: 80%)
+  image("images/modelo_de_dominio.png", width: 75%)
 )
 
 Este modelo descreve o problema, não uma solução, sendo o seu objetivo explicitar o contexto em que o sistema irá agir, a estrutura essencial do problema tendo em conta os requisitos recolhidos e organizados.
@@ -512,7 +512,9 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   it
 }
 
-==== Criar conta <criar_conta>
+==== Conta do utilizador
+
+===== Criar conta <criar_conta>
 
 - *Descrição*: Cria uma nova conta de utilizador.
 - *Pré-condição*: True.
@@ -540,7 +542,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   8.1. #s() O sistema avisa que os dados inválidos. \
   8.2. #s() Regressa ao passo 6. \
 
-==== Login
+===== Login
 
 - *Descrição*: Utilizador entra no sistema.
 - *Pré-condição*: O utilizador está registado no sistema.
@@ -553,7 +555,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   2.1. #s() O sistema verifica que o email não está registado ou que o email está registado e a palavra-passe é inválida. \
   2.2. #s() Regressa ao passo 1.
 
-==== Redefinir palavra-passe
+===== Redefinir palavra-passe
 
 - *Descrição*: O utilizador redefine a sua palavra-passe.
 - *Pré-condição*: O utilizador está registado e autenticado.
@@ -568,7 +570,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   4.1. #s() O sistema avisa que a palavra-passe é inválida. \
   4.2. #s() Regressa ao passo 2.
 
-==== Adicionar novo método de pagamento
+===== Adicionar novo método de pagamento
 
 - *Descrição*: O utilizador adiciona um novo método de pagamento.
 - *Pré-condição*: O utilizador está registado e autenticado.
@@ -583,7 +585,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   4.1. #s() O sistema avisa que os dados inseridos são inválidos. \
   4.2. #s() Regressa ao passo 2.
 
-==== Adicionar nova morada
+===== Adicionar nova morada
 
 - *Descrição*: O utilizador adiciona uma nova morada.
 - *Pré-condição*: O utilizador está registado e autenticado.
@@ -598,7 +600,9 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   4.1. #s() O sistema avisa que um ou mais dos parâmetros é inválido. \
   4.2. #s() Regressa ao passo 2.
 
-==== Pesquisar
+==== Consultas
+
+===== Pesquisar
 
 - *Descrição*: O utilizador utiliza a funcionalidade de pesquisa do sistema.
 - *Pré-condição*: True.
@@ -612,7 +616,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo alternativo (1)*: [Não existem resultados] (passo 5) \
   5.1. #s() O sistema informa que não existem resultados correspondentes à pesquisa.
 
-==== Consulta de um lote <consulta_de_um_lote>
+===== Consulta de um lote <consulta_de_um_lote>
 
 - *Descrição*: O utilizador escolhe consultar um lote.
 - *Pré-condição*: True.
@@ -626,7 +630,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   3.1. #s() O sistema avisa que o utilizador precisa de estar registado para adicionar o lote à lista de favoritos.\
   3.2. #s() @criar_conta
 
-==== Consulta de um leilão
+===== Consulta de um leilão
 
 - *Descrição*: O utilizador escolhe consultar um leilão.
 - *Pré-condição*: True.
@@ -637,7 +641,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo alternativo (1)*: [Utilizador decide consultar um lote] (passo 2) \
   2.1. #s() @consulta_de_um_lote
 
-==== Consulta das listas de favoritos <consulta_das_listas_de_favoritos>
+===== Consulta das listas de favoritos <consulta_das_listas_de_favoritos>
 
 - *Descrição*: O utilizador escolhe consultar a sua lista de favoritos.
 - *Pré-condição*: O utilizador está registado e autenticado no sistema.
@@ -648,7 +652,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   + O utilizador seleciona uma das listas.
   + O sistema apresenta essa lista.
 
-==== Remoção de um item da lista de favoritos
+===== Remoção de um item da lista de favoritos
 
 - *Descrição*: O utilizador escolhe remover um item da lista de favoritos.
 - *Pré-condição*: O utilizador está registado e autenticado no sistema.
@@ -660,7 +664,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo de exceção (1):* [Não existem itens para remover] (passo 1) \
   1.1. #s() O sistema não fornece a opção de remoção de itens.
 
-==== Consulta das notificações
+===== Consulta das notificações
 
 - *Descrição*: O utilizador consulta as notificações disponíveis.
 - *Pré-condição*: O utilizador está registado e autenticado no sistema.
@@ -673,7 +677,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo alternativo 1*: [Não existem notificações] (passo 2)
   2.1. #s() O sistema informa que não existem notificações.
 
-==== Consulta das categorias
+===== Consulta das categorias
 
 - *Descrição*: O utilizador consulta as categorias presentes no sistema.
 - *Pré-condição*: True.
@@ -684,7 +688,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo alternativo (1)*: [Utilizador escolhe consultar uma categoria] (passo 2) \
   2.1. #s() @consulta_de_uma_categoria
 
-==== Consulta de uma categoria <consulta_de_uma_categoria>
+===== Consulta de uma categoria <consulta_de_uma_categoria>
 
 - *Descrição*: O utilizador consulta uma categoria.
 - *Pré-condição*: True.
@@ -693,7 +697,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   + O utilizador seleciona uma categoria.
   + O sistema mostra uma listagem dos lotes nessa categoria (uma pesquisa com filtragem por essa categoria).
 
-==== Consulta dos lotes ganhos
+===== Consulta dos lotes ganhos
 
 - *Descrição*: O utilizador consulta os seus lotes ganhos.
 - *Pré-condição*: O utilizador está registado e autenticado no sistema.
@@ -705,7 +709,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo de exceção (1):* [Não existem lotes ganhos] (passo 1) \
   1.1. #s() O sistema informa que não existem lotes ganhos.
 
-==== Consulta dos lotes submetidos
+===== Consulta dos lotes submetidos
 
 - *Descrição*: O utilizador consulta os lotes que submeteu.
 - *Pré-condição*: O utilizador está registado e autenticado no sistema.
@@ -717,7 +721,9 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo de exceção (1)*: [Não existem lotes submetidos] (passo 1) \
   1.1. #s() O sistema informa que não existem lotes submetidos.
 
-==== Submeter um lote 
+==== Funcionamento dos lotes
+
+===== Submeter um lote 
 
 - *Descrição*: O utilizador submete um lote, fornecendo uma série de informações necessárias, e que depois serão verificadas.
 - *Pré-condição*: O utilizador está registado e autenticado no sistema.
@@ -734,7 +740,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   6.1. #s() O sistema informa que um ou mais dados são inválidos ou estão em falta. \
   6.2. #s() Regressa ao passo 1.
 
-==== Aprovar submissão
+===== Aprovar submissão
 
 - *Descrição*: Um administrador aprova uma submissão.
 - *Pré-condição*: O utilizador está registado e autenticado como administrador.
@@ -749,7 +755,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   1.2. #s() O sistema envia uma notificação ao utilizador a informar que lote não foi aprovado. \
   1.3. #s() O sistema marca o lote como "recusado". \
 
-==== Criar um lote <criar_lote>
+===== Criar um lote <criar_lote>
 
 - *Descrição*: Um administrador cria um lote.
 - *Pré-condição*: O utilizador está registado e autenticado como administrador.
@@ -767,7 +773,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   7.1. #s() O sistema informa que um ou mais dados são inválidos ou estão em falta. \
   7.2. #s() Regressa ao passo 1.
 
-==== Editar um lote <editar_um_lote>
+===== Editar um lote <editar_um_lote>
 
 - *Descrição*: Um administrador edita um lote.
 - *Pré-condição*: O utilizador está registado e autenticado como administrador.
@@ -782,7 +788,9 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   4.1. #s() O sistema informa que as alterações feitas são inválidas. \
   4.2. #s() Regressa ao passo 1.
 
-==== Entrar num leilão
+==== Funcionamento de um leilão
+
+===== Entrar num leilão
 
 - *Descrição*: O utilizador entra num leilão.
 - *Pré-condição*: O utilizador não está a participar noutro leilão ao mesmo tempo. O utiliza está registado e autenticado no sistema.
@@ -795,7 +803,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo de exceção (1)*: [Sistema não permite entrada] (passo 2) \
   2.1. #s() O sistema informa que a fila está cheia, ou que o tempo de entrada já passou.
 
-==== Sair de um leilão <sair_do_leilão>
+===== Sair de um leilão <sair_do_leilão>
 
 - *Descrição*: O utilizador decide sair do leilão de um lote.
 - *Pré-condição*: O utilizador está registado e autenticado no sistema. O utilizador está na fila de espera do leilão desse lote.
@@ -810,7 +818,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo alternativo (1)*: [O utilizador não insere um valor no intervalo de tempo devido] (passo 5)
   5.1. #s() O sistema retira o utilizador do leilão, registando a saída com uma licitação final de valor mínimo.
 
-==== Ganhar um lote
+===== Ganhar um lote
 
 - *Descrição*: O utilizador ganha um lote num leilão.
 - *Pré-condição*: O utilizador está registado e autenticado no sistema. O utilizador está registado como participante no leilão.
@@ -823,7 +831,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 - *Fluxo alternativo (1.2)*: [Empate nas licitações finais] (passo 2.1) \
   2.1.1. #s() O utilizador ganha por ter o menor tempo de saída registado.
 
-==== Criar um leilão
+===== Criar um leilão
 
 - *Descrição*: Um administrador cria um leilão.
 - *Pré-condição*: O utilizador está registado e autenticado como administrador.
@@ -843,7 +851,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   5.1. #s() O sistema informa que é necessário selecionar um ou mais itens para criar um leilão. \
   5.2. #s() Regressa ao passo 4.
 
-==== Editar um leilão 
+===== Editar um leilão 
 
 - *Descrição*: Um administrador edita os dados de um leilão.
 - *Pré-condição*: O utilizador está registado e autenticado como administrador.
@@ -859,7 +867,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   6.1. #s() O sistema informa que as edições feitas não são válidas. \
   6.2. #s() Regressa ao passo 1.
  
-==== Remover um leilão
+===== Remover um leilão
 
 - *Descrição*: Um administrador remove um leilão.
 - *Pré-condição*: O utilizador está registado e autenticado como administrador.
