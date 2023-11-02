@@ -510,7 +510,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 #figure(
   caption: "Diagrama de casos de uso - Consultas",
   kind: image,
-  image("images/diagrama_casos_de_uso_consultas.png", width: 90%)
+  image("images/diagrama_casos_de_uso_consultas.png", width: 100%)
 ) <uc_consultas>
 
 \
@@ -518,7 +518,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 #figure(
   caption: "Diagrama de casos de uso - Funcionamento dos lotes",
   kind: image,
-  image("images/diagrama_casos_de_uso_funcionamento_lotes.png", width: 80%)
+  image("images/diagrama_casos_de_uso_funcionamento_lotes.png", width: 70%)
 ) <uc_funcionamento_lotes>
 
 \
