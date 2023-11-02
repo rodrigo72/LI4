@@ -194,7 +194,7 @@ Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tar
 
 Iniciámos o processo de definição de requisitos com uma análise aprofundada do mercado de leilões e colecionismo na área de "music memorabilia" e vinis. A pesquisa abrangeu desde as melhores práticas em plataformas semelhantes #footnote[Por exemplo, https://www.omegaauctions.co.uk, https://www.liveauctioneers.com, https://www.artsy.net/auctions, etc.] até às expectativas dos colecionadores e vendedores neste domínio específico.
 
-Para além disso, realizamos reuniões regulares com a equipa, incluindo #protagonista, para agregar perspectivas significativas no levantamento de requisitos, procurando manter uma aprovação contínua.
+Para além disso, realizamos reuniões regulares com a equipa, incluindo #protagonista, para agregar perspectivas significativas no levantamento de requisitos, procurando manter uma aprovação contínua. Na organização de requisitos, estes foram divididos em requisitos funcionais e não funcionais. @sommerville_requirements
 
 Por fim, a estratégia também incluiu entrevistas, inquéritos e questionários direcionados a potenciais utilizadores da plataforma. Esta abordagem proporcionou uma compreensão abrangente das expectativas dos utilizadores, permitindo ajustes iterativos nos requisitos.
 
