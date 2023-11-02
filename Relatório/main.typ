@@ -495,7 +495,41 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 
 == Aspetos comportamentais
 
-=== Diagrama de casos de uso
+=== Diagramas de casos de uso
+
+\
+
+#figure(
+  caption: "Diagrama de casos de uso - Conta do utilizador",
+  kind: image,
+  image("images/diagrama_casos_de_uso_conta_utilizador.png", width: 60%)
+) <uc_conta_utilizador>
+
+\
+
+#figure(
+  caption: "Diagrama de casos de uso - Consultas",
+  kind: image,
+  image("images/diagrama_casos_de_uso_consultas.png", width: 90%)
+) <uc_consultas>
+
+\
+
+#figure(
+  caption: "Diagrama de casos de uso - Funcionamento dos lotes",
+  kind: image,
+  image("images/diagrama_casos_de_uso_funcionamento_lotes.png", width: 80%)
+) <uc_funcionamento_lotes>
+
+\
+
+#figure(
+  caption: "Diagrama de casos de uso - Funcionamento dos leilões",
+  kind: image,
+  image("images/diagrama_casos_de_uso_funcionamento_leilao.png", width: 80%)
+) <uc_funcionamento_leilao>
+
+\
 
 === Casos de uso
 
@@ -534,12 +568,12 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   3.1. #s() O sistema avisa que o email já está registado. \
   3.2. #s() Regressa ao passo 1. \
 - *Fluxo alternativo (2)*: [Palavra-passe inválida] (passo 3) \
-  3.1. #s() O sistema avisa que a palavra-passe é inválida e o motivo.
+  3.1. #s() O sistema avisa que a palavra-passe é inválida e o motivo. \
   3.2. #s() Regressa ao passo 1. \
 - *Fluxo alternativo (3)*: [Cliente escolhe não inserir método de pagamento] (passo 5) \
   4.1. #s() Avança para o passo 9. \
 - *Fluxo alternativo (4)*: [Método de pagamento ou morada inválida] (passo 8) \
-  8.1. #s() O sistema avisa que os dados inválidos. \
+  8.1. #s() O sistema avisa que os dados são inválidos. \
   8.2. #s() Regressa ao passo 6. \
 
 ===== Login
@@ -674,7 +708,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   + O sistema apresenta as notificações.
   + O utilizador seleciona uma notificação.
   + O sistema mostra os dados relativos a essa notificação.
-- *Fluxo alternativo 1*: [Não existem notificações] (passo 2)
+- *Fluxo alternativo 1*: [Não existem notificações] (passo 2) \
   2.1. #s() O sistema informa que não existem notificações.
 
 ===== Consulta das categorias
@@ -720,6 +754,16 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   1.1. #s() O sistema mostra a informação que o utilizador forneceu acerca desse lote, o seu estado e outras informações (em verificação, em espera, se pertence a um leilão, histórico, utilizador que ganhou o lote, etc.). \
 - *Fluxo de exceção (1)*: [Não existem lotes submetidos] (passo 1) \
   1.1. #s() O sistema informa que não existem lotes submetidos.
+
+===== Consulta da página de gestão do sistema
+
+- *Descrição*: O administrador acede à àrea de gestão dos sistema.
+- *Pré-condição*: O utilizador está registado e autenticado como administrador.
+- *Pós-condição*: True.
+- *Fluxo normal*:
+  + O sistema fornece uma área de gestão de leilões.
+  + O sistema fornece uma área de gestão de utilizadores.
+  + O sistema fornece uma área de gestão de lotes (incluindo submissões).
 
 ==== Funcionamento dos lotes
 
@@ -790,7 +834,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 
 ==== Funcionamento de um leilão
 
-===== Entrar num leilão
+===== Entrar num leilão 
 
 - *Descrição*: O utilizador entra num leilão.
 - *Pré-condição*: O utilizador não está a participar noutro leilão ao mesmo tempo. O utiliza está registado e autenticado no sistema.
@@ -815,7 +859,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   + O sistema pede que seja inserida uma licitação privada final que esteja no intervalo do valor atual.
   + O utilizador insere um valor.
   + O sistema regista a saída do utilizador.
-- *Fluxo alternativo (1)*: [O utilizador não insere um valor no intervalo de tempo devido] (passo 5)
+- *Fluxo alternativo (1)*: [O utilizador não insere um valor no intervalo de tempo devido] (passo 5) \
   5.1. #s() O sistema retira o utilizador do leilão, registando a saída com uma licitação final de valor mínimo.
 
 ===== Ganhar um lote
@@ -882,7 +926,6 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   + Os dados do leilão removido são guardados em ficheiros _backup_.
 - *Fluxo de exceção (1)*: [Palavra-passe não é válida] (passo 4) \
   4.1. #s() O sistema informa que a palavra-passe não é válida.
-
 
 ]
 
