@@ -83,14 +83,16 @@
 
 == Contextualização
 
-Alexandre Sousa, um empreendedor calculoso, começou a sua carreira como um contabilista certificado, e com o passar do tempo ficou reconhecido na sua área de trabalho. Possui uma postura calma; no entanto, o seu entusiasmo por vezes interrompe essa serenidade. Estas características, juntamente com a sua capacidade de liderança, levou-o a formar uma empresa que, posteriormente, obteve bastante sucesso a nível internacional.
+#let protagonista = "Alexandre Sousa"
+
+#protagonista, um empreendedor calculoso, começou a sua carreira como um contabilista certificado, e com o passar do tempo ficou reconhecido na sua área de trabalho. Possui uma postura calma; no entanto, o seu entusiasmo por vezes interrompe essa serenidade. Estas características, juntamente com a sua capacidade de liderança, levou-o a formar uma empresa que, posteriormente, obteve bastante sucesso a nível internacional.
 
 Décadas mais tarde, em 2018, vendeu a sua parte da empresa, e deixou o cargo de diretor. Assim, com 51 anos de idade, decidiu afastar-se da vida profissional. Apesar disso, continuou a direcionar a sua atenção para o surgimento de novas empresas e modelos de negócio da indústria. Afinal, almeja sempre aprender e empenhar-se nas áreas que mais admira. 
 
 Em 2021, encontrou um domínio que instigou particularmente o seu interesse: leilões. Levado por essa vontade, estudou teoria de leilões, começando com os livros e artigos de Paul Klemperer, até chegar, por fim, ao estudo e análise do desenvolvimento e design de leilões. 
 Passado um ano, decidiu começar uma nova empresa, desta vez de leilões online. Determinou, também, que a área de negócio seria “music memorabilia & vinyls”, inspirada pelo seu hobby de colecionar vinis exclusivos, e pela sua afeição à música. 
 
-Agora, em 2023, Alexandre reúne uma equipa: um gestor, um administrador de leilões, um especialista em vinis, entre outros. Para além disso, para o desenvolvimento do sistema, contrata uma empresa de desenvolvimento de software.
+Agora, em 2023, #protagonista reúne uma equipa: um gestor, um administrador de leilões, um especialista em vinis, entre outros. Para além disso, para o desenvolvimento do sistema, contrata uma empresa de desenvolvimento de software.
 
 
 == Fundamentação
@@ -192,7 +194,7 @@ Para facilitar este desenvolvimento em paralelo e o cumprimento atempado das tar
 
 Iniciámos o processo de definição de requisitos com uma análise aprofundada do mercado de leilões e colecionismo na área de "music memorabilia" e vinis. A pesquisa abrangeu desde as melhores práticas em plataformas semelhantes #footnote[Por exemplo, https://www.omegaauctions.co.uk, https://www.liveauctioneers.com, https://www.artsy.net/auctions, etc.] até às expectativas dos colecionadores e vendedores neste domínio específico.
 
-Para além disso, realizamos reuniões regulares com a equipa, incluindo Alexandre Sousa, para agregar perspectivas significativas no levantamento de requisitos, procurando manter uma aprovação contínua.
+Para além disso, realizamos reuniões regulares com a equipa, incluindo #protagonista, para agregar perspectivas significativas no levantamento de requisitos, procurando manter uma aprovação contínua.
 
 Por fim, a estratégia também incluiu entrevistas, inquéritos e questionários direcionados a potenciais utilizadores da plataforma. Esta abordagem proporcionou uma compreensão abrangente das expectativas dos utilizadores, permitindo ajustes iterativos nos requisitos.
 
@@ -335,18 +337,18 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O sistema apresenta uma lista dos lotes.
 
-==== Submeter um item (ou conjunto de itens)
+==== Submeter um lote
 
 Requisitos do utilizador:
-  + O utilizador escolhe submeter um item seu para ser leiloado com ajuda da empresa.
+  + O utilizador escolhe submeter um lote seu para ser leiloado com ajuda da empresa.
 
 Requisitos do sistema:
   + O sistema pede: 
-    - uma descrição detalhada: material, dono original, quem fez o item, quando foi feito, condição do item, assinaturas;
-    - uma seleção de como é que o item foi obtido: comprado, herdado, encontrado, ou oferecido;
+    - uma descrição detalhada: material, dono original, quem fez o item ou itens, quando foi feito, condição, assinaturas, etc.;
+    - uma seleção de como é que foi obtido: comprado, herdado, encontrado, ou oferecido;
     - uma seleção das categorias a que pertence (presentes no sistema);
     - informações e documentos adicionais;
-    - e imagens do item.
+    - e imagens.
   + A informação submetida é guardada e fica numa fila de espera para verificação e aprovação por parte de especialistas.
 
 ==== Consultar lista de lotes submetidos
@@ -408,7 +410,7 @@ Requisitos do utilizador:
   + O administrador escolhe criar um leilão na página de gestão de leilões.
 
 Requisitos do sistema:
-  + O sistema pede o nome e o tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", a duração da fila de espera, e o intervalo de tempo do _ascending clock_.
+  + O sistema pede o nome e o tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", e o intervalo de tempo do _ascending clock_.
   + O sistema apresenta um conjunto de lotes que não pertencem a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
 
 ==== Página de gestão de lotes 
@@ -420,11 +422,7 @@ Requisitos do utilizador:
 Requisitos do sistema:
   + O sistema disponibiliza a lista de lotes por verificar e verificados.
   + O sistema permite adicionar ou remover lotes verificados de um leilão.
-  + O sistema permite a verificação e aprovação de um item.
-
-// Falta decidir o que fazer em relação ao que acontece após a aprovação de um item; ele é enviado para a empresa? como é que ocorre o envio, quando é que pode ser considerado um item pronto a ser leiloado, etc.
-
-// resolvi por enquanto
+  + O sistema permite a verificação e aprovação de um lote.
 
 ==== Aprovação de um lote
 
@@ -436,7 +434,6 @@ Requisitos do sistema:
   + O sistema envia uma notificação ao utilizador a informar se o lote foi aprovado ou não.
   + Caso tenha sido aprovado, são enviadas informações acerca do envio do seu lote.
   + O lote passa a estar com estado de "espera" até chegar ao armazém da empresa.
-
 
 === Chegada de um item (ou conjunto de itens)
 
@@ -491,9 +488,397 @@ Assim, é descrito que os utilizadores possuem um registo, o qual é identificad
 Um utilizador pode submeter um ou mais itens, que será considerado um lote, e quando é verificado e aprovado, pode ser enviado para um armazém da empresa e depois devidamente catalogado, passando a estar disponível para pertencer a um leilão.
 Um lote, tal como já foi descrito antes com mais detalhe, está associado a uma ou mais categorias e artistas, possui os valores das comissões de comprador e de vendedor, um número identificador, um preço inicial, um valor de incremento intervalar, e um estado (vendido, em leilão, disponível, em espera, e em verificação).
 
-Por fim, o leilão tem uma data de início, e uma fila de espera com uma determinada duração de tempo (inicial, e depois para cada lote). Como é um _ascending clock auction_, possui um relógio que incrementa o valor do lote de acordo com um intervalo de tempo predeterminado. Num leilão podem ser leiloados um ou mais lotes. Quando um utilizador quer sair do leilão de um lote, faz uma _sealed bid_ final.
+Por fim, o leilão tem uma data de início, e uma fila de espera com uma determinada duração de tempo (para cada lote). Como é um _ascending clock auction_, possui um relógio que incrementa o valor do lote de acordo com um intervalo de tempo predeterminado. Num leilão podem ser leiloados um ou mais lotes. Quando um utilizador quer sair do leilão de um lote, faz uma _sealed bid_ final.
+
+// === Diagrama de classes
+// talvez -- não desconta se não o fizermos
 
 == Aspetos comportamentais
+
+=== Diagrama de casos de uso
+
+=== Casos de uso
+
+#set list(marker: [·])
+#let s() = {
+  h(3pt)
+}
+
+#[
+
+#show ref: it => if it.element != none and it.element.func() == heading {
+  "«include» " + it.element.body
+} else {
+  it
+}
+
+==== Criar conta <criar_conta>
+
+- *Descrição*: Cria uma nova conta de utilizador.
+- *Pré-condição*: True.
+- *Pós-condição*: O sistema regista a conta do utilizador.
+- *Fluxo normal*:
+  + O sistema pede para introduzir o seu nome completo, email e palavra-passe.
+  + O cliente escreve essas informações.
+  + O sistema verifica se as informações são válidas.
+  + O sistema pergunta ao utilizador se quer inserir um método de pagamento e morada.
+  + O cliente escolhe inserir esses dados.
+  + O sistema pede ao cliente para introduzir um método de pagamento e uma morada de envio e de faturação.
+  + O cliente indica um método de pagamento e uma morada de envio e de faturação.
+  + O sistema valida o método de pagamento e as moradas.
+  + O cliente é registado no sistema.
+  // + O sistema envia um email de verificação. // ?
+- *Fluxo alternativo (1)*: [Email já registado no sistema] (passo 3) \
+  3.1. #s() O sistema avisa que o email já está registado. \
+  3.2. #s() Regressa ao passo 1. \
+- *Fluxo alternativo (2)*: [Palavra-passe inválida] (passo 3) \
+  3.1. #s() O sistema avisa que a palavra-passe é inválida e o motivo.
+  3.2. #s() Regressa ao passo 1. \
+- *Fluxo alternativo (3)*: [Cliente escolhe não inserir método de pagamento] (passo 5) \
+  4.1. #s() Avança para o passo 9. \
+- *Fluxo alternativo (4)*: [Método de pagamento ou morada inválida] (passo 8) \
+  8.1. #s() O sistema avisa que os dados inválidos. \
+  8.2. #s() Regressa ao passo 6. \
+
+==== Login
+
+- *Descrição*: Utilizador entra no sistema.
+- *Pré-condição*: O utilizador está registado no sistema.
+- *Pós-condição*: O utilizador fica autenticado, podendo utilizar mais funcionalidades do sistema.
+- *Fluxo normal*:
+  + O utilizador fornece o seu email e a palavra-passe.
+  + O sistema verifica se o email e palavra-passe são válidos.
+  + O utilizador fica autenticado.
+- *Fluxo alternativo (1)*: [Email ou palavra-passe inválida] (passo 2) \
+  2.1. #s() O sistema verifica que o email não está registado ou que o email está registado e a palavra-passe é inválida. \
+  2.2. #s() Regressa ao passo 1.
+
+==== Redefinir palavra-passe
+
+- *Descrição*: O utilizador redefine a sua palavra-passe.
+- *Pré-condição*: O utilizador está registado e autenticado.
+- *Pós-condição*: As mudanças são guardadas no sistema.
+- *Fluxo normal*:
+  + O utilizador acede ao seu perfil e escolhe redefinir a sua palavra-passe.
+  + O sistema pede que a sua palavra passe atual e a nova sejam inseridas.
+  + O cliente insere esses dados.
+  + O sistema valida os dados.
+  + A palavra-passe do utilizador é a atualizada no sistema.
+- *Fluxo alternativo (1)*: [Dados inválidos] (passo 4) \
+  4.1. #s() O sistema avisa que a palavra-passe é inválida. \
+  4.2. #s() Regressa ao passo 2.
+
+==== Adicionar novo método de pagamento
+
+- *Descrição*: O utilizador adiciona um novo método de pagamento.
+- *Pré-condição*: O utilizador está registado e autenticado.
+- *Pós-condição*: As mudanças são guardadas no sistema.
+- *Fluxo normal*:
+  + O utilizador acede ao seu perfil e escolhe adicionar um novo método de pagamento.
+  + O sistema pede para escolher o tipo de método de pagamento (cartão ou ACH).
+  + O utilizador escolhe o tipo e insere os parâmetros necessários para esse tipo.
+  + O sistema valida os dados inseridos.
+  + O sistema guarda o método de pagamento adicionado.
+- *Fluxo alternativo (1)*: [Dados inválidos] (passo 4) \
+  4.1. #s() O sistema avisa que os dados inseridos são inválidos. \
+  4.2. #s() Regressa ao passo 2.
+
+==== Adicionar nova morada
+
+- *Descrição*: O utilizador adiciona uma nova morada.
+- *Pré-condição*: O utilizador está registado e autenticado.
+- *Pós-condição*: As mudanças são guardadas no sistema.
+- *Fluxo normal*:
+  + O utilizador acede ao seu perfil e escolhe adicionar uma morada.
+  + O sistema pede o tipo de morada, e os seus dados.
+  + O utilizador escolhe o tipo de morada, de envio e/ou de faturação, e insere os respetivos dados.
+  + O sistema valida a morada.
+  + A morada é adicionada ao registo do utilizador.
+- *Fluxo alternativo (1)*: [Dados inválidos] (passo 4) \
+  4.1. #s() O sistema avisa que um ou mais dos parâmetros é inválido. \
+  4.2. #s() Regressa ao passo 2.
+
+==== Pesquisar
+
+- *Descrição*: O utilizador utiliza a funcionalidade de pesquisa do sistema.
+- *Pré-condição*: True.
+- *Pós-condição*: O sistema mostra um resultado, se existir.
+- *Fluxo normal*:
+  + O utilizador insere os termos de pesquisa.
+  + Opcionalmente, adiciona filtros (artista, lote, categoria ou leilão).
+  + Opcionalmente, adiciona opções de ordenação (preço, popularidade, relevância, início mais próximo, adicionados recentemente).
+  + O sistema processa a consulta e procura por correspondências nos dados armazenados.
+  + O sistema apresenta uma lista de resultados.
+- *Fluxo alternativo (1)*: [Não existem resultados] (passo 5) \
+  5.1. #s() O sistema informa que não existem resultados correspondentes à pesquisa.
+
+==== Consulta de um lote <consulta_de_um_lote>
+
+- *Descrição*: O utilizador escolhe consultar um lote.
+- *Pré-condição*: True.
+- *Pós-condição*: O sistema apresenta os dados relativos ao lote.
+- *Fluxo normal*:
+  + O utilizador seleciona um lote.
+  + O sistema mostra os dados relativos ao lote.
+  + Opcionalmente, o utilizador adiciona o lote à sua lista de favoritos.
+  + Opcionalmente, o utilizador decide consultar o leilão desse lote.
+- *Fluxo alternativo (1)*: [Utilizador não registado] (passo 3) \  // não é de exceção pois a pós-condição é cumprida mesmo assim 
+  3.1. #s() O sistema avisa que o utilizador precisa de estar registado para adicionar o lote à lista de favoritos.\
+  3.2. #s() @criar_conta
+
+==== Consulta de um leilão
+
+- *Descrição*: O utilizador escolhe consultar um leilão.
+- *Pré-condição*: True.
+- *Pós-condição*: O sistema apresenta os dados relativos ao leilão.
+- *Fluxo normal*:
+  + O utilizador seleciona um leilão.
+  + O sistema apresenta os dados relativos ao leilão, e uma listagem dos seus itens com opções de filtragem e de ordenação.
+- *Fluxo alternativo (1)*: [Utilizador decide consultar um lote] (passo 2) \
+  2.1. #s() @consulta_de_um_lote
+
+==== Consulta das listas de favoritos <consulta_das_listas_de_favoritos>
+
+- *Descrição*: O utilizador escolhe consultar a sua lista de favoritos.
+- *Pré-condição*: O utilizador está registado e autenticado no sistema.
+- *Pós-condição*: O sistema apresenta a lista de favoritos solicitada.
+- *Fluxo normal*:
+  + O utilizador seleciona a opção de aceder às suas listas de favoritos.
+  + O sistema apresenta as diferentes listas: de lotes, de leilões, de artistas e de categorias.
+  + O utilizador seleciona uma das listas.
+  + O sistema apresenta essa lista.
+
+==== Remoção de um item da lista de favoritos
+
+- *Descrição*: O utilizador escolhe remover um item da lista de favoritos.
+- *Pré-condição*: O utilizador está registado e autenticado no sistema.
+- *Pós-condição*: O item é retirado da lista.
+- *Fluxo normal*:
+  + @consulta_das_listas_de_favoritos
+  + O utilizador seleciona o item que quer remover e indica a ação de remoção.
+  + O sistema remove o item da lista.
+- *Fluxo de exceção (1):* [Não existem itens para remover] (passo 1) \
+  1.1. #s() O sistema não fornece a opção de remoção de itens.
+
+==== Consulta das notificações
+
+- *Descrição*: O utilizador consulta as notificações disponíveis.
+- *Pré-condição*: O utilizador está registado e autenticado no sistema.
+- *Pós-condição*: O sistema apresenta as notificações, se existirem.
+- *Fluxo normal*:
+  + O utilizador seleciona a opção de visualizar as suas notificações.
+  + O sistema apresenta as notificações.
+  + O utilizador seleciona uma notificação.
+  + O sistema mostra os dados relativos a essa notificação.
+- *Fluxo alternativo 1*: [Não existem notificações] (passo 2)
+  2.1. #s() O sistema informa que não existem notificações.
+
+==== Consulta das categorias
+
+- *Descrição*: O utilizador consulta as categorias presentes no sistema.
+- *Pré-condição*: True.
+- *Pós-condição*: O sistema apresenta a lista de categorias.
+- *Fluxo normal*:
+  + O utilizador escolhe consultar as categorias.
+  + O sistema apresenta uma listagem das categorias, identificadas pelo seu nome.
+- *Fluxo alternativo (1)*: [Utilizador escolhe consultar uma categoria] (passo 2) \
+  2.1. #s() @consulta_de_uma_categoria
+
+==== Consulta de uma categoria <consulta_de_uma_categoria>
+
+- *Descrição*: O utilizador consulta uma categoria.
+- *Pré-condição*: True.
+- *Pós-condição*: O sistema apresenta os dados da categoria.
+- *Fluxo normal*:
+  + O utilizador seleciona uma categoria.
+  + O sistema mostra uma listagem dos lotes nessa categoria (uma pesquisa com filtragem por essa categoria).
+
+==== Consulta dos lotes ganhos
+
+- *Descrição*: O utilizador consulta os seus lotes ganhos.
+- *Pré-condição*: O utilizador está registado e autenticado no sistema.
+- *Pós-condição*: O sistema apresenta os lotes ganhos do utilizador.
+- *Fluxo normal*:
+  + O sistema apresenta uma uma listagem dos lotes ganhos.
+- *Fluxo alternativo (1)*: [Consulta de um lote ganho] (passo 1) \
+  1.1. #s() @consulta_de_um_lote \
+- *Fluxo de exceção (1):* [Não existem lotes ganhos] (passo 1) \
+  1.1. #s() O sistema informa que não existem lotes ganhos.
+
+==== Consulta dos lotes submetidos
+
+- *Descrição*: O utilizador consulta os lotes que submeteu.
+- *Pré-condição*: O utilizador está registado e autenticado no sistema.
+- *Pós-condição*: O sistema apresenta os lotes que o utilizador submeteu.
+- *Fluxo normal*:
+  + O sistema apresenta uma listagem dos lotes submetidos e o seu estado.
+- *Fluxo alternativo (1)*: [Utilizador seleciona um lote] (passo 1) \
+  1.1. #s() O sistema mostra a informação que o utilizador forneceu acerca desse lote, o seu estado e outras informações (em verificação, em espera, se pertence a um leilão, histórico, utilizador que ganhou o lote, etc.). \
+- *Fluxo de exceção (1)*: [Não existem lotes submetidos] (passo 1) \
+  1.1. #s() O sistema informa que não existem lotes submetidos.
+
+==== Submeter um lote 
+
+- *Descrição*: O utilizador submete um lote, fornecendo uma série de informações necessárias, e que depois serão verificadas.
+- *Pré-condição*: O utilizador está registado e autenticado no sistema.
+- *Pós-condição*: A submissão é feita com sucesso, e colocada numa fila de submissões do sistema.
+- *Fluxo normal*:
+  + O sistema pede uma descrição detalhada.
+  + O sistema apresenta uma seleção obrigatória de como é que o item foi obtido.
+  + O sistema pede uma seleção de categorias a que o lote pertence.
+  + O sistema pede informações e documentos adicionais, e imagens.
+  + O cliente fornece os dados necessários.
+  + O sistema valida os dados.
+  + O sistema guarda a submissão, e é marcada como "em verificação."
+- *Fluxo alternativo (1)*: [Dados inválidos ou em falta] (passo 6) \
+  6.1. #s() O sistema informa que um ou mais dados são inválidos ou estão em falta. \
+  6.2. #s() Regressa ao passo 1.
+
+==== Aprovar submissão
+
+- *Descrição*: Um administrador aprova uma submissão.
+- *Pré-condição*: O utilizador está registado e autenticado como administrador.
+- *Pós-condição*: A submissão é aprovada.
+- *Fluxo normal*:
+  + O administrador aprova uma submissão selecionada.
+  + O sistema envia uma notificação ao utilizador a informar a aprovação.
+  + O sistema cria o lote automaticamente, permitindo ao administrador de seguida editá-lo. (@editar_um_lote)
+  + O sistema coloca o lote com estado "em espera", e com visibilidade "privado".
+- *Fluxo de exceção (1)*: [O administrador não aprova a submissão] (passo 1) \
+  1.1. #s() O administrador não aprova o lote selecionado. \
+  1.2. #s() O sistema envia uma notificação ao utilizador a informar que lote não foi aprovado. \
+  1.3. #s() O sistema marca o lote como "recusado". \
+
+==== Criar um lote <criar_lote>
+
+- *Descrição*: Um administrador cria um lote.
+- *Pré-condição*: O utilizador está registado e autenticado como administrador.
+- *Pós-condição*: O lote é criado e guardado no sistema.
+- *Fluxo normal*:
+  + O sistema adiciona um número identificador ao lote automaticamente.
+  + O sistema pede um nome, uma descrição, e imagens (opcional).
+  + O sistema pede uma seleção de categorias.
+  + O sistema pede uma seleção de estado e de visibilidade (com _default_: "em espera" e "privado").
+  + O sistema pede para associar a um leilão (opcional).
+  + O administrador fornece esses dados.
+  + O sistema valida os dados.
+  + O lote é guardado no sistema.
+- *Fluxo alternativo (1)*: [Dados inválidos ou em falta] (passo 7) \
+  7.1. #s() O sistema informa que um ou mais dados são inválidos ou estão em falta. \
+  7.2. #s() Regressa ao passo 1.
+
+==== Editar um lote <editar_um_lote>
+
+- *Descrição*: Um administrador edita um lote.
+- *Pré-condição*: O utilizador está registado e autenticado como administrador.
+- *Pós-condição*: O alterações feitas no lote são guardadas no sistema.
+- *Fluxo normal*:
+  + O sistema fornece os campos de edição do lote.
+  + O administrador edita os campos que achar necessário.
+  + O administrador sumbte as alterações.
+  + O sistema valida as alterações.
+  + O sistema guarda as alterações.
+- *Fluxo alternativo (1)*: [Alterações inválidas] (passo 4) \
+  4.1. #s() O sistema informa que as alterações feitas são inválidas. \
+  4.2. #s() Regressa ao passo 1.
+
+==== Entrar num leilão
+
+- *Descrição*: O utilizador entra num leilão.
+- *Pré-condição*: O utilizador não está a participar noutro leilão ao mesmo tempo. O utiliza está registado e autenticado no sistema.
+- *Pós-condição*: O utilizador é adicionado à fila de espera.
+- *Fluxo normal*:
+  + O utilizador indica que quer entrar no leilão.
+  + O sistema adiciona o utilizador à fila de espera.
+  + O sistema informa que o utilizador entrou no leilão.
+  + O sistema apresenta a lista de utilizadores na fila de espera e a sua contagem.
+- *Fluxo de exceção (1)*: [Sistema não permite entrada] (passo 2) \
+  2.1. #s() O sistema informa que a fila está cheia, ou que o tempo de entrada já passou.
+
+==== Sair de um leilão <sair_do_leilão>
+
+- *Descrição*: O utilizador decide sair do leilão de um lote.
+- *Pré-condição*: O utilizador está registado e autenticado no sistema. O utilizador está na fila de espera do leilão desse lote.
+- *Pós-condição*: O utilizador sai do leilão.
+- *Fluxo normal*:
+  + O sistema apresenta a fila dos participantes em tempo real.
+  + A cada intervalo de tempo predefinido, o sistema aumenta o valor do lote de acordo com o seu valor de incremento.
+  + O utilizador escolhe sair nesse intervalo de tempo.
+  + O sistema pede que seja inserida uma licitação privada final que esteja no intervalo do valor atual.
+  + O utilizador insere um valor.
+  + O sistema regista a saída do utilizador.
+- *Fluxo alternativo (1)*: [O utilizador não insere um valor no intervalo de tempo devido] (passo 5)
+  5.1. #s() O sistema retira o utilizador do leilão, registando a saída com uma licitação final de valor mínimo.
+
+==== Ganhar um lote
+
+- *Descrição*: O utilizador ganha um lote num leilão.
+- *Pré-condição*: O utilizador está registado e autenticado no sistema. O utilizador está registado como participante no leilão.
+- *Pós-condição*: O utilizador ganha o lote.
+- *Fluxo normal*:
+  + O utilizador escolhe sair do leilão. (@sair_do_leilão)
+  + Sendo o último utilizador restante, ganha o lote e paga o segundo valor mais alto das licitações privadas e finais da ronda anterior.
+- *Fluxo alternativo (1)*: [Todos os utilizadores restantes também escolhem sair] (passo 2) \
+  2.1. #s() O utilizador ganha por ter o maior valor de licitação privada e final, pagando o segundo valor mais alto das licitações feitas nessa ronda. \
+- *Fluxo alternativo (1.2)*: [Empate nas licitações finais] (passo 2.1) \
+  2.1.1. #s() O utilizador ganha por ter o menor tempo de saída registado.
+
+==== Criar um leilão
+
+- *Descrição*: Um administrador cria um leilão.
+- *Pré-condição*: O utilizador está registado e autenticado como administrador.
+- *Pós-condição*: A criação do leilão é efetuada no sistema.
+- *Fluxo normal*:
+  + O sistema pede o nome do leilão, o tema, a data de início, o tipo de inicialização (automática ou manual), o intervalo de tempo de cada ronda, e a visibilidade.
+  + O administrador insere esses dados.
+  + O sistema valida os dados inseridos.
+  + O sistema fornece uma lista de lotes disponíveis/ sem leilão, com opções de filtragem. // fornece pre-visualizações de itens (?)
+  + O administrador seleciona um ou mais lotes, e submete.
+  + O sistema valida a submissão.
+  + O leilão é criado e guardado no sistema.
+- *Fluxo alternativo (1)*: [Dados inválidos] (passo 3) \
+  3.1. #s() O sistema informa que os dados inseridos são inválidos/ estão em falta. \
+  3.2. #s() Regressa ao passo 1. \
+- *Fluxo alternativo (2)*: [Administrador não selecionou] (passo 5) \
+  5.1. #s() O sistema informa que é necessário selecionar um ou mais itens para criar um leilão. \
+  5.2. #s() Regressa ao passo 4.
+
+==== Editar um leilão 
+
+- *Descrição*: Um administrador edita os dados de um leilão.
+- *Pré-condição*: O utilizador está registado e autenticado como administrador.
+- *Pós-condição*: As alterações feitas são guardadas.
+- *Fluxo normal*: 
+  + O sistema apresenta os parâmetros que podem ser editados.
+  + O sistema fornece uma lista dos lotes do leilão, podendo ser removidos.
+  + O sistema fornece uma opção de selecionar novos lotes ao leilão, fornecendo uma lista dos lotes disponíveis, com opções de filtragem.
+  + O administrador efetua e submete as suas edições.
+  + O sistema valida as edições feitas.
+  + O sistema guarda as alterações, e envia uma notificação acerca das alterações feitas aos utilizadores que têm o leilão na lista de favoritos.
+- *Fluxo alternativo (1)*: [As edições não são válidas] (paso 6) \
+  6.1. #s() O sistema informa que as edições feitas não são válidas. \
+  6.2. #s() Regressa ao passo 1.
+ 
+==== Remover um leilão
+
+- *Descrição*: Um administrador remove um leilão.
+- *Pré-condição*: O utilizador está registado e autenticado como administrador.
+- *Pós-condição*: O leilão é removido do sistema.
+- *Fluxo normal*:
+  + O administrador seleciona um leilão, e escolhe removê-lo.
+  + O sistema pede a sua palavra-passe.
+  + O administrador insere a sua palavra-passe.
+  + O sistema valida a palavra-passe.
+  + O leilão é removido do sistema.
+  + O sistema envia notificações para os utilizadores que têm o leilão na lista de favoritos acerca da sua remoção.
+  + Os dados do leilão removido são guardados em ficheiros _backup_.
+- *Fluxo de exceção (1)*: [Palavra-passe não é válida] (passo 4) \
+  4.1. #s() O sistema informa que a palavra-passe não é válida.
+
+
+]
+
+=== Diagramas de atividade
 
 = Conceção do Sistema de Dados
 
