@@ -63,21 +63,21 @@
 
 #set list(marker: [--])
 
-= Introdução
-<<\Este primeiro capítulo deverá ter obrigatoriamente as subsecções abaixo apresentadas.>>
+// = Introdução
+// <<\Este primeiro capítulo deverá ter obrigatoriamente as subsecções abaixo apresentadas.>>
 
-== Contextualização
+// == Contextualização
 
-<\<Nesta secção deverá ser apresentado o contexto no qual se desenvolve o caso de estudo seleccionado.>>
+// <\<Nesta secção deverá ser apresentado o contexto no qual se desenvolve o caso de estudo seleccionado.>>
 
-== Apresentação do Caso de Estudo
-<\<Esta secção acolherá uma descrição concisa do caso de estudo seleccionado.>>
+// == Apresentação do Caso de Estudo
+// <\<Esta secção acolherá uma descrição concisa do caso de estudo seleccionado.>>
 
-== Motivação e Objectivos
-<\<Esta secção acolherá os diversos motivos, acompanhados por uma breve descrição, que conduziram à proposta e ao desenvolvimento do trabalho, assim como a apresentação detalhada dos diversos objectivos a alcançar com a sua realização.>>
+// == Motivação e Objectivos
+// <\<Esta secção acolherá os diversos motivos, acompanhados por uma breve descrição, que conduziram à proposta e ao desenvolvimento do trabalho, assim como a apresentação detalhada dos diversos objectivos a alcançar com a sua realização.>>
 
-== Estrutura do Relatório
-<\<Após a leitura da introdução de um relatório é "simpático" apresentar uma breve descrição daquilo que se vai encontrar nos demais capítulos do relatório.>>
+// == Estrutura do Relatório
+// <\<Após a leitura da introdução de um relatório é "simpático" apresentar uma breve descrição daquilo que se vai encontrar nos demais capítulos do relatório.>>
 
 = Definição do Sistema
 
