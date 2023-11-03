@@ -929,11 +929,20 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 
 ]
 
-=== Diagramas de atividade
+// === Diagramas de atividade (acho que não vai haver tempo)
 
 = Conceção do Sistema de Dados
 
 == Apresentação geral das estrutura do sistema de dados
+
+\
+
+#figure(
+  caption: "Modelo lógico da base de dados",
+  kind: image,
+  image("images/modelo_logico.png", width: 90%)
+)
+
 
 == Descrição detalhada dos vários elementos de dados e seus relacionamentos
 
