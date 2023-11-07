@@ -1110,7 +1110,13 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 
 = Conclusões e Trabalho Futuro
 
-<\<Elaborar uma apreciação crítica sobre o trabalho realizado, apontando os seus pontos fortes e fracos. Adicionalmente, caso se aplique, enunciar eventuais tarefas a realizar futuramente ou novas opções para estender o trabalho realizado.>>
+Numa fase inicial começamos por nos contextualizar no tema do nosso projeto de forma a conseguirmos entender, primeiramente, se o tema do nosso projeto de
+facto era algo que devesse ser explorado, o que levou a uma contextualização, fundamentação e
+análise de viabilidade, e, segundamente, após apurarmos que de facto valia a pena, conseguirmos definir os objetivos que tínhamos para o futuro da nossa aplicação.
+Em paralelo com a definição dos nossos objetivos, fomos também
+construindo um plano de desenvolvimento, de forma a conseguirmos organizar-nos.
+Esta fase provou-se crucial, uma vez que permitiu que nós ficássemos a saber mais acerca
+do projeto e trabalhá-lo de uma forma mais lógica e consistente.
 
 // #heading(numbering: none)[Referências]
 #bibliography("refs.bib", title: "Referências")
