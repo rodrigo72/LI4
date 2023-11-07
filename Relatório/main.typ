@@ -943,8 +943,162 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   image("images/modelo_logico.png", width: 90%)
 )
 
-
 == Descrição detalhada dos vários elementos de dados e seus relacionamentos
+
+=== Entidades
+
+#figure(
+  caption: "Identificação das entidades",
+  kind: table,
+  table(
+    columns: 3 * (1fr,), 
+    stroke: (dash: "densely-dotted", thickness: 0.75pt), 
+    align: horizon,
+    fill: (x, y) => if y == 0 { blue.lighten(50%) },
+    [*Entidade*], [*Descrição*], [*Ocorrência*],
+    [Utilizador], [Termo geral para os que usam a aplicação com o objetivo de comprar ou vender], [Cada utilizador poderá visitar o site para comprar ou vender um ou mais itens num leilão],
+    [Lote], [Termo geral para o item ou conjunto de itens submetidos pelos utilizadores para posterior avaliação],[Os utilizadores submetem um item ou conjunto de itens. Estas submissões são avaliadas e, caso aprovadas, ficam em estado de espera até se colocarem disponíveis para leilão], 
+    [Leilão], [Termo geral para o processo de compra e venda de um ou mais items], [Cada utilizador pode participar num leilão quer como comprador quer como vendedor],
+    [Lance], [Termo geral para a quantia de dinheiro oferecida por um utilizador a participar num leilão], [Um utilizador ao entrar num leilão pode introduzir uma quantia de dinheiro que deseja oferecer pelo lote],
+    [Artista], [Termo geral para o artista musical], [Cada item estará associado a um artista musical],
+    [Categoria], [Termo geral para a categoria referente a um item ou lote], [Cada categoria será exibida na aplicação, sendo possível um utilizador pesquisar por uma determinada categoria durante a procura de itens]   
+  )
+)
+
+=== Atributos
+
+#figure(
+  caption: "Identificação dos atributos das entidades",
+  kind: table,
+  table(
+    columns: (3fr,) + (7fr,) + (9fr,) + (5fr,),
+    stroke: (dash: "densely-dotted", thickness: 0.75pt), 
+    align: (x, y) => left,
+    fill: (x, y) => if y == 0 { blue.lighten(50%) },
+    [*Entidade*], [*Atributos*], [*Descrição*], [*Opcional*],
+    [Utilizador], 
+    [
+      - ID \ 
+      - Nome \ 
+      - Email \
+      - Leilões Favoritos \
+      - Categorias Favoritas \
+      - Lotes Favoritos \
+    ],
+    [
+      - Identificador do Utilizador \
+      - Nome do Utilizador
+      - Email do Utilizador
+      - Leilões Favoritos do Utilizador \ 
+      - Categorias Favoritas do Utilizador \
+      - Lotes Favoritos do Utilizador 
+    ],
+    [
+      Não \
+      Não \
+      Não \
+      Sim \ 
+      Sim \ 
+      Sim 
+    ],
+    [Lote], 
+    [
+      - ID \ 
+      - Nome \ 
+      - Descrição \ 
+      - Visibilidade \ 
+      - Estado \ 
+      - Valor Inicial \ 
+      - Valor Final \ 
+      - Fila de Espera \ 
+      - Data de Adição 
+    ], 
+    [
+      - Identificador do Lote \
+      - Nome do Lote \ 
+      - Descrição do Lote \ 
+      - Visibilidade do Lote \ 
+      - Estado do Lote \ 
+      - Valor Inicial do Lote \
+      - Valor Final do Lote \ 
+      - Fila de Espera para o Lote \ 
+      - Data de Adição do Lote 
+    ], 
+    [
+      Não \ 
+      Não \
+      Não \
+      Não \
+      Não \
+      Não \
+      Não \
+      Não \
+      Não 
+    ],
+    [Leilão],
+    [
+      - ID \ 
+      - Data de Início \ 
+      - Nome \ 
+      - Descrição \ 
+      - Inicialização 
+    ],
+    [
+      - Identificador do Leilão \
+      - Data de Início do Leilão \
+      - Nome do Leilão \
+      - Descrição do Leilão \
+      - Modo de Inicialização do Leilão
+    ],
+    [
+      Não \ 
+      Não \ 
+      Não \
+      Não \
+      Não
+    ],
+    [Lance], 
+    [
+      - ID do Utilizador
+      - ID do Lote
+      - Preço do Lance Final
+      - Registo Data / Hora
+    ],
+    [
+      - Identificação do Utilizador
+      - Identificação do Lote
+      - Preço do Lance Final
+      - Registo Data / Hora
+    ],
+    [
+      Não \
+      Não \
+      Não \
+      Não \
+    ]
+  )
+)
+
+=== Relacionamentos
+
+#figure(
+  caption: "Relacionamento entre entidades",
+  kind: table,
+  table(
+    columns: 5 * (6fr,),
+    stroke: (dash: "densely-dotted", thickness: 0.75pt), 
+    align: (x, y) => left,
+    fill: (x, y) => if y == 0 { blue.lighten(50%) },
+    [*Entidade*], [*Multiplicidade*], [*Relacionamento*], [*Multiplicidade*],
+    [*Entidade*],
+    [Leilão], [(1,1)], [tem], [(1,n)], [Lote],
+    [Utilizador], [(1,n)], [participa], [(1,n)], [Leilão],
+    [Categoria], [(1,1)], [identifica], [(1,n)], [Lote],
+    [Artista], [(1,1)], [identifica], [(1,n)], [Lote],
+    [Utilizador], [(1,n)], [dá], [(1,n)], [Lance],
+    [Lote], [(1,n)], [possuem], [(1,n)], [Lance]
+  )
+)
 
 = Esboço das Interfaces do Sistema
 
