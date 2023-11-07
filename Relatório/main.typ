@@ -4,7 +4,7 @@
 #show: project
 
 // Music Memorabilia Online Auction
-#cover(title: "[Nome original aqui, sla UMusic Auction]", authors: (
+#cover(title: "UMusic", authors: (
   (name: "Rodrigo Monteiro", number: "a100706"), 
   (name: "Miguel Gramoso", number: "a100835"), 
   (name: "Luís Figueiredo", number: "a100549"), 
@@ -15,7 +15,8 @@
 #counter(page).update(1)
 
 #heading(numbering: none, outlined: false)[Resumo]
-<\<O resumo tem como objectivo descrever de forma sucinta o trabalho realizado. Deverá conter uma pequena introdução, seguida por uma breve descrição do trabalho realizado e terminando com uma indicação sumária do seu estado final. Não deverá exceder as 400 palavras.>>   
+O presente relatório apresenta o progresso do projeto UMusic até o momento, que tem como objetivo o desenvolvimento de uma aplicação para leilões online de memorabilia musical. A plataforma visa permitir aos utilizadores comprar e vender itens relacionados à música, como instrumentos, discos, autógrafos, entre outros. \
+Neste relatório, são apresentados os resultados da fase inicial do projeto, que incluiu a Definição do Sistema, Definição dos Requisitos, a Especificação e Modelação do Software, a Conceção do Sistema de Dados e o Esboço das Interfaces do Sistema. Além disso, são descritas as tarefas que serão executadas na próxima fase do projeto, que incluem a implementação e desenvolvimento do sistema. O relatório também inclui uma apreciação crítica sobre o trabalho realizado até o momento, apontando seus pontos fortes e fracos, bem como eventuais tarefas a realizar futuramente ou novas opções para estender o trabalho realizado
 
 \
 
