@@ -1147,15 +1147,24 @@ Para  que o utilizador possa ter acesso aos leilões, é necessário que este es
 Estas páginas têm de ser capazes de receber os dados do utilizador e de os validar, para que este possa ter acesso ao site.\
 
 
-= Conclusões e Trabalho Futuro
+= Conclusões
 
 Numa fase inicial começamos por nos contextualizar no tema do nosso projeto de forma a conseguirmos entender, primeiramente, se o tema do nosso projeto de
 facto era algo que devesse ser explorado, o que levou a uma contextualização, fundamentação e
-análise de viabilidade, e, segundamente, após apurarmos que de facto valia a pena, conseguirmos definir os objetivos que tínhamos para o futuro da nossa aplicação.
+análise de viabilidade.
 Em paralelo com a definição dos nossos objetivos, fomos também
 construindo um plano de desenvolvimento, de forma a conseguirmos organizar-nos.
 Esta fase provou-se crucial, uma vez que permitiu que nós ficássemos a saber mais acerca
 do projeto e trabalhá-lo de uma forma mais lógica e consistente.
+
+= Trabalho Futuro
+
+No futuro temos as seguintes intenções: 
+- melhorar o trabalho existente de acordo com o feedback dos professores na apresentação (nomeadamente, adicionar mais contexto às Interfaces desenvolvidas e incorporar informação adicional aos requisitos, assim como quem os levantou, como foram obtidos, etc.)
+- incluir interfaces adicionais ou ajustar as existentes para atender a uma gama mais ampla de casos de uso
+- rever e talvez até adaptar ligeiramente a estrutura desenvolvida caso haja essa necessidade
+- fazer uma reunião de modo a definir o que temos que fazer na próxima fase e atualizar o diagrama de Gantt com os novos objetivos e datas.
+
 
 // #heading(numbering: none)[Referências]
 #bibliography("refs.bib", title: "Referências")
