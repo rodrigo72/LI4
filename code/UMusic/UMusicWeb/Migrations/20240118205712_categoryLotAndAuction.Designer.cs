@@ -12,8 +12,8 @@ using UMusicWeb.Data;
 namespace UMusicWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240118173125_addCategoryAndLotToDb")]
-    partial class addCategoryAndLotToDb
+    [Migration("20240118205712_categoryLotAndAuction")]
+    partial class categoryLotAndAuction
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,64 @@ namespace UMusicWeb.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("UMusicWeb.Models.Auction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("AutomaticInitialization")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Auctions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AutomaticInitialization = true,
+                            Description = "Random description",
+                            Name = "Random name 1",
+                            StartDate = new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6169)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AutomaticInitialization = false,
+                            Description = "Random description",
+                            Name = "Random name 2",
+                            StartDate = new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6176)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AutomaticInitialization = false,
+                            Description = "Random description",
+                            Name = "Random name 3",
+                            StartDate = new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6181)
+                        });
+                });
 
             modelBuilder.Entity("UMusicWeb.Models.Category", b =>
                 {
@@ -116,7 +174,7 @@ namespace UMusicWeb.Migrations
                         new
                         {
                             Id = 1,
-                            DateAdded = new DateTime(2024, 1, 18, 17, 31, 24, 452, DateTimeKind.Local).AddTicks(8407),
+                            DateAdded = new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6025),
                             Description = "Random description",
                             IncrementValue = 100f,
                             InitialValue = 1000f,
@@ -128,7 +186,7 @@ namespace UMusicWeb.Migrations
                         new
                         {
                             Id = 2,
-                            DateAdded = new DateTime(2024, 1, 18, 17, 31, 24, 452, DateTimeKind.Local).AddTicks(8458),
+                            DateAdded = new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6089),
                             Description = "Random description",
                             IncrementValue = 200f,
                             InitialValue = 2000f,
@@ -140,8 +198,8 @@ namespace UMusicWeb.Migrations
                         new
                         {
                             Id = 3,
-                            DateAdded = new DateTime(2024, 1, 8, 17, 31, 24, 452, DateTimeKind.Local).AddTicks(8516),
-                            DateSale = new DateTime(2024, 1, 18, 17, 31, 24, 452, DateTimeKind.Local).AddTicks(8508),
+                            DateAdded = new DateTime(2024, 1, 8, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6106),
+                            DateSale = new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6099),
                             Description = "Random description",
                             FinalValue = 3100.23f,
                             IncrementValue = 100f,

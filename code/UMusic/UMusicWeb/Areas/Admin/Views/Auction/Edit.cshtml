@@ -1,0 +1,56 @@
+﻿@model Auction
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-dark">Edit Auction</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="ModelOnly"></div>
+        
+        <div class="mb-3 row p-1">
+            <label asp-for="Name" class="p-0"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Description" class="p-0"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="AutomaticInitialization" class="col-form-label col-3"></label>
+            <div class="form-check form-switch">
+                <input asp-for="AutomaticInitialization" type="checkbox" class="form-check-input" />
+            </div>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="StartDate" class="p-0"></label>
+            <input asp-for="StartDate" class="form-control" />
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="EndDate" class="p-0"></label>
+            <input asp-for="EndDate" class="form-control" />
+            <span asp-validation-for="EndDate" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-dark form-control">Update</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Auction" asp-action="Index" class="btn btn-outline-secondary form-control">
+                    Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

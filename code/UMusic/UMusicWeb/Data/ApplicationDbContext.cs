@@ -11,6 +11,7 @@ namespace UMusicWeb.Data
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Lot> Lots { get; set; }
+        public DbSet<Auction> Auctions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -63,6 +64,12 @@ namespace UMusicWeb.Data
                     DateSale = DateTime.Now,
                     DateAdded = DateTime.Now.AddDays(-10)
                 }
+            );
+
+            modelBuilder.Entity<Auction>().HasData(
+                new Auction() { Id = 1, Name = "Random name 1", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = true },
+                new Auction() { Id = 2, Name = "Random name 2", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = false },
+                new Auction() { Id = 3, Name = "Random name 3", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = false }
             );
         }
     }

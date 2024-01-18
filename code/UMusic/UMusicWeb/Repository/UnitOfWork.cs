@@ -8,12 +8,14 @@ namespace UMusicWeb.Repository
         private ApplicationDbContext _db;
         public ICategoryRepository Category { get; private set; }
         public ILotRepository Lot { get; private set; }
+        public IAuctionRepository Auction { get; private set; }
 
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             Category = new CategoryRepository(_db);
             Lot = new LotRepository(_db);
+            Auction = new AuctionRepository(_db);
         }
 
         public void Save()
