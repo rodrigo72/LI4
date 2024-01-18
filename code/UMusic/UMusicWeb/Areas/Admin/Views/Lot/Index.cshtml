@@ -1,0 +1,71 @@
+﻿@model List<Lot>
+
+<style>
+    .max-width-column {
+        max-width: 250px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+</style>
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-dark">
+                Lot List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Lot" asp-action="Create" class="btn btn-dark">
+                <i class="bi bi-plus-circle"></i> Create New Lot
+            </a>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Name</th>
+                <th class="text-center">Description</th>
+                <th class="text-center">Visibility</th>
+                <th class="text-center">State</th>
+                <th class="text-center">Increment Value</th>
+                <th class="text-center">Initial Value</th>
+                <th class="text-center">Final Value</th>
+                <th class="text-center">Queue Time</th>
+                <th class="text-center">Date of Creation</th>
+                <th class="text-center">Date of Sale</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model.OrderBy(o => o.Id))
+            {
+                <tr>
+                    <td class="text-center">@obj.Name</td>
+                    <td class="text-center max-width-column">@obj.Description</td>
+                    <td class="text-center">@obj.Visibility</td>
+                    <td class="text-center">@obj.State</td>
+                    <td class="text-center">@obj.IncrementValue</td>
+                    <td class="text-center">@obj.InitialValue</td>
+                    <td class="text-center">@obj.FinalValue</td>
+                    <td class="text-center">@obj.QueueTime</td>
+                    <td class="text-center">@obj.DateAdded</td>
+                    <td class="text-center">@obj.DateSale</td>
+                    <td class="">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Lot" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-secondary mx-2">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="Lot" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                                <i class="bi bi-file-earmark-minus"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
