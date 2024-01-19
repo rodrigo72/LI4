@@ -1140,10 +1140,10 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 == Caracterização das interfaces
 As Interfaces a serem utilizadas para este projeto pretendem cumprir com todos os casos de uso analisados, mantendo ao mesmo tempo uma plataforma simples, intuitiva e de fácil utilização.\
 Tendo em conta os casos de uso descritos anteriormente, foram criadas as seguintes demonstradas no ponto anterior.\
-A interface Home page (Figura 9) é a primeira interface que o utilizador irá ver ao aceder ao nosso site. Esta interface tem de ser capaz de mostrar os leilões que vão começar, os leilões que já acabaram e os leilões que o utilizador possa ter intresse baseado na sua lista de favoritos.\
-Da mesma maneira, a interface de consulta de lote (Figura 10), caso de uso 3.3.2.2.2, tem de ser capaz de mostrar a informação do lote que o utilizador escolheu, desde a hora de início do leilão, até ao artista que o lote representa.\
-A interface para o leilão (Figura 11), caso de uso 3.3.4, tem de ser capaz de mostrar a informação do leilão, licitação atual, um temporizador de ronda, o incremento por ronda, e a lista de utilizadores que estão a participar no leilão.\
-Para  que o utilizador possa ter acesso aos leilões, é necessário que este esteja registado no site, sendo assim preciso a página de registo (Figura 12), caso de uso 3.3.2.1.1, e a página de login (Figura 13), caso de uso 3.3.2.1.2 .
+A interface Home page (Figura 9), é a primeira interface que o utilizador irá ver ao aceder ao nosso site. Esta interface tem de ser capaz de mostrar os leilões que vão começar, os leilões que já acabaram e os leilões que o utilizador possa ter interesse baseado na sua lista de favoritos. Como esta interface agrupa todas as consultas, consideramos que satisfaz o caso de uso 3.3.2.2 (Consultas) \
+Da mesma maneira, a interface de consulta de lote (Figura 10), caso de uso 3.3.2.2.2 (Consulta de um lote), tem de ser capaz de mostrar a informação do lote que o utilizador escolheu, desde a hora de início do leilão, até ao artista que o lote representa.\
+A interface para o leilão (Figura 11), caso de uso 3.3.2.2.3 (Consulta de um leilão), tem de ser capaz de mostrar a informação do leilão, licitação atual, um temporizador de ronda, o incremento por ronda, e a lista de utilizadores que estão a participar no leilão.\
+Para  que o utilizador possa ter acesso aos leilões, é necessário que este esteja registado no site, sendo assim preciso a página de registo (Figura 12), caso de uso 3.3.2.1.1 (Criar conta), e a página de login (Figura 13), caso de uso 3.3.2.1.2 (Login).
 Estas páginas têm de ser capazes de receber os dados do utilizador e de os validar, para que este possa ter acesso ao site.\
 
 
