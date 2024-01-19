@@ -20,7 +20,7 @@ namespace UMusicWeb.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            List<Lot> objectLotList = _unitOfWork.Lot.GetAll().ToList();
+            List<Lot> objectLotList = _unitOfWork.Lot.GetAll(includeProperties:"Auction").ToList();
             return View(objectLotList);
         }
 
@@ -117,37 +117,39 @@ namespace UMusicWeb.Areas.Admin.Controllers
             }
         }
 
-        public IActionResult Delete(int? id)
+        #region API CALLS
+
+        [HttpGet]
+        public IActionResult GetAll()
         {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            Lot? lot = _unitOfWork.Lot.Get(u => u.Id == id);
-
-            if (lot == null)
-            {
-                return NotFound();
-            }
-
-            return View(lot);
+            List<Lot> objectLotList = _unitOfWork.Lot.GetAll(includeProperties: "Auction").ToList();
+            return Json(new { data =  objectLotList });
         }
 
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeletePOST(int? id)
-        {
 
-            Lot? lot = _unitOfWork.Lot.Get(u => u.Id == id);
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+            var lot = _unitOfWork.Lot.Get(u => u.Id == id);
             if (lot == null)
             {
-                return NotFound();
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+
+            var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, lot.ImageURL.TrimStart('\\'));
+
+            if (System.IO.File.Exists(oldImagePath))
+            {
+                System.IO.File.Delete(oldImagePath);
             }
 
             _unitOfWork.Lot.Remove(lot);
             _unitOfWork.Save();
-            TempData["success"] = "Lot deleted successfully";
-            return RedirectToAction("Index", "Lot");
+
+            return Json(new { sucess = true, message = "Delete successful" });
         }
+
+        #endregion
+
     }
 }
