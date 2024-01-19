@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace UMusicWeb.Migrations
 {
     /// <inheritdoc />
-    public partial class categoryLotAndAuction : Migration
+    public partial class CategoryAuctionAndLot : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -59,11 +59,19 @@ namespace UMusicWeb.Migrations
                     FinalValue = table.Column<float>(type: "real", nullable: true),
                     QueueTime = table.Column<int>(type: "int", nullable: false),
                     DateSale = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AucionId = table.Column<int>(type: "int", nullable: false),
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lots", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Lots_Auctions_AucionId",
+                        column: x => x.AucionId,
+                        principalTable: "Auctions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -71,9 +79,9 @@ namespace UMusicWeb.Migrations
                 columns: new[] { "Id", "AutomaticInitialization", "Description", "EndDate", "Name", "StartDate" },
                 values: new object[,]
                 {
-                    { 1, true, "Random description", null, "Random name 1", new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6169) },
-                    { 2, false, "Random description", null, "Random name 2", new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6176) },
-                    { 3, false, "Random description", null, "Random name 3", new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6181) }
+                    { 1, true, "Random description", null, "Random name 1", new DateTime(2024, 1, 19, 2, 24, 13, 85, DateTimeKind.Local).AddTicks(5282) },
+                    { 2, false, "Random description", null, "Random name 2", new DateTime(2024, 1, 19, 2, 24, 13, 85, DateTimeKind.Local).AddTicks(5330) },
+                    { 3, false, "Random description", null, "Random name 3", new DateTime(2024, 1, 19, 2, 24, 13, 85, DateTimeKind.Local).AddTicks(5334) }
                 });
 
             migrationBuilder.InsertData(
@@ -88,26 +96,31 @@ namespace UMusicWeb.Migrations
 
             migrationBuilder.InsertData(
                 table: "Lots",
-                columns: new[] { "Id", "DateAdded", "DateSale", "Description", "FinalValue", "IncrementValue", "InitialValue", "Name", "QueueTime", "State", "Visibility" },
+                columns: new[] { "Id", "AucionId", "DateAdded", "DateSale", "Description", "FinalValue", "ImageURL", "IncrementValue", "InitialValue", "Name", "QueueTime", "State", "Visibility" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6025), null, "Random description", null, 100f, 1000f, "Lot_1", 15, 2, 1 },
-                    { 2, new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6089), null, "Random description", null, 200f, 2000f, "Lot_2", 30, 1, 1 },
-                    { 3, new DateTime(2024, 1, 8, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6106), new DateTime(2024, 1, 18, 20, 57, 11, 277, DateTimeKind.Local).AddTicks(6099), "Random description", 3100.23f, 100f, 1000f, "Lot_3", 15, 3, 0 }
+                    { 1, 1, new DateTime(2024, 1, 19, 2, 24, 13, 85, DateTimeKind.Local).AddTicks(5403), null, "Random description", null, "", 100f, 1000f, "Lot_1", 15, 2, 1 },
+                    { 2, 2, new DateTime(2024, 1, 19, 2, 24, 13, 85, DateTimeKind.Local).AddTicks(5412), null, "Random description", null, "", 200f, 2000f, "Lot_2", 30, 1, 1 },
+                    { 3, 1, new DateTime(2024, 1, 9, 2, 24, 13, 85, DateTimeKind.Local).AddTicks(5425), new DateTime(2024, 1, 19, 2, 24, 13, 85, DateTimeKind.Local).AddTicks(5419), "Random description", 3100.23f, "", 100f, 1000f, "Lot_3", 15, 3, 0 }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lots_AucionId",
+                table: "Lots",
+                column: "AucionId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Auctions");
-
-            migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Lots");
+
+            migrationBuilder.DropTable(
+                name: "Auctions");
         }
     }
 }

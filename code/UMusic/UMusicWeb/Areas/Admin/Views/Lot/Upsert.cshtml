@@ -1,0 +1,130 @@
+﻿@model LotVM
+
+<form method="post" enctype="multipart/form-data">
+    
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-dark">@(Model.Lot.Id != 0? "Update" : "Create") Lot</h2>
+            <hr/>
+        </div>
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <input asp-for="Lot.Id" hidden/>
+        <input asp-for="Lot.ImageURL" hidden />
+
+        <div class="row">
+            <div class="col-10">
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.Name" class="p-0"></label>
+                    <input asp-for="Lot.Name" class="form-control" />
+                    <span asp-validation-for="Lot.Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.Description" class="p-0"></label>
+                    <textarea asp-for="Lot.Description" class="form-control"></textarea>
+                    <span asp-validation-for="Lot.Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.Visibility" class="p-0"></label>
+                    <input asp-for="Lot.Visibility" class="form-control" />
+                    <span asp-validation-for="Lot.Visibility" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.State" class="p-0"></label>
+                    <select asp-for="Lot.State" class="form-control">
+                        <option value="@((int)LotState.AvailableForAuction)">Available for auction</option>
+                        <option value="@((int)LotState.AlreadyInAuction)">Already in auction</option>
+                        <option value="@((int)LotState.UnderVerification)">Under verification</option>
+                        <option value="@((int)LotState.Sold)">Sold</option>
+                    </select>
+                    <span asp-validation-for="Lot.State" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.IncrementValue" class="p-0"></label>
+                    <input asp-for="Lot.IncrementValue" class="form-control" />
+                    <span asp-validation-for="Lot.IncrementValue" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.InitialValue" class="p-0"></label>
+                    <input asp-for="Lot.InitialValue" class="form-control" />
+                    <span asp-validation-for="Lot.InitialValue" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.FinalValue" class="p-0"></label>
+                    <input asp-for="Lot.FinalValue" class="form-control" />
+                    <span asp-validation-for="Lot.FinalValue" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.QueueTime" class="p-0"></label>
+                    <input asp-for="Lot.QueueTime" class="form-control" />
+                    <span asp-validation-for="Lot.QueueTime" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.DateSale" class="p-0"></label>
+                    <input asp-for="Lot.DateSale" class="form-control" />
+                    <span asp-validation-for="Lot.DateSale" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.AucionId" class="p-0"></label>
+                    <select asp-for="Lot.AucionId" asp-items="@Model.AuctionList" class="p-0 form-select">
+                        <option disabled selected>--Select Auction--</option>
+                    </select>
+                    <span asp-validation-for="Lot.AucionId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
+                    <label asp-for="Lot.ImageURL" class="p-0"></label>
+                    <input type="file" name="file" class="form-control" />
+                </div>
+
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        @if (Model.Lot.Id != 0)
+                        {
+                            <button type="submit" class="btn btn-dark form-control">Update</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-dark form-control">Create</button>
+                        }
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Lot" asp-action="Index" class="btn btn-outline-secondary form-control">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <img src="@Model.Lot.ImageURL" width="100%" style="border-radius:5px"/>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'tinycomments mentions anchor autolink charmap codesample emoticons lists table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | align lineheight | tinycomments | checklist numlist bullist indent outdent',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name'
+        });
+    </script>
+
+
+    @{
+    <partial name="_ValidationScriptsPartial"/>
+    }
+}

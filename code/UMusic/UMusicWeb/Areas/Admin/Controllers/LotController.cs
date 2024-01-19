@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using UMusicWeb.Models;
+using UMusicWeb.Models.ViewModels;
 using UMusicWeb.Repository.IRepository;
 
 namespace UMusicWeb.Areas.Admin.Controllers
@@ -9,10 +11,11 @@ namespace UMusicWeb.Areas.Admin.Controllers
     public class LotController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-
-        public LotController(IUnitOfWork unitOfWork)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public LotController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -21,73 +24,97 @@ namespace UMusicWeb.Areas.Admin.Controllers
             return View(objectLotList);
         }
 
-        public IActionResult Create()
+        public IActionResult Upsert(int? id)
         {
-            return View();
+            IEnumerable<SelectListItem> AuctionList = _unitOfWork.Auction
+                .GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString()
+                });
+
+            LotVM vm = new LotVM()
+            {
+                AuctionList = AuctionList,
+                Lot = new Lot()
+            };
+
+            if (id == null || id == 0)
+            {
+                return View(vm);
+            }
+            else
+            {
+                // update
+                vm.Lot = _unitOfWork.Lot.Get(u => u.Id == id);
+                return View(vm);
+            }
         }
 
         [HttpPost]
-        public IActionResult Create(Lot obj)
+        public IActionResult Upsert(LotVM obj, IFormFile? file)
         {
-            if ((obj.DateSale != null || obj.FinalValue != null) && obj.State != LotState.Sold)
+            if ((obj.Lot.DateSale != null || obj.Lot.FinalValue != null) && obj.Lot.State != LotState.Sold)
             {
                 ModelState.AddModelError("state", "Lot cannot have a Date of Sale or a Final Value without the being Sold");
             }
 
-            if (obj.State == LotState.Sold && (obj.FinalValue == null || obj.DateSale == null))
+            if (obj.Lot.State == LotState.Sold && (obj.Lot.FinalValue == null || obj.Lot.DateSale == null))
             {
                 ModelState.AddModelError("state", "A Lot with the state 'Sold' must have both a Final Value and a Date of Sale specified.");
             }
 
             if (ModelState.IsValid)
             {
-                obj.DateAdded = DateTime.Now;
-                _unitOfWork.Lot.Add(obj);
+                string wwwRootPath = _webHostEnvironment.WebRootPath;
+                if (file != null)
+                {
+                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    string productPath = Path.Combine(wwwRootPath, @"images\lot");
+
+                    if (!string.IsNullOrEmpty(obj.Lot.ImageURL))
+                    {
+                        // remove the old image
+                        var oldImagePath = Path.Combine(wwwRootPath, obj.Lot.ImageURL.TrimStart('\\'));
+
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
+                    using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                    obj.Lot.ImageURL = @"\images\lot\" + fileName;
+                }
+
+                obj.Lot.DateAdded = DateTime.Now;
+                if (obj.Lot.Id == 0)
+                {
+                    _unitOfWork.Lot.Add(obj.Lot);
+                }
+                else
+                {
+                    _unitOfWork.Lot.Update(obj.Lot);
+                }
+
                 _unitOfWork.Save();
                 TempData["success"] = "Lot created successfully";
                 return RedirectToAction("Index", "Lot");
-            }
-            return View();
-        }
-
-        public IActionResult Edit(int? id)
-        {
-            if (id == null || id == 0)
+            } 
+            else
             {
-                return NotFound();
+                obj.AuctionList = _unitOfWork.Auction
+                .GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString()
+                });
+
+                return View(obj);
             }
-
-            Lot? lot = _unitOfWork.Lot.Get(u => u.Id == id);
-
-            if (lot == null)
-            {
-                return NotFound();
-            }
-
-            return View(lot);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Lot obj)
-        {
-            if ((obj.DateSale != null || obj.FinalValue != null) && obj.State != LotState.Sold)
-            {
-                ModelState.AddModelError("state", "A Lot cannot have a Date of Sale or Final Value unless its state is set to 'Sold'.");
-            }
-
-            if (obj.State == LotState.Sold && (obj.FinalValue == null || obj.DateSale == null))
-            {
-                ModelState.AddModelError("state", "A Lot with the state 'Sold' must have both a Final Value and a Date of Sale specified.");
-            }
-
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.Lot.Update(obj);
-                _unitOfWork.Save();
-                TempData["success"] = "Lot updated successfully";
-                return RedirectToAction("Index", "Lot");
-            }
-            return View();
         }
 
         public IActionResult Delete(int? id)

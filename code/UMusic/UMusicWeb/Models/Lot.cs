@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -50,6 +51,17 @@ namespace UMusicWeb.Models
         [Required]
         [Display(Name = "Date of Creation")]
         public DateTime DateAdded { get; set; }
+
+        [Required]
+        [Display(Name = "Auction")]
+        public int AucionId { get; set; }
+
+        [ForeignKey("AucionId")]
+        [ValidateNever]
+        public Auction Auction { get; set; }
+
+        [ValidateNever]
+        public string ImageURL { get; set; }
     }
 
     public enum LotState

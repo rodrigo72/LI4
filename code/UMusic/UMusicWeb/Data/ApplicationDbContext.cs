@@ -21,6 +21,12 @@ namespace UMusicWeb.Data
                 new Category { Id = 3, Name = "History", DisplayOrder = 3 }
             );
 
+            modelBuilder.Entity<Auction>().HasData(
+                new Auction() { Id = 1, Name = "Random name 1", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = true },
+                new Auction() { Id = 2, Name = "Random name 2", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = false },
+                new Auction() { Id = 3, Name = "Random name 3", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = false }
+            );
+
             modelBuilder.Entity<Lot>().HasData(
                 new Lot()
                 {
@@ -34,7 +40,9 @@ namespace UMusicWeb.Data
                     FinalValue = null,
                     QueueTime = 15,
                     DateSale = null,
-                    DateAdded = DateTime.Now
+                    DateAdded = DateTime.Now,
+                    AucionId = 1,
+                    ImageURL = ""
                 },
                 new Lot()
                 {
@@ -48,7 +56,9 @@ namespace UMusicWeb.Data
                     FinalValue = null,
                     QueueTime = 30,
                     DateSale = null,
-                    DateAdded = DateTime.Now
+                    DateAdded = DateTime.Now,
+                    AucionId = 2,
+                    ImageURL = ""
                 },
                 new Lot()
                 {
@@ -62,14 +72,10 @@ namespace UMusicWeb.Data
                     FinalValue = 3100.23f,
                     QueueTime = 15,
                     DateSale = DateTime.Now,
-                    DateAdded = DateTime.Now.AddDays(-10)
+                    DateAdded = DateTime.Now.AddDays(-10),
+                    AucionId = 1,
+                    ImageURL = ""
                 }
-            );
-
-            modelBuilder.Entity<Auction>().HasData(
-                new Auction() { Id = 1, Name = "Random name 1", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = true },
-                new Auction() { Id = 2, Name = "Random name 2", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = false },
-                new Auction() { Id = 3, Name = "Random name 3", Description = "Random description", StartDate = DateTime.Now, AutomaticInitialization = false }
             );
         }
     }
