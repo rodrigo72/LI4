@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using UMusicWeb.Models;
+using UMusicWeb.Repository.IRepository;
 
 namespace UMusicWeb.Areas.Customer.Controllers
 {
@@ -8,15 +9,18 @@ namespace UMusicWeb.Areas.Customer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
         {
             _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Lot> list = _unitOfWork.Lot.GetAll(includeProperties: "Auction");
+            return View(list);
         }
 
         public IActionResult Privacy()
