@@ -208,255 +208,255 @@ Por fim, a estratégia também incluiu entrevistas, inquéritos e questionários
 ==== Registo de um utilizador
 
 Requisitos do utilizador:
-  + O utilizador só pode participar nos leilões se estiver registado.
-  + O utilizador escolhe criar uma conta na plataforma.
-  + Para que um utilizador seja administrador, tal terá de ser assinalado manualmente por outros administradores ou por responsáveis pelo sistema/ base de dados do sistema.
+  + O utilizador só pode participar nos leilões se estiver registado. [Fonte: reunião com a equipa]
+  + O utilizador escolhe criar uma conta na plataforma. [Fonte: reunião com a equipa]
+  + Para que um utilizador seja administrador, tal terá de ser assinalado manualmente por outros administradores ou por responsáveis pelo sistema/ base de dados do sistema.[Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema pede o nome completo, email e palavra-passe.
-  + Opcionalmente, o cliente pode escolher definir um método de pagamento, uma morada de envio, e uma autenticação de dois fatores introduzindo o número de telemóvel. (Requisitos 2 e 3.)
-  + Não é permitida a existência de utilizadores com o mesmo email.
-  + As informações são guardadas.
-  + É enviado um email para verificação da conta.
+  + O sistema pede o nome completo, email e palavra-passe. [Fonte: reunião com a equipa]
+  + Opcionalmente, o cliente pode escolher definir um método de pagamento, uma morada de envio, e uma autenticação de dois fatores introduzindo o número de telemóvel. (Requisitos 2 e 3.) [Fonte: reunião com a equipa]
+  + Não é permitida a existência de utilizadores com o mesmo email. [Fonte: reunião com a equipa]
+  + As informações são guardadas. [Fonte: reunião com a equipa]
+  + É enviado um email para verificação da conta. [Fonte: reunião com a equipa]
 
 ==== Adicionar um método de pagamento
 
 Requisitos do utilizador:
-  + O utilizador escolhe introduzir os seus dados de pagamento.
+  + O utilizador escolhe introduzir os seus dados de pagamento. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O utilizador fornece o nome associado ao cartão, o número do cartão, a data de validade, e o CVV/CVC.
-  + Pode introduzir uma morada de faturação ou escolher que esta seja a mesma da morada de envio.
-  + Também pode definir ACH como método de pagamento.
-  + O sistema valida o método de pagamento.
-  + Caso o método de pagamento não seja válido, o utilizador é informado e os dados não são aceites.
+  + O utilizador fornece o nome associado ao cartão, o número do cartão, a data de validade, e o CVV/CVC. [Fonte: reunião com a equipa]
+  + Pode introduzir uma morada de faturação ou escolher que esta seja a mesma da morada de envio. [Fonte: reunião com a equipa]
+  + Também pode definir ACH como método de pagamento. [Fonte: reunião com a equipa]
+  + O sistema valida o método de pagamento. [Fonte: reunião com a equipa]
+  + Caso o método de pagamento não seja válido, o utilizador é informado e os dados não são aceites. [Fonte: reunião com a equipa]
 
 ==== Adicionar uma morada
 
 Requisitos do utilizador:
-  + O utilizador escolhe introduzir uma morada de faturação ou de envio.
+  + O utilizador escolhe introduzir uma morada de faturação ou de envio. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O utilizador fornece a morada, país, estado/província/distrito, cidade e código-postal.
+  + O utilizador fornece a morada, país, estado/província/distrito, cidade e código-postal. [Fonte: reunião com a equipa]
 
 ==== Autenticação
 
 Requisitos do utilizador:
-  + O utilizador pode aceder à sua conta e pode participar nos leilões depois de estar autenticado.
+  + O utilizador pode aceder à sua conta e pode participar nos leilões depois de estar autenticado. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema pede o email e a palavra-passe do utilizador.
-  + O email tem de estar registado, caso contrário a autenticação é rejeitada.
-  + Caso esteja registado, e a palavra-passe encriptada corresponda à fornecida, a autenticação é feita com sucesso.
+  + O sistema pede o email e a palavra-passe do utilizador. [Fonte: reunião com a equipa]
+  + O email tem de estar registado, caso contrário a autenticação é rejeitada. [Fonte: reunião com a equipa]
+  + Caso esteja registado, e a palavra-passe encriptada corresponda à fornecida, a autenticação é feita com sucesso. [Fonte: reunião com a equipa]
 
 ==== Terminar sessão
 
 Requisitos do utilizador:
-  + O utilizador escolhe terminar a sessão, tendo uma sessão iniciada.
+  + O utilizador escolhe terminar a sessão, tendo uma sessão iniciada. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema termina a sessão em curso.
-  + Para entrar na conta, terá de ser feita uma autenticação novamente.
+  + O sistema termina a sessão em curso. [Fonte: reunião com a equipa]
+  + Para entrar na conta, terá de ser feita uma autenticação novamente. [Fonte: reunião com a equipa]
 
 ==== Editar conta
 
 Requisitos do utilizador:
-  + O utilizador acede ao seu perfil para editar os seus dados.
+  + O utilizador acede ao seu perfil para editar os seus dados. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O email e a palavra-passe só podem ser editados se for efetuada uma nova autenticação (introdução da palavra-passe).
-  + Podem ser adicionadas até 5 moradas de faturação e de envio, ou editadas.
-  + Pode ser adicionado ou removido um método de pagamento.
-  + As alterações são guardadas, após o utilizador submeter as alterações.
+  + O email e a palavra-passe só podem ser editados se for efetuada uma nova autenticação (introdução da palavra-passe). [Fonte: reunião com a equipa]
+  + Podem ser adicionadas até 5 moradas de faturação e de envio, ou editadas. [Fonte: entrevista a potenciais utilizadores]
+  + Pode ser adicionado ou removido um método de pagamento. [Fonte: reunião com a equipa]
+  + As alterações são guardadas, após o utilizador submeter as alterações. [Fonte: reunião com a equipa]
 
 ==== Pesquisa
 
 Requisitos do utilizador:
-  + Pesquisa de um lote, artista, ou leilão.
-  + O utilizador pode adicionar filtros e opções de ordenação dos resultados.
-  + O utilizador pode mudar a página de resultados caso exista mais do que uma.
+  + Pesquisa de um lote, artista, ou leilão. [Fonte: reunião com a equipa]
+  + O utilizador pode adicionar filtros e opções de ordenação dos resultados. [Fonte: entrevista a potenciais utilizadores]
+  + O utilizador pode mudar a página de resultados caso exista mais do que uma. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema recebe uma _string_ de pesquisa com _keywords_, e, opcionalmente, determinados filtros (por exemplo, categoria, estado, etc.) e opções de sorting (por exemplo, preço, popularidade, relevância, _latest_, etc.).
-  + Retorna os resultados correspondentes (com paginação, se necessário).
+  + O sistema recebe uma _string_ de pesquisa com _keywords_, e, opcionalmente, determinados filtros (por exemplo, categoria, estado, etc.) e opções de sorting (por exemplo, preço, popularidade, relevância, _latest_, etc.). [Fonte: reunião com a equipa]
+  + Retorna os resultados correspondentes (com paginação, se necessário). [Fonte: reunião com a equipa]
 
 ==== Consulta de um lote
 
 Requisitos do utilizador:
-  + O utilizador escolhe a visualização específica de um lote.
-  + Pode escolher visualizar todos os lotes do leilão a que o lote pertence.
-  + Pode adicionar ou remover o lote da sua lista de favoritos. 
+  + O utilizador escolhe a visualização específica de um lote. [Fonte: reunião com a equipa]
+  + Pode escolher visualizar todos os lotes do leilão a que o lote pertence. [Fonte: reunião com a equipa]
+  + Pode adicionar ou remover o lote da sua lista de favoritos. [Fonte: inquérito a potenciais utilizadores]
 
 Requisitos do sistema:
-  + O sistema apresenta as imagens disponíveis, o nome, a descrição, o valor estimado, o preço inicial, as percentagens da comissão do comprador e a data do leilão.
+  + O sistema apresenta as imagens disponíveis, o nome, a descrição, o valor estimado, o preço inicial, as percentagens da comissão do comprador e a data do leilão. [Fonte: reunião com a equipa]
 
 ==== Consulta de um leilão
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar os detalhes de um leilão.
-  + Pode escolher ser notificado quando este começar.
-  + Pode adicionar o leilão aos favoritos.
+  + O utilizador escolhe visualizar os detalhes de um leilão. [Fonte: reunião com a equipa]
+  + Pode escolher ser notificado quando este começar. [Fonte: reunião com a equipa]
+  + Pode adicionar o leilão aos favoritos. [Fonte: inquérito a potenciais utilizadores]
 
 Requisitos do sistema:
-  + Fornece o nome/ tema do leilão, descrição, a data e uma listagem do(s) lote(s).
-  + Fornece opções de filtragem e ordenação dos lotes.
+  + Fornece o nome/ tema do leilão, descrição, a data e uma listagem do(s) lote(s). [Fonte: reunião com a equipa]
+  + Fornece opções de filtragem e ordenação dos lotes. [Fonte: reunião com a equipa]
 
 ==== Consulta da lista de favoritos
 
 Requisitos do utilizador:
-  + O utilizador pode escolher verificar a sua lista de leilões, lotes, ou de categorias favoritas.
+  + O utilizador pode escolher verificar a sua lista de leilões, lotes, ou de categorias favoritas. [Fonte: inquérito a potenciais utilizadores]
 
 Requisitos do sistema:
-  + O sistema mostra a lista de favoritos do utilizador com base na data de adição e com paginação, se necessário.
+  + O sistema mostra a lista de favoritos do utilizador com base na data de adição e com paginação, se necessário. [Fonte: inquérito a potenciais utilizadores]
 
 ==== Consulta de notificações
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar as suas notificações (alertas/ avisos).
-  + Pode selecionar um filtro: "Todas as mensagens"/ "Mensagens Lidas"/ "Mensagens não lidas".
-  + Seleciona uma ou mais notificações e marca como lida ou não lida.
+  + O utilizador escolhe visualizar as suas notificações (alertas/ avisos). [Fonte: reunião com a equipa]
+  + Pode selecionar um filtro: "Todas as mensagens"/ "Mensagens Lidas"/ "Mensagens não lidas". [Fonte: reunião com a equipa]
+  + Seleciona uma ou mais notificações e marca como lida ou não lida. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + Sistema mostra uma listagem das notificações
+  + Sistema mostra uma listagem das notificações. [Fonte: reunião com a equipa]
 
 ==== Consulta das categorias
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar as categorias disponíveis.
-  + Pode adicionar uma categoria aos favoritos.
-  + Pode escolher visualizar os lotes associados a essa categoria.
+  + O utilizador escolhe visualizar as categorias disponíveis. [Fonte: reunião com a equipa]
+  + Pode adicionar uma categoria aos favoritos. [Fonte: inquérito a potenciais utilizadores]
+  + Pode escolher visualizar os lotes associados a essa categoria. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema apresenta uma lista das categorias, cada uma representada pelo seu nome e por uma imagem.
+  + O sistema apresenta uma lista das categorias, cada uma representada pelo seu nome e por uma imagem. [Fonte: reunião com a equipa]
 
 ==== Consulta dos lotes ganhos
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar os lotes que ganhou.
-  + Pode selecionar e visualizar um lote em específico.
+  + O utilizador escolhe visualizar os lotes que ganhou. [Fonte: reunião com a equipa]
+  + Pode selecionar e visualizar um lote em específico. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema apresenta uma lista dos lotes.
+  + O sistema apresenta uma lista dos lotes. [Fonte: reunião com a equipa]
 
 ==== Submeter um lote
 
 Requisitos do utilizador:
-  + O utilizador escolhe submeter um lote seu para ser leiloado com ajuda da empresa.
+  + O utilizador escolhe submeter um lote seu para ser leiloado com ajuda da empresa. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
   + O sistema pede: 
-    - uma descrição detalhada: material, dono original, quem fez o item ou itens, quando foi feito, condição, assinaturas, etc.;
-    - uma seleção de como é que foi obtido: comprado, herdado, encontrado, ou oferecido;
-    - uma seleção das categorias a que pertence (presentes no sistema);
-    - informações e documentos adicionais;
-    - e imagens.
-  + A informação submetida é guardada e fica numa fila de espera para verificação e aprovação por parte de especialistas.
+    - uma descrição detalhada: material, dono original, quem fez o item ou itens, quando foi feito, condição, assinaturas, etc.; [Fonte: reunião com a equipa]
+    - uma seleção de como é que foi obtido: comprado, herdado, encontrado, ou oferecido; [Fonte: reunião com a equipa]
+    - uma seleção das categorias a que pertence (presentes no sistema); [Fonte: reunião com a equipa]
+    - informações e documentos adicionais; [Fonte: reunião com a equipa]
+    - e imagens. [Fonte: reunião com a equipa]
+  + A informação submetida é guardada e fica numa fila de espera para verificação e aprovação por parte de especialistas. [Fonte: reunião com a equipa]
 
 ==== Consultar lista de lotes submetidos
 
 Requisitos do utilizador:
-  + O utilizador escolhe visualizar a lista dos próprios lotes, podendo filtrar os resultados por "Todos os lotes"/ "Vendidos"/ "Em leilão"/ "Sem leilão"/ "Em verificação"/ "Em espera".
-  + Um utilizador não pode entrar no leilão relativo ao seu lote.
+  + O utilizador escolhe visualizar a lista dos próprios lotes, podendo filtrar os resultados por "Todos os lotes"/ "Vendidos"/ "Em leilão"/ "Sem leilão"/ "Em verificação"/ "Em espera". [Fonte: reunião com a equipa]
+  + Um utilizador não pode entrar no leilão relativo ao seu lote. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema apresenta a lista de lotes de acordo com os filtros e com paginação, se necessário.
+  + O sistema apresenta a lista de lotes de acordo com os filtros e com paginação, se necessário. [Fonte: reunião com a equipa]
 
 ==== Entrar num leilão
 
 Requisitos do utilizador:
-  + Quando a data de início é atingida, o leilão começa e é feita uma fila de espera para os utilizadores escolherem entrar no leilão. 
+  + Quando a data de início é atingida, o leilão começa e é feita uma fila de espera para os utilizadores escolherem entrar no leilão.  [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema regista que o utilizador irá participar no leilão e é adicionado a uma lista visível para outros utilizadores.
-  + O número de utilizadores a participar no leilão é incrementado -- este número também é visível para todos os utilizadores.
+  + O sistema regista que o utilizador irá participar no leilão e é adicionado a uma lista visível para outros utilizadores. [Fonte: reunião com a equipa]
+  + O número de utilizadores a participar no leilão é incrementado -- este número também é visível para todos os utilizadores. [Fonte: reunião com a equipa]
 
 ==== Funcionamento/ Sair do leilão
 
 Requisitos do utilizador:
-  + Durante o intervalo de tempo definido, o utilizador escolhe ou não sair do leilão. 
+  + Durante o intervalo de tempo definido, o utilizador escolhe ou não sair do leilão. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + Caso o utilizador queira continuar no leilão, passa para a próxima ronda.
-  + Caso o utilizador não queira continuar no leilão, insere um valor que esteja no intervalo atual (por exemplo, caso queiram sair numa ronda em que o valor seja 300 e o valor de incremento 50, têm de escolher um valor entre 250 e 299), i.e., uma _sealed-bid_ final. 
-  + Caso um utilizador não escolha, sairá do leilão automaticamente com uma _sealed-bid_ de valor mínimo.
-  + Se restar apenas uma pessoa numa ronda, essa pessoa ganha e paga o segundo valor mais alto das _sealed-bids_ da ronda anterior.
-  + Se todas as pessoas restantes saírem numa ronda, ganha a que tiver o maior valor na sua _sealed-bid_ final, e paga o segundo valor mais alto. Neste caso, o desempate é feito com base no tempo de submissão da _sealed-bid_ final.
-  + O sistema utiliza um ascending-clock que a cada determinado intervalo de tempo (por exemplo, 3 minutos), incrementa um determinado valor.
-  + O sistema disponibiliza a lista de utilizadores a participar, e o seu número total, em tempo real.
-  + O sistema fornece uma opção de sair do leilão.
-  + O sistema regista as entradas e saídas do leilão, tal como os valores submetidos na saída e o respetivo _timestamp_.
-  + Todos os acontecimentos do leilão são guardados num _log_ automaticamente pelo sistema.
+  + Caso o utilizador queira continuar no leilão, passa para a próxima ronda. [Fonte: reunião com a equipa]
+  + Caso o utilizador não queira continuar no leilão, insere um valor que esteja no intervalo atual (por exemplo, caso queiram sair numa ronda em que o valor seja 300 e o valor de incremento 50, têm de escolher um valor entre 250 e 299), i.e., uma _sealed-bid_ final.  [Fonte: reunião com a equipa]
+  + Caso um utilizador não escolha, sairá do leilão automaticamente com uma _sealed-bid_ de valor mínimo. [Fonte: reunião com a equipa]
+  + Se restar apenas uma pessoa numa ronda, essa pessoa ganha e paga o segundo valor mais alto das _sealed-bids_ da ronda anterior. [Fonte: reunião com a equipa]
+  + Se todas as pessoas restantes saírem numa ronda, ganha a que tiver o maior valor na sua _sealed-bid_ final, e paga o segundo valor mais alto. Neste caso, o desempate é feito com base no tempo de submissão da _sealed-bid_ final. [Fonte: reunião com a equipa]
+  + O sistema utiliza um ascending-clock que a cada determinado intervalo de tempo (por exemplo, 3 minutos), incrementa um determinado valor. [Fonte: reunião com a equipa]
+  + O sistema disponibiliza a lista de utilizadores a participar, e o seu número total, em tempo real. [Fonte: reunião com a equipa]
+  + O sistema fornece uma opção de sair do leilão. [Fonte: reunião com a equipa]
+  + O sistema regista as entradas e saídas do leilão, tal como os valores submetidos na saída e o respetivo _timestamp_. [Fonte: reunião com a equipa]
+  + Todos os acontecimentos do leilão são guardados num _log_ automaticamente pelo sistema. [Fonte: reunião com a equipa]
 
 ==== Página de gestão do sistema
 
 Requisitos do utilizador:
-  + O utilizador tem de ser administrador para ter acesso a estas funcionalidades de gestão do sistema.
+  + O utilizador tem de ser administrador para ter acesso a estas funcionalidades de gestão do sistema. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema disponibiliza opções de gestão de leilões, de lotes e de utilizadores. (Requisitos 18, 21, 23.)
+  + O sistema disponibiliza opções de gestão de leilões, de lotes e de utilizadores. (Requisitos 18, 21, 23.) [Fonte: reunião com a equipa]
 
 ==== Página de gestão de leilões
 
 Requisitos do utilizador:
-  + O administrador escolhe visualizar a página de gestão de leilões a partir da página de gestão do sistema principal.
+  + O administrador escolhe visualizar a página de gestão de leilões a partir da página de gestão do sistema principal. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema fornece uma opção de criação de um novo leilão.
-  + O sistema fornece uma lista dos leilões, os quais podem ser editados ou removidos.
-  + O sistema fornece uma lista de leilões a decorrer.
+  + O sistema fornece uma opção de criação de um novo leilão. [Fonte: reunião com a equipa]
+  + O sistema fornece uma lista dos leilões, os quais podem ser editados ou removidos. [Fonte: reunião com a equipa]
+  + O sistema fornece uma lista de leilões a decorrer. [Fonte: reunião com a equipa]
 
 ==== Criação de um leilão
 
 Requisitos do utilizador:
-  + O administrador escolhe criar um leilão na página de gestão de leilões.
+  + O administrador escolhe criar um leilão na página de gestão de leilões. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema pede o nome e o tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", e o intervalo de tempo do _ascending clock_.
-  + O sistema apresenta um conjunto de lotes que não pertencem a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado.
+  + O sistema pede o nome e o tema do leilão, uma descrição, uma data de início, uma escolha entre "início automático" ou "início manual", e o intervalo de tempo do _ascending clock_. [Fonte: reunião com a equipa]
+  + O sistema apresenta um conjunto de lotes que não pertencem a outros leilões, os quais podem ser filtrados (por exemplo, por categoria) e que podem ser selecionados para fazerem parte do leilão a ser criado. [Fonte: reunião com a equipa]
 
 ==== Página de gestão de lotes 
 
 Requisitos do utilizador:
-  + O administrador pode escolher visualizar a lista de lotes submetidos por verificar, e de lotes aprovados com e sem leilões.
-  + Pode criar, editar (por exemplo, associando-o a um leilão) ou remover um lote.
+  + O administrador pode escolher visualizar a lista de lotes submetidos por verificar, e de lotes aprovados com e sem leilões. [Fonte: reunião com a equipa]
+  + Pode criar, editar (por exemplo, associando-o a um leilão) ou remover um lote. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema disponibiliza a lista de lotes por verificar e verificados.
-  + O sistema permite adicionar ou remover lotes verificados de um leilão.
-  + O sistema permite a verificação e aprovação de um lote.
+  + O sistema disponibiliza a lista de lotes por verificar e verificados. [Fonte: reunião com a equipa]
+  + O sistema permite adicionar ou remover lotes verificados de um leilão. [Fonte: reunião com a equipa]
+  + O sistema permite a verificação e aprovação de um lote. [Fonte: reunião com a equipa]
 
 ==== Aprovação de um lote
 
 Requisitos do utilizador:
-  + O administrador seleciona um lote.
-  + O administrador pode aprovar ou não aprovar.
+  + O administrador seleciona um lote. [Fonte: reunião com a equipa]
+  + O administrador pode aprovar ou não aprovar. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema envia uma notificação ao utilizador a informar se o lote foi aprovado ou não.
-  + Caso tenha sido aprovado, são enviadas informações acerca do envio do seu lote.
-  + O lote passa a estar com estado de "espera" até chegar ao armazém da empresa.
+  + O sistema envia uma notificação ao utilizador a informar se o lote foi aprovado ou não. [Fonte: reunião com a equipa]
+  + Caso tenha sido aprovado, são enviadas informações acerca do envio do seu lote. [Fonte: reunião com a equipa]
+  + O lote passa a estar com estado de "espera" até chegar ao armazém da empresa. [Fonte: reunião com a equipa]
 
 === Chegada de um item (ou conjunto de itens)
 
 Requisitos do utilizador:
-  + Funcionário ou administrador indicam que um lote já pode ser leiloado, estando presente no armazém e catalogado.
+  + Funcionário ou administrador indicam que um lote já pode ser leiloado, estando presente no armazém e catalogado. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema muda o estado do lote de "em espera" para "disponível".
+  + O sistema muda o estado do lote de "em espera" para "disponível". [Fonte: reunião com a equipa]
 
 ==== Página de gestão de utilizadores
 
 Requisitos do utilizador:
-  + O administrador escolhe gerir os utilizadores do sistema.
+  + O administrador escolhe gerir os utilizadores do sistema. [Fonte: reunião com a equipa]
 
 Requisitos do sistema:
-  + O sistema fornece uma lista de todos os utilizadores (com paginação, se necessário), e uma opção de pesquisa e de filtragem de resultados.
-  + O sistema permite notificar, editar, banir e remover utilizadores.
+  + O sistema fornece uma lista de todos os utilizadores (com paginação, se necessário), e uma opção de pesquisa e de filtragem de resultados. [Fonte: reunião com a equipa]
+  + O sistema permite notificar, editar, banir e remover utilizadores. [Fonte: reunião com a equipa]
 
 === Requisitos não funcionais
 
-  + O sistema, e, portanto, o servidor, deverá estar operacional 24 horas por 7 dias da semana, ou seja, sempre em funcionamento.
-  + O sistema deverá possuir documentação adequada acerca do seu funcionamento e implementação.
+  + O sistema, e, portanto, o servidor, deverá estar operacional 24 horas por dia, ou seja, sempre em funcionamento. [Fonte: reunião com a equipa]
+  + O sistema deverá possuir documentação adequada acerca do seu funcionamento e implementação. [Fonte: reunião com a equipa]
 
 #set enum(indent: 0pt)
 
@@ -1140,10 +1140,10 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 == Caracterização das interfaces
 As Interfaces a serem utilizadas para este projeto pretendem cumprir com todos os casos de uso analisados, mantendo ao mesmo tempo uma plataforma simples, intuitiva e de fácil utilização.\
 Tendo em conta os casos de uso descritos anteriormente, foram criadas as seguintes demonstradas no ponto anterior.\
-A interface Home page (Figura 9) é a primeira interface que o utilizador irá ver ao aceder ao nosso site. Esta interface tem de ser capaz de mostrar os leilões que vão começar, os leilões que já acabaram e os leilões que o utilizador possa ter intresse baseado na sua lista de favoritos.\
-Da mesma maneira, a interface de consulta de lote (Figura 10), caso de uso 3.3.2.2.2, tem de ser capaz de mostrar a informação do lote que o utilizador escolheu, desde a hora de início do leilão, até ao artista que o lote representa.\
-A interface para o leilão (Figura 11), caso de uso 3.3.4, tem de ser capaz de mostrar a informação do leilão, licitação atual, um temporizador de ronda, o incremento por ronda, e a lista de utilizadores que estão a participar no leilão.\
-Para  que o utilizador possa ter acesso aos leilões, é necessário que este esteja registado no site, sendo assim preciso a página de registo (Figura 12), caso de uso 3.3.2.1.1, e a página de login (Figura 13), caso de uso 3.3.2.1.2 .
+A interface Home page (Figura 9), é a primeira interface que o utilizador irá ver ao aceder ao nosso site. Esta interface tem de ser capaz de mostrar os leilões que vão começar, os leilões que já acabaram e os leilões que o utilizador possa ter interesse baseado na sua lista de favoritos. Como esta interface agrupa todas as consultas, consideramos que satisfaz o caso de uso 3.3.2.2 (Consultas) \
+Da mesma maneira, a interface de consulta de lote (Figura 10), caso de uso 3.3.2.2.2 (Consulta de um lote), tem de ser capaz de mostrar a informação do lote que o utilizador escolheu, desde a hora de início do leilão, até ao artista que o lote representa.\
+A interface para o leilão (Figura 11), caso de uso 3.3.2.2.3 (Consulta de um leilão), tem de ser capaz de mostrar a informação do leilão, licitação atual, um temporizador de ronda, o incremento por ronda, e a lista de utilizadores que estão a participar no leilão.\
+Para  que o utilizador possa ter acesso aos leilões, é necessário que este esteja registado no site, sendo assim preciso a página de registo (Figura 12), caso de uso 3.3.2.1.1 (Criar conta), e a página de login (Figura 13), caso de uso 3.3.2.1.2 (Login).
 Estas páginas têm de ser capazes de receber os dados do utilizador e de os validar, para que este possa ter acesso ao site.\
 
 
