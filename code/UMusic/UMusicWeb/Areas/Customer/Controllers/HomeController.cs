@@ -23,6 +23,12 @@ namespace UMusicWeb.Areas.Customer.Controllers
             return View(list);
         }
 
+        public IActionResult Details(int id)
+        {
+            Lot lot = _unitOfWork.Lot.Get(u => u.Id == id, includeProperties: "Auction");
+            return View(lot);
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UMusicWeb.Models;
 using UMusicWeb.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
+using UMusic.Utility;
 
 namespace UMusicWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class AuctionController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
