@@ -29,9 +29,16 @@ namespace UMusicWeb.Areas.Customer.Controllers
             return View(list);
         }
 
-        public IActionResult Waiting()
+        public IActionResult Waiting(int id)
         {
-            return View();
+            Lot lot = _unitOfWork.Lot.Get(u => u.Id == id);
+            return View(lot);
+        }
+
+        public IActionResult Bidding(int id)
+        {
+            Lot lot = _unitOfWork.Lot.Get(u => u.Id == id);
+            return View(lot);
         }
 
         public IActionResult Privacy()

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\waiting.js" />
+  </ItemGroup>
+
+  <ItemGroup>
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
 	<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.1" />
@@ -31,6 +35,11 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Areas\Customer\Views\Home\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\waiting.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\waiting.js" />
   </ItemGroup>
 
 </Project>

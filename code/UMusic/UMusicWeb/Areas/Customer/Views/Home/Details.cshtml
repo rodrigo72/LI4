@@ -41,7 +41,7 @@
 
                                     if (now >= obj.DateStart && now <= endDate)
                                     {
-                                        <a class="cart" asp-action="Waiting">
+                                        <a class="cart" asp-action="Waiting" asp-route-id="@obj.Id">
                                             <span class="price">$@obj.InitialValue.ToString()</span>
                                             <span class="add-to-cart">
                                                 <span class="txt">Join</span>

@@ -1,1 +1,56 @@
-﻿<p>waiting page</p>
+﻿@model Lot
+
+<style>
+    #progress-bar {
+        width: 0%;
+        height: 30px;
+        background-color: #3b6fc9;
+        opacity: 90%;
+        border-radius: 20px;
+        line-height: 30px;
+        color: white;
+    }
+
+    #time-remaining {
+        width: 100%;
+        font-size: 14px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-10">
+        <input asp-for="Name" disabled class="form-control" />
+
+        <div class="form-control">
+            @Html.Raw(Model.Description)
+        </div>
+        <div class="form-control">
+            <label asp-for="InitialValue" class="p-0"></label>: $@Model.InitialValue
+        </div>
+        <div class="form-control">
+            <label asp-for="IncrementValue" class="p-0"></label>: $@Model.IncrementValue
+        </div>
+    </div>
+    <div class="col-2 d-flex align-items-center">
+        <div class="border rounded p-2">
+            <img src="@Model.ImageURL" width="100%" style="border-radius: 5px; filter: grayscale(70%); opacity: 80%" />
+        </div>
+    </div>
+</div>
+
+<div class="row pt-3 d-flex justify-content-center align-items-center">
+    <div class="col-12 text-center">
+        <div id="progress-bar"></div>
+        <div id="time-remaining" class="p-2">
+            Time Remaining: 5m
+        </div>
+        <a class="btn btn-secondary">Leave</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/waiting.js"></script>
+    <script>
+        updateProgressBar(@Model.DateStart.Ticks, @Model.QueueTime);
+    </script>
+}
