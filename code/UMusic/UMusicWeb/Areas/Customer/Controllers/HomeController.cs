@@ -29,6 +29,11 @@ namespace UMusicWeb.Areas.Customer.Controllers
             return View(list);
         }
 
+        public IActionResult Waiting()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

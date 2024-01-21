@@ -8,7 +8,7 @@
     @if (!Model.Any())
     {
         <h4>No lots available.</h4>
-        <a class="btn btn-secondary" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
+        <a class="btn btn-secondary" asp-area="Customer" asp-controller="Home" asp-action="Index"><i class="bi bi-arrow-return-left"></i></a>
     }
     else
     {
@@ -30,30 +30,34 @@
                             </div>
 
                             <div class="box-down">
+
                                 <div class="h-bg">
                                     <div class="h-bg-inner"></div>
                                 </div>
 
-                                <a class="cart" href="#">
-                                    <span class="price">$@obj.InitialValue.ToString()</span>
-                                    @{
-                                        DateTime now = DateTime.Now;
-                                        DateTime endDate = obj.DateStart.AddMinutes(obj.QueueTime);
+                                @{
+                                    DateTime now = DateTime.Now;
+                                    DateTime endDate = obj.DateStart.AddMinutes(obj.QueueTime);
 
-                                        if (now >= obj.DateStart && now <= endDate)
-                                        {
+                                    if (now >= obj.DateStart && now <= endDate)
+                                    {
+                                        <a class="cart" asp-action="Waiting">
+                                            <span class="price">$@obj.InitialValue.ToString()</span>
                                             <span class="add-to-cart">
                                                 <span class="txt">Join</span>
                                             </span>
-                                        }
-                                        else
-                                        {
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="cart" href="#">
+                                            <span class="price">$@obj.InitialValue.ToString()</span>
                                             <span class="add-to-cart">
                                                 <span class="txt">Details</span>
                                             </span>
-                                        }
+                                        </a>
                                     }
-                                </a>
+                                }
                             </div>
                         </div>
                     </div>
