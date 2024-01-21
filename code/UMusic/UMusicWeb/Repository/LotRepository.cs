@@ -27,6 +27,7 @@ namespace UMusicWeb.Repository
                 objDb.QueueTime = obj.QueueTime;
                 objDb.DateAdded = obj.DateAdded;
                 objDb.DateSale = obj.DateSale;
+                objDb.DateStart = obj.DateStart;
                 objDb.AucionId = obj.AucionId;
                 if (obj.ImageURL != null)
                 {

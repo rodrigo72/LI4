@@ -31,12 +31,12 @@
                                 <span class="price">$@obj.InitialValue.ToString()</span>
                                 @{
                                     DateTime now = DateTime.Now;
-                                    DateTime endDate = obj.DateAdded.AddMinutes(obj.QueueTime);
+                                    DateTime endDate = obj.DateStart.AddMinutes(obj.QueueTime);
 
-                                    if (now >= obj.DateAdded && now <= endDate)
+                                    if (now >= obj.DateStart && now <= endDate)
                                     {
                                         <span class="add-to-cart">
-                                            <span class="txt-danger">Join</span>
+                                            <span class="txt">Join</span>
                                         </span>
                                     }
                                     else

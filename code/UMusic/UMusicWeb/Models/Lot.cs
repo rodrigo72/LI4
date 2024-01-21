@@ -53,6 +53,10 @@ namespace UMusicWeb.Models
         public DateTime DateAdded { get; set; }
 
         [Required]
+        [Display(Name = "Start")]
+        public DateTime DateStart { get; set; }
+
+        [Required]
         [Display(Name = "Auction")]
         public int AucionId { get; set; }
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UMusicWeb.Data;
 
@@ -11,9 +12,11 @@ using UMusicWeb.Data;
 namespace UMusicWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240121031822_AddDateStartLot")]
+    partial class AddDateStartLot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -267,7 +270,7 @@ namespace UMusicWeb.Migrations
                             AutomaticInitialization = true,
                             Description = "Random description",
                             Name = "Random name 1",
-                            StartDate = new DateTime(2024, 1, 21, 3, 29, 24, 390, DateTimeKind.Local).AddTicks(4741)
+                            StartDate = new DateTime(2024, 1, 21, 3, 18, 21, 173, DateTimeKind.Local).AddTicks(4661)
                         },
                         new
                         {
@@ -275,7 +278,7 @@ namespace UMusicWeb.Migrations
                             AutomaticInitialization = false,
                             Description = "Random description",
                             Name = "Random name 2",
-                            StartDate = new DateTime(2024, 1, 21, 3, 29, 24, 390, DateTimeKind.Local).AddTicks(4780)
+                            StartDate = new DateTime(2024, 1, 21, 3, 18, 21, 173, DateTimeKind.Local).AddTicks(4703)
                         },
                         new
                         {
@@ -283,7 +286,7 @@ namespace UMusicWeb.Migrations
                             AutomaticInitialization = false,
                             Description = "Random description",
                             Name = "Random name 3",
-                            StartDate = new DateTime(2024, 1, 21, 3, 29, 24, 390, DateTimeKind.Local).AddTicks(4782)
+                            StartDate = new DateTime(2024, 1, 21, 3, 18, 21, 173, DateTimeKind.Local).AddTicks(4706)
                         });
                 });
 
@@ -391,7 +394,7 @@ namespace UMusicWeb.Migrations
                         {
                             Id = 1,
                             AucionId = 1,
-                            DateAdded = new DateTime(2024, 1, 21, 3, 29, 24, 390, DateTimeKind.Local).AddTicks(4833),
+                            DateAdded = new DateTime(2024, 1, 21, 3, 18, 21, 173, DateTimeKind.Local).AddTicks(4757),
                             DateStart = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Random description",
                             ImageURL = "",
@@ -406,7 +409,7 @@ namespace UMusicWeb.Migrations
                         {
                             Id = 2,
                             AucionId = 2,
-                            DateAdded = new DateTime(2024, 1, 21, 3, 29, 24, 390, DateTimeKind.Local).AddTicks(4838),
+                            DateAdded = new DateTime(2024, 1, 21, 3, 18, 21, 173, DateTimeKind.Local).AddTicks(4762),
                             DateStart = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Random description",
                             ImageURL = "",
@@ -421,8 +424,8 @@ namespace UMusicWeb.Migrations
                         {
                             Id = 3,
                             AucionId = 1,
-                            DateAdded = new DateTime(2024, 1, 11, 3, 29, 24, 390, DateTimeKind.Local).AddTicks(4846),
-                            DateSale = new DateTime(2024, 1, 21, 3, 29, 24, 390, DateTimeKind.Local).AddTicks(4842),
+                            DateAdded = new DateTime(2024, 1, 11, 3, 18, 21, 173, DateTimeKind.Local).AddTicks(4770),
+                            DateSale = new DateTime(2024, 1, 21, 3, 18, 21, 173, DateTimeKind.Local).AddTicks(4767),
                             DateStart = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Random description",
                             FinalValue = 3100.23f,

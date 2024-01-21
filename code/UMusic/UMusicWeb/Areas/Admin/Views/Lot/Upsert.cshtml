@@ -74,6 +74,12 @@
                 </div>
 
                 <div class="mb-3 row p-1">
+                    <label asp-for="Lot.DateStart" class="p-0"></label>
+                    <input asp-for="Lot.DateStart" class="form-control" />
+                    <span asp-validation-for="Lot.DateStart" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row p-1">
                     <label asp-for="Lot.AucionId" class="p-0"></label>
                     <select asp-for="Lot.AucionId" asp-items="@Model.AuctionList" class="p-0 form-select">
                         <option disabled selected>--Select Auction--</option>

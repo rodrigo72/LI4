@@ -66,6 +66,9 @@ namespace UMusicWeb.Areas.Admin.Controllers
                 ModelState.AddModelError("state", "A Lot with the state 'Sold' must have both a Final Value and a Date of Sale specified.");
             }
 
+            if ((obj.Lot.State == LotState.UnderVerification || obj.Lot.State == LotState.AvailableForAuction) && obj.Lot.AucionId != 0) {
+                ModelState.AddModelError("state", "A Lot with that state cannot have an auction assigned.");
+            }
             if (ModelState.IsValid)
             {
                 string wwwRootPath = _webHostEnvironment.WebRootPath;
