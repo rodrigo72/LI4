@@ -19,14 +19,14 @@ namespace UMusicWeb.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Lot> list = _unitOfWork.Lot.GetAll(includeProperties: "Auction");
+            IEnumerable<Auction> list = _unitOfWork.Auction.GetAll();
             return View(list);
         }
 
         public IActionResult Details(int id)
         {
-            Lot lot = _unitOfWork.Lot.Get(u => u.Id == id, includeProperties: "Auction");
-            return View(lot);
+            IEnumerable<Lot> list = _unitOfWork.Lot.GetAll(u => u.AucionId == id);
+            return View(list);
         }
 
         public IActionResult Privacy()

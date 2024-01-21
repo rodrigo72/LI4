@@ -1,3 +1,55 @@
-﻿@model Lot
+﻿@model IEnumerable<Lot>
 
-<h3>Not implemented</h3>
+<head>
+    <link rel="stylesheet" href="~/css/lot.css">
+</head>
+
+<div class="container page-wrapper">
+    @foreach (var obj in Model)
+    {
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img class="img" src="@obj.ImageURL" alt="">
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">@obj.Name</span>
+                                    <span class="p-other">@obj.QueueTime.ToString() min queue time</span>
+                                    <span class="p-other">$@obj.IncrementValue.ToString() Increment</span>
+                                </div>
+                                <div class="a-size">@Html.Raw(obj.Description)</div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart" href="#">
+                                <span class="price">$@obj.InitialValue.ToString()</span>
+                                @{
+                                    DateTime now = DateTime.Now;
+                                    DateTime endDate = obj.DateAdded.AddMinutes(obj.QueueTime);
+
+                                    if (now >= obj.DateAdded && now <= endDate)
+                                    {
+                                        <span class="add-to-cart">
+                                            <span class="txt-danger">Join</span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="add-to-cart">
+                                            <span class="txt">Details</span>
+                                        </span>
+                                    }
+                                }
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    }
+</div>
