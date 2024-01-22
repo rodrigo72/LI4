@@ -1,4 +1,4 @@
-function updateProgressBar(startDateTimeTicks, queueTimeInMinutes) {
+function updateProgressBar(startDateTimeTicks, queueTimeInMinutes, id) {
     var progressBar = document.getElementById("progress-bar");
     var timeRemainingElement = document.getElementById("time-remaining");
 
@@ -25,6 +25,7 @@ function updateProgressBar(startDateTimeTicks, queueTimeInMinutes) {
             progressBar.style.width = "100%";
             progressBar.innerHTML = "Time's up!";
             timeRemainingElement.innerHTML = "Time Remaining: 0m 0s";
+            window.location.href = 'Customer/Home/Bidding/' + id;
         }
     }
 

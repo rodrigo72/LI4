@@ -42,15 +42,46 @@
     <div class="col-12 text-center">
         <div id="progress-bar"></div>
         <div id="time-remaining" class="p-2">
-            Time Remaining: 5m
+            Time Remaining:
         </div>
         <a asp-action="LeaveWaiting" asp-route-auctionId="@Model.AucionId" class="btn btn-secondary">Leave</a>
     </div>
 </div>
 
 @section Scripts {
-    <script src="~/js/waiting.js"></script>
     <script>
-        updateProgressBar(@Model.DateStart.Ticks, @Model.QueueTime);
+        function updateProgressBar(startDateTimeTicks, queueTimeInMinutes, id) {
+            var progressBar = document.getElementById("progress-bar");
+            var timeRemainingElement = document.getElementById("time-remaining");
+
+            var startTimestamp = startDateTimeTicks / 10000 - 62135596800000;
+            var duration = queueTimeInMinutes * 60 * 1000;
+            var startTime = startTimestamp + duration;
+
+            function update() {
+                var currentTime = new Date().getTime();
+                var remainingTime = startTime - currentTime;
+
+                if (remainingTime > 0) {
+                    var progress = ((duration - remainingTime) / duration) * 100;
+                    progressBar.style.width = progress + "%";
+
+                    var minutes = Math.floor(remainingTime / (60 * 1000));
+                    var seconds = Math.floor((remainingTime % (60 * 1000)) / 1000);
+
+                    timeRemainingElement.innerHTML = "Time Remaining: " + minutes + "m " + seconds + "s";
+
+                    requestAnimationFrame(update);
+                } else {
+                    progressBar.style.width = "100%";
+                    progressBar.innerHTML = "Time's up!";
+                    timeRemainingElement.innerHTML = "Time Remaining: 0m 0s";
+                    window.location.href = '@Url.Action("Bidding", "Home")/' + @Model.Id;
+                }
+            }
+
+            update();
+        }
+        updateProgressBar(@Model.DateStart.Ticks, @Model.QueueTime, @Model.Id);
     </script>
 }

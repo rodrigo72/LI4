@@ -59,6 +59,7 @@ namespace UMusicWeb.Areas.Customer.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = SD.Role_Customer + "," + SD.Role_Admin)]
         public IActionResult LeaveWaiting(int auctionId)
         {
             string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -76,21 +77,11 @@ namespace UMusicWeb.Areas.Customer.Controllers
             return RedirectToAction("Details", new { id = auctionId });
         }
 
+        [Authorize(Roles = SD.Role_Customer + "," + SD.Role_Admin)]
         public IActionResult Bidding(int id)
         {
             Lot lot = _unitOfWork.Lot.Get(u => u.Id == id);
-
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (!string.IsNullOrEmpty(userId))
-            {
-                AppUser appUser = _unitOfWork.AppUser.Get(u => u.Id == userId);
-                if (appUser != null && appUser.JoinedAuctionId == 0)
-                {
-
-                }
-            }
-
-                return View(lot);
+            return View(lot);
         }
 
         public IActionResult Privacy()
