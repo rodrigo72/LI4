@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UMusicWeb.Data;
 
@@ -11,9 +12,11 @@ using UMusicWeb.Data;
 namespace UMusicWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240122005241_AddAuctionIdToAppUser")]
+    partial class AddAuctionIdToAppUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -267,7 +270,7 @@ namespace UMusicWeb.Migrations
                             AutomaticInitialization = true,
                             Description = "Random description",
                             Name = "Random name 1",
-                            StartDate = new DateTime(2024, 1, 22, 3, 15, 23, 44, DateTimeKind.Local).AddTicks(9249)
+                            StartDate = new DateTime(2024, 1, 22, 0, 52, 39, 972, DateTimeKind.Local).AddTicks(1484)
                         },
                         new
                         {
@@ -275,7 +278,7 @@ namespace UMusicWeb.Migrations
                             AutomaticInitialization = false,
                             Description = "Random description",
                             Name = "Random name 2",
-                            StartDate = new DateTime(2024, 1, 22, 3, 15, 23, 44, DateTimeKind.Local).AddTicks(9299)
+                            StartDate = new DateTime(2024, 1, 22, 0, 52, 39, 972, DateTimeKind.Local).AddTicks(1530)
                         },
                         new
                         {
@@ -283,7 +286,7 @@ namespace UMusicWeb.Migrations
                             AutomaticInitialization = false,
                             Description = "Random description",
                             Name = "Random name 3",
-                            StartDate = new DateTime(2024, 1, 22, 3, 15, 23, 44, DateTimeKind.Local).AddTicks(9302)
+                            StartDate = new DateTime(2024, 1, 22, 0, 52, 39, 972, DateTimeKind.Local).AddTicks(1532)
                         });
                 });
 
@@ -391,7 +394,7 @@ namespace UMusicWeb.Migrations
                         {
                             Id = 1,
                             AucionId = 1,
-                            DateAdded = new DateTime(2024, 1, 22, 3, 15, 23, 44, DateTimeKind.Local).AddTicks(9368),
+                            DateAdded = new DateTime(2024, 1, 22, 0, 52, 39, 972, DateTimeKind.Local).AddTicks(1594),
                             DateStart = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Random description",
                             ImageURL = "",
@@ -406,7 +409,7 @@ namespace UMusicWeb.Migrations
                         {
                             Id = 2,
                             AucionId = 2,
-                            DateAdded = new DateTime(2024, 1, 22, 3, 15, 23, 44, DateTimeKind.Local).AddTicks(9373),
+                            DateAdded = new DateTime(2024, 1, 22, 0, 52, 39, 972, DateTimeKind.Local).AddTicks(1599),
                             DateStart = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Random description",
                             ImageURL = "",
@@ -421,8 +424,8 @@ namespace UMusicWeb.Migrations
                         {
                             Id = 3,
                             AucionId = 1,
-                            DateAdded = new DateTime(2024, 1, 12, 3, 15, 23, 44, DateTimeKind.Local).AddTicks(9381),
-                            DateSale = new DateTime(2024, 1, 22, 3, 15, 23, 44, DateTimeKind.Local).AddTicks(9377),
+                            DateAdded = new DateTime(2024, 1, 12, 0, 52, 39, 972, DateTimeKind.Local).AddTicks(1607),
+                            DateSale = new DateTime(2024, 1, 22, 0, 52, 39, 972, DateTimeKind.Local).AddTicks(1603),
                             DateStart = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Random description",
                             FinalValue = 3100.23f,
@@ -446,7 +449,7 @@ namespace UMusicWeb.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("JoinedAuctionId")
+                    b.Property<int>("JoinedAuctionId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -527,7 +530,9 @@ namespace UMusicWeb.Migrations
                 {
                     b.HasOne("UMusicWeb.Models.Auction", "Auction")
                         .WithMany()
-                        .HasForeignKey("JoinedAuctionId");
+                        .HasForeignKey("JoinedAuctionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Auction");
                 });

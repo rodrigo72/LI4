@@ -1,5 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
+using UMusic.Utility;
 using UMusicWeb.Models;
 using UMusicWeb.Repository.IRepository;
 
@@ -29,16 +33,64 @@ namespace UMusicWeb.Areas.Customer.Controllers
             return View(list);
         }
 
+        [Authorize(Roles = SD.Role_Customer + "," + SD.Role_Admin)]
         public IActionResult Waiting(int id)
         {
             Lot lot = _unitOfWork.Lot.Get(u => u.Id == id);
-            return View(lot);
+
+            DateTime now = DateTime.Now;
+            DateTime endDate = lot.DateStart.AddMinutes(lot.QueueTime);
+
+            if (now >= lot.DateStart && now <= endDate)
+            {
+                string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    AppUser appUser = _unitOfWork.AppUser.Get(u => u.Id == userId);
+                    if (appUser != null && (appUser.JoinedAuctionId == null || appUser.JoinedAuctionId == 0))
+                    {
+                        _unitOfWork.AppUser.UpdateJoinedAuction(appUser, lot.AucionId);
+                        _unitOfWork.Save();
+                        return View(lot);
+                    }
+                }
+            }
+            TempData["error"] = "Failed to join the queue";
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult LeaveWaiting(int auctionId)
+        {
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!string.IsNullOrEmpty(userId))
+            {
+                AppUser appUser = _unitOfWork.AppUser.Get(u => u.Id == userId);
+                if (appUser != null && (appUser.JoinedAuctionId != null))
+                {
+                    _unitOfWork.AppUser.UpdateJoinedAuction(appUser, null);
+                    _unitOfWork.Save();
+                }
+                return RedirectToAction("Details", new { id = auctionId });
+            }
+            TempData["error"] = "Failed to leave the queue (how ??)";
+            return RedirectToAction("Details", new { id = auctionId });
         }
 
         public IActionResult Bidding(int id)
         {
             Lot lot = _unitOfWork.Lot.Get(u => u.Id == id);
-            return View(lot);
+
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!string.IsNullOrEmpty(userId))
+            {
+                AppUser appUser = _unitOfWork.AppUser.Get(u => u.Id == userId);
+                if (appUser != null && appUser.JoinedAuctionId == 0)
+                {
+
+                }
+            }
+
+                return View(lot);
         }
 
         public IActionResult Privacy()
