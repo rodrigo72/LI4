@@ -1135,8 +1135,6 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
   image("images/login.png", width: 90%)
 )
 
-
-
 == Caracterização das interfaces
 As Interfaces a serem utilizadas para este projeto pretendem cumprir com todos os casos de uso analisados, mantendo ao mesmo tempo uma plataforma simples, intuitiva e de fácil utilização.\
 Tendo em conta os casos de uso descritos anteriormente, foram criadas as seguintes demonstradas no ponto anterior.\
@@ -1146,6 +1144,320 @@ A interface para o leilão (Figura 11), caso de uso 3.3.2.2.3 (Consulta de um le
 Para  que o utilizador possa ter acesso aos leilões, é necessário que este esteja registado no site, sendo assim preciso a página de registo (Figura 12), caso de uso 3.3.2.1.1 (Criar conta), e a página de login (Figura 13), caso de uso 3.3.2.1.2 (Login).
 Estas páginas têm de ser capazes de receber os dados do utilizador e de os validar, para que este possa ter acesso ao site.\
 
+= Implementação da Aplicação
+
+Para a implementação da aplicação, optamos por utilizar o ASP.NET Core MVC como o principal framework. 
+O ASP.NET Core MVC destaca-se pela sua arquitetura modular e flexível, permitindo-nos criar uma aplicação robusta e escalável. Através do padrão MVC, organizamos a lógica de negócios de forma coerente, melhorando a legibilidade e a extensibilidade do software.
+
+Para além disso, é importante destacar a compatibilidade multiplataforma, pois ao garantir que a aplicação pode ser executada em diversos sistemas operativos, asseguramos uma maior flexibilidade no deployment e uma maior amplitude de utilização, o que é essencial para atender às necessidades de um público diversificado.
+
+#figure(
+  caption: "Padrão MVC",
+  kind: image,
+  image("images/mvc.png", width: 40%)
+)
+
+== Estrutura do código
+
+#figure(
+  caption: "Estrutura do código",
+  kind: image,
+  image("images/folders.png", width: 45%)
+)
+
+=== wwwroot
+
+A pasta `wwwroot` é o local onde são armazenados os recursos estáticos da aplicação (ficheiros CSS, JS, HTML, imagens, etc.), os quais são acessíveis publicamente. Assim, a aparência geral do website é definida a partir de ficheiros contidos nesta pasta, que inclui também imagens, por exemplo, dos lotes.
+
+=== Areas
+
+Foram definidas três áreas: `Admin`, `Customer`, e `Identity`. Cada área tem o seu conjunto específico de _controllers_ e as respetivas _views_. Esta distinção é feita de modo a que as áreas sejam acessíveis por meio de permissões/ _roles_.
+
+A área `Admin` permite gerir as entidades da base de dados, i.e., permite que um utilizador com _role_ `Admin` possa efetuar operações CRUD sobre qualquer tipo de dados da aplicação.
+A área `Customer` permite aceder à _home page_, visualizar leilões e lotes, entrar num leilão de um lote, etc.
+A área `Identity` corresponde aos meios de autenticação, de autorização, e gestão de dados do utilizador (login, registo, logout, etc.)
+
+=== Data
+
+A pasta `Data` possui apenas um ficheiro: `ApplicationDbContext` que é uma subclasse de `IdentityDbContext<IdentityUser>`, possui DbSets (conjuntos de entidades que representam tabelas na base de dados) e faz uma pequena população inicial das tabelas (`OnModelCreating`).
+
+```cs
+public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+{
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> op) : base(op) {}
+    public DbSet<Lot> Lots { get; set; }
+    public DbSet<AppUser> AppUsers {  get; set; }
+    // ...
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    { /* ... */ }
+}
+```
+
+=== Migrations
+
+Dentro desta, encontram-se ficheiros que representam as diversas migrações ao longo do desenvolvimento da aplicação -- representam uma forma de versionar o esquema da base de dados ao longo do tempo.
+Quando são feitas modificações na classe `ApplicationDbContext`, ou em classes na pasta Models, é necessário adicionar uma nova migração, por exemplo:
+
+#figure(
+  caption: "Migração e update",
+  kind: image,
+  image("images/migration.png", width: 50%)
+)
+
+=== Models
+
+Esta pasta é utilizada para armazenar as classes que representam os modelos de dados da aplicação. Estes modelos são mapeados para entidades na base de dados e são utilizados para transportar dados entre a aplicação e a base de dados. 
+
+=== Repository
+
+Nesta pasta são definidas interfaces e classes para os repositórios dos tipos de dados definidos nas classes da pasta Models. Assim, cada repositório tem de ter certas operações (`Add`, `Get`, `GetAll`, `Remove`, `RemoveRange`), sendo que cada interface de um repositório específico(por exemplo, `IAuctionRepository`) pode ter os seus próprios métodos de `Update`, ou outros, conforme necessário.
+
+Classe `Repository`:
+```cs
+public class Repository<T> : IRepository<T> where T : class
+{
+    private readonly ApplicationDbContext _db;
+    internal DbSet<T> dbSet;
+    public Repository(ApplicationDbContext db)
+    {
+        _db = db;
+        this.dbSet = _db.Set<T>();
+        _db.Lots.Include(u => u.Auction);
+    }
+
+    public void Add(T entity) { dbSet.Add(entity); }
+    public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
+    { /* ... */ }
+    // ...
+}
+```
+
+Exemplo de uma interface:
+```cs
+public interface IAppUserRepository : IRepository<AppUser>
+{
+    void Update(AppUser appUser);
+    public void UpdateJoinedAuction(AppUser user, int? auctionId);
+    // ...
+}
+```
+
+Para além disso, também contém uma classe bastante importante: `UnitOfWork` que tem instâncias de todos os repositórios definidos, e uma função `Save`, pois é comum a todos os repositórios.
+
+```cs
+public interface IUnitOfWork
+{
+    ILotRepository Lot { get; }
+    IAppUserRepository AppUser { get; }
+    // ...
+    void Save();
+}
+```
+Assim, caso se queira executar alguma operação sobre um tipo de dados, basta utilizar esta classe: `_unitOfWork.«model».«operação»`, por exemplo, ```cs Lot obj = _unitOfWork.Lot.Get(u => u.Id == id);```.
+
+=== Utility
+
+Para as classes que fornecem funcionalidades genéricas e reutilizáveis em toda a aplicação.
+Contém uma classe chamada `SD`, para _static details_ (ex.: nomes dos _roles_).
+
+=== Views
+
+Pasta para as _views_ partilhadas, como, por exemplo, o _layout_ do website, que está sempre presente.
+
+=== appsettings.json
+
+É um ficheiro de configuração, que foi utilizado para definir a conexão com a base de dados (SQL server).
+
+=== program.cs
+
+Componente central do projeto, que serve como ponto de inicialização da aplicação. Portanto, é responsável pela inicialização de serviços: conexão com a base de dados, _Identity_, _cookies_, _scoped services_ como a `UnitOfWork`, _controller routes_, autenticação, autorização, etc.
+
+#pagebreak()
+
+=== Exemplo e explicação de um _controller method_
+
+```cs
+[Authorize(Roles = SD.Role_Customer + "," + SD.Role_Admin)]
+public IActionResult Waiting(int id)
+{
+    Lot lot = _unitOfWork.Lot.Get(u => u.Id == id);
+
+    DateTime now = DateTime.Now;
+    DateTime endDate = lot.DateStart.AddMinutes(lot.QueueTime);
+
+    if (now >= lot.DateStart && now <= endDate)
+    {
+        string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (!string.IsNullOrEmpty(userId))
+        {
+            AppUser appUser = _unitOfWork.AppUser.Get(u => u.Id == userId);
+            if (appUser != null && appUser.JoinedAuctionId == null)
+            {
+                _unitOfWork.AppUser.UpdateJoinedAuction(appUser, lot.AucionId);
+                _unitOfWork.Save();
+                return View(lot);
+            }
+        }
+    }
+    TempData["error"] = "Failed to join the queue";
+    return RedirectToAction("Index");
+}
+```
+
+Achamos útil explicar o funcionamento deste método do `HomeController` pois utiliza diversas partes e recursos do programa. Assim, serve também como uma boa explicação do programa em geral.
+
+Primeiramente, é utilizada uma `data annotation` de modo a restringir a utilização do método, i.e., apenas utilizadores com login efetuado o podem usar.
+A partir do argumento `id` e da `IUnitOfWork` obtém-se o objeto `lot`. Depois, verifica-se se é possível entrar na _queue_ com base em algumas restrições. Caso todas as restrições sejam cumpridas, o `appUser` é atualizado na base de dados -- especificamente, o atributo `JoinedAuctionId`. Caso contrário, será gerada uma mensagem de erro (com ajuda da ferramenta `toastr`, mencionada posteriormente).
+
+== Ferramentas utilizadas
+
+- https://bootswatch.com/ - CSS para o aspeto geral da WebApp.
+
+#figure(
+  caption: "Bootstrap CSS",
+  kind: image,
+  image("images/bootstrap.png", width: 40%)
+)
+
+- https://icons.getbootstrap.com/ - Icons utilizados.
+- https://codeseven.github.io/toastr/ - Para mensagens de sucesso, erro, e aviso.
+
+#figure(
+  caption: "Mensagem de sucesso",
+  kind: image,
+  image("images/toastr.png", width: 40%)
+)
+
+- https://datatables.net/ - Utilizado para gerar tabelas com paginação. (Ver @management_lot).
+
+```js
+function loadDataTable() {
+    dataTable = $('#tblData').DataTable({
+        "ajax": { url: '/admin/lot/getall' },
+        "columns": [
+            { data: 'name' },
+            // ...
+        ]
+    });
+}
+```
+
+- https://www.tiny.cloud/ - Utilizado para gerar área de edição de texto (substituindo o elemento `textarea` de HTML). (Ver @management_lot).
+
+- Microsoft.EntityFrameworkCore
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Tools
+- Microsoft.AspNetCore.Identity.EntityFrameworkCore
+- Microsoft.AspNetCore.Identity.UI
+
+== Serviços implementados
+
+=== Página de registo
+
+#figure(
+  caption: "Página de registo",
+  kind: image,
+  image("images/registo.png", width: 100%)
+)
+
+=== Página de login
+
+#figure(
+  caption: "Página de login",
+  kind: image,
+  image("images/login_2.png", width: 100%)
+)
+
+=== Página de configurações da conta 
+
+#figure(
+  caption: "Página de configurações da conta",
+  kind: image,
+  image("images/configuracoes.png", width: 100%)
+)
+
+=== Management: Lot <management_lot>
+
+#figure(
+  caption: "Lista de lotes",
+  kind: image,
+  image("images/management_lot.png", width: 100%)
+)
+
+#figure(
+  kind: image,
+  image("images/management_lot_update_1.png", width: 100%)
+)
+
+#figure(
+  caption: "Update de lote",
+  kind: image,
+  image("images/management_lot_update_2.png", width: 100%)
+)
+
+#figure(
+  caption: "Remover um lote",
+  kind: image,
+  image("images/delete.png", width: 100%)
+)
+
+=== Management: Auction
+
+#figure(
+  caption: "Lista de auctions",
+  kind: image,
+  image("images/management_auction.png", width: 100%)
+)
+
+#figure(
+  caption: "Update auction",
+  kind: image,
+  image("images/update_auction.png", width: 100%)
+)
+
+=== Home Page
+
+#figure(
+  caption: "Home page",
+  kind: image,
+  image("images/home_2.png", width: 100%)
+)
+
+=== Privacy
+
+#figure(
+  caption: "Privacy policy page",
+  kind: image,
+  image("images/privacy.png", width: 100%)
+)
+
+=== Auction Details
+
+#figure(
+  caption: "Auction details (1)",
+  kind: image,
+  image("images/auction_details.png", width: 100%)
+)
+
+#figure(
+  caption: "Auction details (2) - Lot description",
+  kind: image,
+  image("images/auction_details_2.png", width: 40%)
+)
+
+=== Waiting
+
+#figure(
+  caption: "Waiting page",
+  kind: image,
+  image("images/waiting.png", width: 100%)
+)
+
+=== Bidding
+
+Não foi implementada.
+
+== Análise e avaliação da aplicação desenvolvida 
 
 = Conclusões
 
