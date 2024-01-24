@@ -1457,13 +1457,11 @@ function loadDataTable() {
 
 Não foi implementada.
 
-== Análise e avaliação da aplicação desenvolvida 
-
 = Conclusões
 
-Numa fase inicial começamos por nos contextualizar no tema do nosso projeto de forma a conseguirmos entender, primeiramente, se o tema do nosso projeto de facto era algo que devesse ser explorado, o que levou a uma contextualização, fundamentação e análise de viabilidade.
+Numa fase inicial começamos por nos contextualizar no tema do nosso projeto de forma a conseguirmos entender, primeiramente, se o tema do nosso projeto de facto era algo que devesse ser explorado, o que levou à contextualização, fundamentação e análise de viabilidade.
 
-Em paralelo com a definição dos nossos objetivos, fomos também construindo um plano de desenvolvimento, de forma a conseguirmos organizar-nos. Esta fase provou-se crucial, uma vez que permitiu que nós ficássemos a saber mais acerca do projeto e trabalhá-lo de uma forma mais lógica e consistente.
+Em paralelo com a definição dos nossos objetivos, fomos também construindo um plano de desenvolvimento, de forma a conseguirmos organizar-nos. Esta fase provou-se crucial, uma vez que permitiu que nós ficássemos a saber mais acerca do projeto e o trabalhássemos de uma forma mais lógica e consistente.
 
 Já na parte da implementação, procurámos seguir o plano anteriormente definido de modo a garantir um desenvolvimento progressivo e para serem atingidos os nossos objetivos. Apesar disto, reconhecemos que algumas partes do projeto não foram totalmente implementadas. Os obstáculos que nos apareceram durante a implementação foram, em grande parte, devido à nossa inexperiência com as ferramentas selecionadas e não por causa de deficiências nas fases anteriores do projeto, que foram cruciais para a concepção sólida do trabalho.
  
@@ -1471,8 +1469,8 @@ Já na parte da implementação, procurámos seguir o plano anteriormente defini
 
 No futuro temos as seguintes intenções: 
 - Implementar o que não foi feito até agora, nomeadamente a funcionalidade de licitação;
-- Melhorar várias páginas e funcionalidades porque, apesar de considerarmos que fizemos um bom trabalho na implementação da interface de utilizador no geral, entendemos que esta é uma parte fundamental do projeto;
-- Adicionar suporte de várias linguagens de modo a tornar a aplicação mais inclusiva e acessível a uma audiência global, proporcionando uma experiência de usuário mais personalizada e adaptada às preferências linguísticas individuais.
+- Melhorar várias páginas e funcionalidades. Apesar de considerarmos que fizemos um bom trabalho na implementação da interface de utilizador em geral, reconhecemos que esta é uma parte fundamental do projeto;
+- Adicionar suporte de várias línguas de modo a tornar a aplicação mais inclusiva e acessível a uma audiência global, proporcionando assim uma experiência mais personalizada e adaptada às preferências linguísticas individuais.
 
 
 // #heading(numbering: none)[Referências]
