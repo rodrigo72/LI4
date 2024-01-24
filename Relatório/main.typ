@@ -1461,21 +1461,18 @@ Não foi implementada.
 
 = Conclusões
 
-Numa fase inicial começamos por nos contextualizar no tema do nosso projeto de forma a conseguirmos entender, primeiramente, se o tema do nosso projeto de
-facto era algo que devesse ser explorado, o que levou a uma contextualização, fundamentação e
-análise de viabilidade.
-Em paralelo com a definição dos nossos objetivos, fomos também
-construindo um plano de desenvolvimento, de forma a conseguirmos organizar-nos.
-Esta fase provou-se crucial, uma vez que permitiu que nós ficássemos a saber mais acerca
-do projeto e trabalhá-lo de uma forma mais lógica e consistente.
+Numa fase inicial começamos por nos contextualizar no tema do nosso projeto de forma a conseguirmos entender, primeiramente, se o tema do nosso projeto de facto era algo que devesse ser explorado, o que levou a uma contextualização, fundamentação e análise de viabilidade.
 
+Em paralelo com a definição dos nossos objetivos, fomos também construindo um plano de desenvolvimento, de forma a conseguirmos organizar-nos. Esta fase provou-se crucial, uma vez que permitiu que nós ficássemos a saber mais acerca do projeto e trabalhá-lo de uma forma mais lógica e consistente.
+
+Já na parte da implementação, procurámos seguir o plano anteriormente definido de modo a garantir um desenvolvimento progressivo e para serem atingidos os nossos objetivos. Apesar disto, reconhecemos que algumas partes do projeto não foram totalmente implementadas. Os obstáculos que nos apareceram durante a implementação foram, em grande parte, devido à nossa inexperiência com as ferramentas selecionadas e não por causa de deficiências nas fases anteriores do projeto, que foram cruciais para a concepção sólida do trabalho.
+ 
 = Trabalho Futuro
 
 No futuro temos as seguintes intenções: 
-- melhorar o trabalho existente de acordo com o feedback dos professores na apresentação (nomeadamente, adicionar mais contexto às Interfaces desenvolvidas e incorporar informação adicional aos requisitos, assim como quem os levantou, como foram obtidos, etc.)
-- incluir interfaces adicionais ou ajustar as existentes para atender a uma gama mais ampla de casos de uso
-- rever e talvez até adaptar ligeiramente a estrutura desenvolvida caso haja essa necessidade
-- fazer uma reunião de modo a definir o que temos que fazer na próxima fase e atualizar o diagrama de Gantt com os novos objetivos e datas.
+- Implementar o que não foi feito até agora, nomeadamente a funcionalidade de licitação;
+- Melhorar várias páginas e funcionalidades porque, apesar de considerarmos que fizemos um bom trabalho na implementação da interface de utilizador no geral, entendemos que esta é uma parte fundamental do projeto;
+- Adicionar suporte de várias linguagens de modo a tornar a aplicação mais inclusiva e acessível a uma audiência global, proporcionando uma experiência de usuário mais personalizada e adaptada às preferências linguísticas individuais.
 
 
 // #heading(numbering: none)[Referências]
