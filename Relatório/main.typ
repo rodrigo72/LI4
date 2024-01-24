@@ -9,18 +9,18 @@
   (name: "Miguel Gramoso", number: "a100835"), 
   (name: "Luís Figueiredo", number: "a100549"), 
   (name: "Diogo Abreu", number: "a100646")),
-  "Setembro, 2023")
+  "Janeiro, 2024")
 
 #set page(numbering: "i", number-align: center)
 #counter(page).update(1)
 
 #heading(numbering: none, outlined: false)[Resumo]
 O presente relatório apresenta o progresso do projeto UMusic até o momento, que tem como objetivo o desenvolvimento de uma aplicação para leilões online de memorabilia musical. A plataforma visa permitir aos utilizadores comprar e vender itens relacionados à música, como instrumentos, discos, autógrafos, entre outros. \
-Neste relatório, são apresentados os resultados da fase inicial do projeto, que incluiu a Definição do Sistema, Definição dos Requisitos, a Especificação e Modelação do Software, a Conceção do Sistema de Dados e o Esboço das Interfaces do Sistema. Além disso, são descritas as tarefas que serão executadas na próxima fase do projeto, que incluem a implementação e desenvolvimento do sistema. O relatório também inclui uma apreciação crítica sobre o trabalho realizado até o momento, apontando seus pontos fortes e fracos, bem como eventuais tarefas a realizar futuramente ou novas opções para estender o trabalho realizado
+Neste relatório, são apresentados os resultados de todas as fases do projeto, que incluiu a Definição do Sistema, Definição dos Requisitos, a Especificação e Modelação do Software, a Conceção do Sistema de Dados, o Esboço das Interfaces do Sistema e a Implementação do Sistema.
 
 \
 
-*Área de Aplicação*: Desenvolvimento de uma aplicação para um leilão online.
+*Área de Aplicação*: Desenvolvimento de uma aplicação para leilões online.
 
 *Palavras-Chave*: Leilões Online, Music Memorabilia, SQL, C\#, Engenharia de Software, Bases de Dados.
 
@@ -1130,7 +1130,7 @@ Por fim, o leilão tem uma data de início, e uma fila de espera com uma determi
 )
 
 #figure(
-  caption: " Interface Log in",
+  caption: "Interface Log in",
   kind: image,
   image("images/login.png", width: 90%)
 )
@@ -1376,6 +1376,8 @@ function loadDataTable() {
   image("images/configuracoes.png", width: 100%)
 )
 
+#pagebreak()
+
 === Management: Lot <management_lot>
 
 #figure(
@@ -1423,6 +1425,8 @@ function loadDataTable() {
   image("images/home_2.png", width: 100%)
 )
 
+#pagebreak()
+
 === Privacy
 
 #figure(
@@ -1445,6 +1449,8 @@ function loadDataTable() {
   image("images/auction_details_2.png", width: 40%)
 )
 
+Quanto o lote está em _queue time_, aparece um botão de _Join_, em vez do texto _Details_.
+
 === Waiting
 
 #figure(
@@ -1452,6 +1458,9 @@ function loadDataTable() {
   kind: image,
   image("images/waiting.png", width: 100%)
 )
+
+Quando o tempo termina, o cliente é redirecionado para uma página de _bidding_ automaticamente.
+No entanto, essa página não está completamente funcional, pois não conseguimos terminar a sua implementação.
 
 = Conclusões
 
@@ -1474,8 +1483,7 @@ No futuro temos as seguintes intenções:
 
 #heading(numbering: none)[Lista de Siglas e Acrónimos]
 
+/ MVC: Model-View-Controller
 / BD: Base de Dados
-/ DW: Data Warehouse
-/ OLTP: On-Line Analyical Processing
 
 #heading(numbering: none)[Anexos]
