@@ -1453,10 +1453,6 @@ function loadDataTable() {
   image("images/waiting.png", width: 100%)
 )
 
-=== Bidding
-
-Não foi implementada.
-
 = Conclusões
 
 Numa fase inicial começamos por nos contextualizar no tema do nosso projeto de forma a conseguirmos entender, primeiramente, se o tema do nosso projeto de facto era algo que devesse ser explorado, o que levou à contextualização, fundamentação e análise de viabilidade.
